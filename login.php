@@ -4,7 +4,9 @@
 <?php require_once('/source/inc/head.php'); ?>
 
 <body>
-    <?php require_once('/source/views/shared/_header.php'); ?>
+    <?php if(isset($_GET['error'])) { ?>
+            <script>alert("Su clave o contraseña es incorrecta o no existe el usuario")</script>
+    <?php } ?>
 
     <div class="container">
         <h1 class="center-align">Dirty Trucks Inc.</h1>

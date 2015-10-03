@@ -14,15 +14,27 @@
     <?php require_once('/source/views/shared/_header.php'); ?>
     <div class="container">
         <!-- Contenido de pagina -->
-        <ul>
-            <li><a href="usuarios.php">Ver usuarios</a></li>
-            <li><a href="empleados.php">Ver Empleados</a></li>
-            <li><a href="#">Ver Flota</a></li>
-            <li><a href="#">Viajes</a></li>
-            <li><a href="#">Reportes</a></li>
-            <li><a href="#">Seguimiento</a></li>
-        </ul>
-    </div>
+
+        <?php
+	        $sqlConn =  new mysqli('localhost', 'root', '', 'dirtytrucksdb');
+
+			//Build SQL String
+			$sqlString = "SELECT * FROM usuario";
+
+			//Execute the query and put data into a result
+			$result = $this->sqlConn->query($sqlString);
+
+			//Copy result into a associative array
+			$resultArray = $result->fetch_all(MYSQLI_ASSOC);
+        ?>
+		
+		<ul>
+			<?php foreach($resultArray as $clave => $valor) { ?>
+				<li>
+					<?php $clave $valor ?>
+				</li>
+		</ul>
+
 
     <?php require_once('/source/views/shared/_footer.php'); ?>
 

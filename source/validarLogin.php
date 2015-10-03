@@ -12,6 +12,6 @@ if(isset($usuario) && isset($password)) {
         $_SESSION['password'] = $password;
         header("Location: ../index.php");
     } else {
-        header("Location: ../login.php");
+        header('Location: ../login.php?error=1');
     }
 }
