@@ -1,8 +1,11 @@
 <?php
-  session_start();
-  if (!isset($_SESSION['usuario'])) {
-    header("Location: login.php");
-  }
+    require_once('source/DBManager.php');
+
+    use DBManager\DB;
+    session_start();
+    if (!isset($_SESSION['usuario'])) {
+        header("Location: login.php");
+    }
 ?>
 
 <!doctype html>
@@ -16,20 +19,9 @@
         <!-- Contenido de pagina -->
 
         <?php
-        	/* Conexión a bd */
-        	$host = "localhost";
-        	$usuario = "root";
-        	$password = "";
-        	$db = "dirtytrucksdb";
+            $db = new DB("localhost", "root", "", "dirtytrucksdb");
 
-        	$conn = mysqli_connect($host, $usuario, $password, $db)
-        		or die ('No se pudo conectar: ' . mysql_error());
-
-        	mysqli_select_db($conn, $db) or die ('No se pudo encontrar la base de datos');
-
-       		$query = "select * from empleado";
-       		$usuarios  = mysqli_query($conn, $query) or die ('Falló la consulta ' . mysql_error());
-
+       		$usuarios  = $db->obtenerEmpleados();
 
        		echo '<ul>';
        		while ($reg = mysqli_fetch_array($usuarios, MYSQL_ASSOC)) {
@@ -42,9 +34,6 @@
 				echo '</li>';
 			}
 			echo '</ul>';
-
-			mysqli_free_result($usuarios);
-			mysqli_close($conn)
         ?>
 
 
