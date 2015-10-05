@@ -8,6 +8,7 @@ class DB {
 	private $password;
 	private $db;
 	private $conexion;
+	private $usuarios;
 
 	public function __construct($host, $usuario, $password, $db) {
 		$this->host = $host;
@@ -16,11 +17,14 @@ class DB {
 		$this->db = $db;
 		$this->usuarios = null;
 
-		$this->conexion = mysqli_connect($host, $usuario, $password, $db) or die ('No se pudo conectar: ' . mysql_error());
-		mysqli_select_db($this->conexion, $db) or die ('No se pudo encontrar la base de datos');
+		$this->conexion = mysqli_connect($this->host, $this->usuario, $this->password, $this->db) 
+			or die ('No se pudo conectar: ' . mysql_error());
+
+		mysqli_select_db($this->conexion, $this->db)
+			or die ('No se pudo encontrar la base de datos');
 	}
 
-	public function __desctuct() {
+	public function __destruct() {
 		mysqli_free_result($this->usuarios);
 		mysqli_close($this->conexion);
 	}
