@@ -14,25 +14,23 @@
         <form action="source/validarLogin.php" method="post">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="user" type="text" class="validate" name="usuario" required>
-                    <label for="user" data-error="mal" data-success="">Usuario</label>
+                    <input id="user" type="text" name="usuario" required>
+                    <label for="user" data-success="">Usuario</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="password" type="password" class="validate" name="password" required>
-                    <label for="password" data-error="mal" data-success="">Clave</label>
+                    <input id="password" type="password" name="password" required>
+                    <label for="password" data-success="">Clave</label>
                 </div>
             </div>
             <div class="row">
                 <div class="input-field col s12 center-align">
-                    <input type="submit" class="btn-large">
+                    <input type="submit" class="light-blue lighten-2 btn-large" value="enviar">
                 </div>
             </div>
         </form>
     </div>
-
-    <?php require_once('/source/views/shared/_footer.php'); ?>
 
     <script type="text/javascript" src="assets/scripts/vendor/jquery-2.1.4.min.js"></script>
     <script type="text/javascript" src="assets/scripts/vendor/materialize.js"></script>

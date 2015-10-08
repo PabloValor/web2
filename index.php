@@ -12,16 +12,99 @@
 
 <body>
     <?php require_once('/source/views/shared/_header.php'); ?>
-    <div class="container">
+    <div class="container margin-top-20">
         <!-- Contenido de pagina -->
-        <ul>
-            <li><a href="usuarios.php">Ver usuarios</a></li>
-            <li><a href="empleados.php">Ver Empleados</a></li>
-            <li><a href="#">Ver Flota</a></li>
-            <li><a href="#">Viajes</a></li>
-            <li><a href="#">Reportes</a></li>
-            <li><a href="#">Seguimiento</a></li>
-        </ul>
+        <div class="row">
+            <!-- Tarjeta Empleados -->
+            <div class="col s12 m4">
+                <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                    </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Empleados<i class="material-icons right">more_vert</i></span>
+                            <p><a href="empleados.php" class="link">Ver Empleados</a></p>
+                        </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                        <p>Ver información acerca de los empleados de esta empresa</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Tarjeta Empleados -->
+
+            <!-- Tarjeta Flota -->
+            <div class="col s12 m4">
+                <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                    </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Flota<i class="material-icons right">more_vert</i></span>
+                            <p><a href="#">Ver flota de Vehículos</a></p>
+                        </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                        <p>Ver información acerca de los empleados de esta empresa</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Tarjeta Flota -->
+
+            <!-- Tarjeta Viajes -->
+            <div class="col s12 m4">
+                <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                    </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Viajes<i class="material-icons right">more_vert</i></span>
+                            <p><a href="#">Ver Viajes</a></p>
+                        </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                        <p>Ver información acerca de los empleados de esta empresa</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Tarjeta Flota -->
+
+            <!-- Tarjeta Reportes -->
+            <div class="col s12 m4">
+                <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                    </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Reportes<i class="material-icons right">more_vert</i></span>
+                            <p><a href="#">Ver Reportes</a></p>
+                        </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                        <p>Ver información acerca de los empleados de esta empresa</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Tarjeta Reportes -->
+
+            <!-- Tarjeta Seguimiento -->
+            <div class="col s12 m4">
+                <div class="card hoverable">
+                    <div class="card-image waves-effect waves-block waves-light">
+                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                    </div>
+                        <div class="card-content">
+                            <span class="card-title activator grey-text text-darken-4">Seguimiento<i class="material-icons right">more_vert</i></span>
+                            <p><a href="#">Ver Seguimientos</a></p>
+                        </div>
+                    <div class="card-reveal">
+                        <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+                        <p>Ver información acerca de los empleados de esta empresa</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Fin Tarjeta Seguimiento -->                                   
+        </div>
     </div>
 
     <?php require_once('/source/views/shared/_footer.php'); ?>
