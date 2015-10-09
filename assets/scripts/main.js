@@ -9,6 +9,9 @@ $(document).on('ready', function() {
     // Se inicializa ventanas modales
     $('.modal-trigger').leanModal();
 
+    // Se inicializa combo
+    $('select').material_select();
+
      // ABM
     $botonAbm.on('click', function(e) {
     	e.preventDefault();
