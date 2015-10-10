@@ -1,6 +1,7 @@
 body {
     background: #f6f6f6;
-    font-family: 'Roboto', sans-serif;
+    color: #616161;
+    font-family: 'Cabin', sans-serif;
 }
 
 .container {
@@ -15,7 +16,7 @@ body {
 }
 
 .link:hover:after {
-	left: 7px;
+	left: 10px;
 }
 
 form {
