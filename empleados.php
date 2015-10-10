@@ -76,22 +76,26 @@
                         <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle">
                         <span class="title">Son Goku</span>
                         <p class="grey-text">Supersayayin</p>
-                        <p class="left-align"><a class="modal-trigger link" href="#modal1">Ver perfil completo</a></p>
-                          <!-- Modal Estructura -->
-                          <div id="modal1" class="modal modal-fixed-footer">
+                        <p class=""><a class="modal-trigger link" href="#modal1">Ver perfil completo</a></p>                                
+                        <div class="">
+                        <a class="secondary-content light-blue lighten-1 waves-effect waves-light btn">Editar</a>
+                        <!--<a class="secondary-content light-blue lighten-1 waves-effect waves-light btn">Eliminar</a>-->
+                        <!-- Modal Estructura -->
+                        <div id="modal1" class="modal modal-fixed-footer">
                             <div class="modal-content center-align">
-                              <h4>Perfil de Son Goku</h4>
-                              <div class="center-align">
-                                  <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
-                              </div>
-                              <h5 class="grey-text">supersayayin</h5>
+                                <h4>Perfil de Son Goku</h4>
+                                    <div class="center-align">
+                                        <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
+                                    </div>
+                                    <h5 class="grey-text">supersayayin</h5>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora iusto fugit, quis veniam autem illo optio dolores facilis, facere, molestiae voluptatem reprehenderit reiciendis, quas molestias alias nihil? Dolores, nihil similique!</p>
                             </div>
                             <div class="modal-footer">
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Eliminar</a>
-                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Actualizar</a>
+                                <!--<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Eliminar</a>
+                                <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Actualizar</a>-->
                                 <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
                             </div>
-                          </div>
+                        </div>
                     </li>
                     <li class="collection-item avatar">
                         <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle">
