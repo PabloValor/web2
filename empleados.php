@@ -57,7 +57,7 @@
                         </div>
                         <div class="col s12 m2">
                             <div class="input-field col s12 center-align">
-                                <a class="light-blue lighten-1 waves-effect waves-light btn-large"><i class="material-icons right">play_arrow</i>Buscar</a>
+                                <a class="light-blue darken-1 waves-effect waves-light btn-large"><i class="material-icons right">play_arrow</i>Buscar</a>
                             </div>
                         </div>                        
                     </div>
@@ -67,7 +67,7 @@
         <div class="row">           
             <div class="col s12 margin-top-10 margin-bottom-10">
                 <div class="center-align">
-                    <a class="light-blue lighten-1 waves-effect waves-light btn-large"><i class="material-icons right">input</i>agregar nuevo</a>
+                    <a class="light-blue darken-1 waves-effect waves-light btn-large"><i class="material-icons right">input</i>agregar nuevo</a>
                 </div>
             </div>
             <div class="col s12">

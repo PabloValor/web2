@@ -1,10 +1,10 @@
 <?php
 
-namespace source\config;
+namespace GlobalConfig;
 
 $config = array(
 		db => array(
-				"nombre"    => "dirtytrucksdb",
+				"nombre"    => "sistema_logistica",
 				"usuario"   => "root",
 				"password"  => "",
 				"host"		=> "localhost"

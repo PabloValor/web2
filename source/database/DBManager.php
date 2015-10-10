@@ -1,35 +1,54 @@
 <?php
-namespace DBManager;
+namespace source\database;
 
-class DB {
+use \PDO;
+
+class DBManager {
 
 	private $host;
 	private $usuario;
 	private $password;
 	private $db;
-	private $conexion;
-	private $usuarios;
+	private $dbo;
 
 	public function __construct($host, $usuario, $password, $db) {
+		
 		$this->host = $host;
 		$this->usuario = $usuario;
 		$this->password = $password;
 		$this->db = $db;
-		$this->usuarios = null;
 
-		$this->conexion = mysqli_connect($this->host, $this->usuario, $this->password, $this->db) 
-			or die ('No se pudo conectar: ' . mysql_error());
-
-		mysqli_select_db($this->conexion, $this->db)
-			or die ('No se pudo encontrar la base de datos');
+		try {
+			$this->dbo = new PDO(
+				'mysql:host=' . $this->host . ';dbname=' . $this->db, 
+				$this->usuario,
+				$this->password
+			);
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
 	}
 
-	public function __destruct() {
-		mysqli_free_result($this->usuarios);
-		mysqli_close($this->conexion);
+	public function validarEmpleadoLogin($usuario, $password) {
+
+		try {validarEmpleadoLogin
+			$query = 'select * from empleado where usuario = :usuario AND password = :password';
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':usuario', $usuario);
+			$stmt->bindParam(':password', $password);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetch();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
 	}
 
-	if(isset($_GET['accion']) {
+	/*if(isset($_GET['accion']) {
 
 		$accion = $_GET['accion'];
 
@@ -71,5 +90,5 @@ class DB {
 		$query = "delete from empleado
 			where Id = ". $idEmpleado . ";";
 		$this->usuarios  = mysqli_query($this->conexion, $query) or die ('Falló la consulta ' . mysql_error());
-	}
+	}*/
 }

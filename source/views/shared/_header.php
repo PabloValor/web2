@@ -1,5 +1,5 @@
 <header>
-	<nav class="light-blue lighten-1">
+	<nav class="light-blue darken-1">
 		<div class="nav-wrapper">
 			<div class="container">
 				<a href="index.php" class="brand-logo">Dirty Trucks Inc.</a>

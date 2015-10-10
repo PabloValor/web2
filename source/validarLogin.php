@@ -1,17 +1,24 @@
 <?php
-session_start();
-$usuario = $_POST['usuario'];
+include 'database\DBManager.php';
+include  'models\Empleado.php';
+
+use source\database\DBManager;
+use source\models\Empleado;
+
+$db = new DBManager('localhost', 'root', '', 'dirtytrucksdb');
+
+$usuario = $_POST['usuario'];	
 $password = $_POST['password'];
 
-$dummyUsuario = 'admin';
-$dummyPassword = 123;
+$resultado = $db->validarUsuarioLogin($usuario, $password);
 
 if(isset($usuario) && isset($password)) {
-    if($usuario == $dummyUsuario && $password == $dummyPassword) {
-        $_SESSION['usuario'] = $usuario;
-        $_SESSION['password'] = $password;
+    if($usuario == $resultado['usuario'] && $password == $resultado['password']) {
+
+    	session_start();
+        $_SESSION['logueado'] = true;
         header("Location: ../index.php");
     } else {
-        header('Location: ../login.php?error=1');
+        header('Location: ../login.php?error=true');
     }
 }
