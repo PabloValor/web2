@@ -1,7 +1,7 @@
 $(document).on('ready', function() {
     'use strict';
 
-    var $botonAbm = $('.boton-ABM');
+    var $ABMEmpleados = $('.ABMEmpleados');
 
     // Se inicializa navbar
      $(".button-collapse").sideNav();
@@ -15,22 +15,27 @@ $(document).on('ready', function() {
     // Se inicializa tooltip
      $('.tooltipped').tooltip({delay: 50});
 
-     // ABM
-    $botonAbm.on('click', function(e) {
+     // ABM Empleados
+    $ABMEmpleados.on('click', function(e) {
+        
     	e.preventDefault();
-    	var id = $(this).data('id');
+
+    	var idUsuario = $(this).data('id');
+        var accion = $(this).data('accion');
+
 		$.ajax({
-			url: '',
-			data: id, 
+			url: 'source/ABM/Empleados.php?accion=' + accion,
+            data: {id: idUsuario},
 			method: 'POST',
 			success: function(data) {
-
+                debugger;
 			},
 			error: function(err) {
+                debugger;
 				console.error(err);
 			},
 			done: function(){
-
+                // TODO: ocultar el loader
 			}
 		});
     });

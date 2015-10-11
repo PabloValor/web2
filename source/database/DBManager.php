@@ -34,7 +34,7 @@ class DBManager {
 	public function validarEmpleadoLogin($usuario, $password) {
 
 		try {
-			$query = 'select * from empleado where usuario = :usuario AND password = :password';
+			$query = 'select * from empleado where usuario = :usuario and password = :password';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':usuario', $usuario);
 			$stmt->bindParam(':password', $password);
@@ -48,47 +48,21 @@ class DBManager {
 		}
 	}
 
-	/*if(isset($_GET['accion']) {
-
-		$accion = $_GET['accion'];
-
-		switch ($accion) {
-
-			case "agregar":
-				agregarEmpleado();
-				break;
-
-			case "actualizar":
-				actualizarEmpleado($_POST['idEmpleado']);
-				break;
-
-			case "eliminar":
-				eliminarEmpleado($_POST['idEmpleado']);
-				break;
-			
-			default:
-				break;
-		}		
+	public function eliminarEmpleado($id) {
+		try {
+			$query = 'delete from empleado where Id = :id';
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+			$stmt->fetch();
+			return true;
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
 	}
 
 
-	public function obtenerEmpleados() {
-		$query = "select * from empleado";
-		$this->usuarios  = mysqli_query($this->conexion, $query) or die ('Falló la consulta ' . mysql_error());
-		return $this->usuarios;
-	}
-
-	private function agregarEmpleado() {
-		// crear un obj Empleado y llenarlo con cada elemento el $_POST[]
-	}
-
-	private function actualizarEmpleado($idEmpleado) {
-
-	}
-
-	private function eliminarEmpleado($idEmpleado) {
-		$query = "delete from empleado
-			where Id = ". $idEmpleado . ";";
-		$this->usuarios  = mysqli_query($this->conexion, $query) or die ('Falló la consulta ' . mysql_error());
-	}*/
+	/**/
 }

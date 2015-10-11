@@ -78,10 +78,10 @@
                         <p class="grey-text">Supersayayin</p>
                         <p class=""><a class="modal-trigger link" href="#modal1">Ver perfil completo</a></p>                                
                         <div class="center-align">
-                        <a href ="#!" class="secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Eliminar">
+                        <a href ="#!" data-id="2" data-accion="eliminar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Eliminar">
                             <i class="material-icons">delete</i>
                         </a>
-                        <a href ="#!" class="secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped" data-position="left" data-delay="50" data-tooltip="Editar">
+                        <a href ="#!" data-id="1" data-accion="editar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped" data-position="left" data-delay="50" data-tooltip="Editar">
                             <i class="material-icons">playlist_add</i>
                         </a>
                         
