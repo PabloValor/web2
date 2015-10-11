@@ -6,7 +6,7 @@
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
 					<li>
-						<i class="material-icons">person_pin</i>
+						<i class="material-icons">perm_identity</i>
 					</li>
 					<li>
 						<a href="#!">
@@ -17,7 +17,7 @@
 					</li>
 					<li>
 						<a href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Mi perfil">
-							<i class="material-icons">contacts</i>
+							<i class="material-icons">assignment_ind</i>
 						</a>
 					</li>
 					<li>

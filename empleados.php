@@ -73,13 +73,18 @@
             <div class="col s12">
                 <ul class="collection">
                     <li class="collection-item avatar">
-                        <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle">
+                        <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle hide-on-small-only">
                         <span class="title">Son Goku</span>
                         <p class="grey-text">Supersayayin</p>
                         <p class=""><a class="modal-trigger link" href="#modal1">Ver perfil completo</a></p>                                
-                        <div class="">
-                        <a class="secondary-content light-blue lighten-1 waves-effect waves-light btn">Editar</a>
-                        <!--<a class="secondary-content light-blue lighten-1 waves-effect waves-light btn">Eliminar</a>-->
+                        <div class="center-align">
+                        <a href ="#!" class="secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Eliminar">
+                            <i class="material-icons">delete</i>
+                        </a>
+                        <a href ="#!" class="secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped" data-position="left" data-delay="50" data-tooltip="Editar">
+                            <i class="material-icons">playlist_add</i>
+                        </a>
+                        
                         <!-- Modal Estructura -->
                         <div id="modal1" class="modal modal-fixed-footer">
                             <div class="modal-content center-align">

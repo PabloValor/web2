@@ -73,3 +73,28 @@ form {
 .input-field .prefix.active {
  color: #03a9f4;
 }
+
+
+/***************** Override de listas empleado *************************/
+.collection .collection-item.avatar .secondary-content {
+	top: 25px !important;
+}
+.btn-empleado-editar {
+	right: 130px !important;
+}
+
+
+/******************** Medias *****************************************/
+
+/* sm ( <= 600px) */
+@media screen and (max-width: 600px) {
+	.collection-item.avatar {
+		overflow: auto;
+		padding-left: 10px !important;
+	}
+	.collection .collection-item.avatar .secondary-content {
+		float: none;
+		position: initial;
+
+	}
+}
