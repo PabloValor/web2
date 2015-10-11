@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 include 'database\DBManager.php';
 include  'models\Empleado.php';
 
@@ -16,16 +16,15 @@ $resultado = $db->validarEmpleadoLogin($usuario, $password);
 if(isset($usuario) && isset($password)) {
     if($usuario == $resultado['usuario'] && $password == $resultado['password']) {
 
-    	session_start();
         $_SESSION['logueado'] = true;
 
-        $_SESSION['Id'] = $resultado['Id'];
-        $_SESSION['usuario'] = $resultado['usuario'];
-        $_SESSION['password'] = $resultado['password'];
-        $_SESSION['nombre'] = $resultado['nombre'];
-        $_SESSION['apellido'] = $resultado['apellido'];
-        $_SESSION['rol'] = $resultado['rol'];
-        $_SESSION['nro_documento'] = $resultado['nro_documento'];
+        $_SESSION['Id']             = $resultado['Id'];
+        $_SESSION['usuario']        = $resultado['usuario'];
+        $_SESSION['password']       = $resultado['password'];
+        $_SESSION['nombre']         = $resultado['nombre'];
+        $_SESSION['apellido']       = $resultado['apellido'];
+        $_SESSION['rol']            = $resultado['rol'];
+        $_SESSION['nro_documento']  = $resultado['nro_documento'];
 
         header("Location: ../index.php");
     } else {

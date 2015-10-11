@@ -83,7 +83,6 @@ form {
 	right: 130px !important;
 }
 
-
 /******************** Medias *****************************************/
 
 /* sm ( <= 600px) */
@@ -91,6 +90,7 @@ form {
 	.collection-item.avatar {
 		overflow: auto;
 		padding-left: 10px !important;
+		text-align: center;
 	}
 	.collection .collection-item.avatar .secondary-content {
 		float: none;

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    if (!isset($_SESSION['logueado'])) {
+    if (empty($_SESSION['logueado'])) {
         header("Location: login.php");
     }
 ?>

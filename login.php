@@ -1,7 +1,12 @@
 <!doctype html>
 <html lang="es">
 
-<?php require_once('/source/inc/head.php'); ?>
+<?php
+    session_start();
+    require_once('/source/inc/head.php');
+
+    unset($_SESSION['logueado']);
+?>
 
 <body>
     <?php if(isset($_GET['error'])) { ?>
