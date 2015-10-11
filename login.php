@@ -26,7 +26,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12 center-align">
-                    <input type="submit" class="light-blue lighten-2 btn-large" value="enviar">
+                    <input type="submit" class="light-blue darken-1 btn-large" value="enviar">
                 </div>
             </div>
         </form>

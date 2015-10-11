@@ -5,16 +5,49 @@
 				<a href="index.php" class="brand-logo">Dirty Trucks Inc.</a>
 				<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
 				<ul class="right hide-on-med-and-down">
-					<li><a href="sass.html">Sass</a></li>
-					<li><a href="badges.html">Components</a></li>
-					<li><a href="collapsible.html">Javascript</a></li>
-					<li><a href="mobile.html">Mobile</a></li>
+					<li>
+						<i class="material-icons">person_pin</i>
+					</li>
+					<li>
+						<a href="#!">
+							<strong>
+								<?php echo $_SESSION['nombre']; ?>
+							</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Mi perfil">
+							<i class="material-icons">contacts</i>
+						</a>
+					</li>
+					<li>
+						<a href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Configuración">
+							<i class="material-icons" >settings</i>
+						</a>
+					</li>
+					<li>
+						<a href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir">
+							<i class="material-icons">settings_power</i>
+						</a>
+					</li>
 				</ul>
 				<ul class="side-nav" id="mobile-demo">
-					<li><a href="sass.html">Sass</a></li>
-					<li><a href="badges.html">Components</a></li>
-					<li><a href="collapsible.html">Javascript</a></li>
-					<li><a href="mobile.html">Mobile</a></li>
+					<li>
+						<a href="#!">
+							<strong>
+								<?php echo $_SESSION['nombre']; ?>
+							</strong>
+						</a>
+					</li>
+					<li>
+						<a href="#!">Mi Perfil</a>
+					</li>
+					<li>
+						<a href="#!">Configuración</a>
+					</li>
+					<li>
+						<a href="#!">Salir</a>
+					</li>
 				</ul>
 			</div>
 		</div>

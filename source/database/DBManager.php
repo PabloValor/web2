@@ -33,7 +33,7 @@ class DBManager {
 
 	public function validarEmpleadoLogin($usuario, $password) {
 
-		try {validarEmpleadoLogin
+		try {
 			$query = 'select * from empleado where usuario = :usuario AND password = :password';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':usuario', $usuario);

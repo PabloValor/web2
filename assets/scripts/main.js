@@ -12,6 +12,9 @@ $(document).on('ready', function() {
     // Se inicializa combo
     $('select').material_select();
 
+    // Se inicializa tooltip
+     $('.tooltipped').tooltip({delay: 50});
+
      // ABM
     $botonAbm.on('click', function(e) {
     	e.preventDefault();
