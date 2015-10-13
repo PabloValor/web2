@@ -11,7 +11,7 @@
 					<li>
 						<a href="#!">
 							<strong>
-								<?php echo $_SESSION['nombre']; ?>
+								Bienvenido, <?php echo $_SESSION['nombre']; ?>
 							</strong>
 						</a>
 					</li>

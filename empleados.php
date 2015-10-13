@@ -21,7 +21,9 @@
 <body>
     <?php require_once('/source/views/shared/_header.php'); ?>
     <div class="container margin-top-20">
+        <h2 class="center-align">Empleados</h2>
         <!-- Contenido de pagina -->
+        <!-- Filtro de busqueda -->
         <div class="row">
             <div class="col s12">
                 <div class="card-panel grey lighten-5">
@@ -52,7 +54,8 @@
                     </div>
                 </div>
             </div>
-        </div>        
+        </div>
+        <!-- Fin Filtro de busqueda -->
         <div class="row">           
             <div class="col s12 margin-top-10 margin-bottom-10">
                 <div class="center-align">
@@ -61,10 +64,7 @@
             </div>
             <div class="col s12">
                 <ul class="collection">
-                    <?php
-                        foreach($empleados as $empleado) {
-                    ?>
-                    
+                    <?php foreach($empleados as $empleado): ?>
                             <li class="collection-item avatar">
                                 <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle hide-on-small-only">
                                 <span class="title"><?php echo $empleado["nombre"]; ?>&nbsp;<?php echo $empleado["apellido"]; ?></span>
@@ -137,7 +137,7 @@
                                 </div>
                                 <!-- Fin Modal Datos de usuario -->                        
                             </li>
-                    <?php } // Fin foreach ?>
+                    <?php endforeach; ?>
                 </ul>  
             </div>
         </div>        
