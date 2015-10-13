@@ -24,35 +24,31 @@
         <h2 class="center-align">Empleados</h2>
         <!-- Contenido de pagina -->
         <!-- Filtro de busqueda -->
-        <div class="row">
-            <div class="col s12">
-                <div class="card-panel grey lighten-5">
-                    <div class="row">
-                        <div class="col s12 m5">
-                            <div class="input-field col s12">
-                                <i class="material-icons prefix">search</i>
-                                <input id="icon_prefix" type="text" class="validate">
-                                <label for="icon_prefix">Buscar Empleado</label>
-                            </div>
-                        </div>
-                        <div class="col s12 m5">
-                            <div class="input-field col s12">
-                                <select>
-                                    <option value="" disabled selected>Buscar por categoría...</option>
-                                    <option value="1">Administradores</option>
-                                    <option value="1">Mecánico</option>
-                                    <option value="2">Chofer</option>
-                                    <option value="3">Gerente</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col s12 m2">
-                            <div class="input-field col s12 center-align">
-                                <a class="light-blue darken-1 waves-effect waves-light btn-large">Buscar</a>
-                            </div>
-                        </div>                        
+        <div class="card-panel grey lighten-5">
+            <div class="row">
+                <div class="col s12 m5">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">search</i>
+                        <input id="icon_prefix" type="text" class="validate">
+                        <label for="icon_prefix">Buscar Empleado</label>
                     </div>
                 </div>
+                <div class="col s12 m5">
+                    <div class="input-field">
+                        <select>
+                            <option value="" disabled selected>Buscar por categoría...</option>
+                            <option value="1">Administradores</option>
+                            <option value="1">Mecánico</option>
+                            <option value="2">Chofer</option>
+                            <option value="3">Gerente</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col s12 m2">
+                    <div class="input-field center-align">
+                        <a class="light-blue darken-1 waves-effect waves-light btn-large">Buscar</a>
+                    </div>
+                </div>                        
             </div>
         </div>
         <!-- Fin Filtro de busqueda -->
