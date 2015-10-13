@@ -67,7 +67,7 @@
                     
                             <li class="collection-item avatar">
                                 <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle hide-on-small-only">
-                                <span class="title"><?php echo $empleado["nombre"]; ?></span>
+                                <span class="title"><?php echo $empleado["nombre"]; ?>&nbsp;<?php echo $empleado["apellido"]; ?></span>
                                 <p class="grey-text">Supersayayin</p>
                                 <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>                                
                                 <div class="center-align">
