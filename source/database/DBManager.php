@@ -1,28 +1,19 @@
 <?php
 namespace source\database;
-
+//include '/source/globalConfig.php';
 use \PDO;
 
 class DBManager {
 
-	private $host;
-	private $usuario;
-	private $password;
-	private $db;
 	private $dbo;
 
-	public function __construct($host, $usuario, $password, $db) {
-		
-		$this->host = $host;
-		$this->usuario = $usuario;
-		$this->password = $password;
-		$this->db = $db;
+	public function __construct() {
 
 		try {
 			$this->dbo = new PDO(
-				'mysql:host=' . $this->host . ';dbname=' . $this->db, 
-				$this->usuario,
-				$this->password
+				'mysql:host=' . 'localhost' . ';dbname=' . 'dirtytrucksdb', 
+				'root',
+				''
 			);
 		}
 		catch(PDOException $ex) {
@@ -46,6 +37,20 @@ class DBManager {
 			print "Chan: " . $ex->getMessage();
 			die();
 		}
+	}
+
+	public function obtenerEmpleados() {
+		try {
+			$query = 'select * from empleado';
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
 	}
 
 	public function eliminarEmpleado($id) {

@@ -6,7 +6,7 @@ include  'models\Empleado.php';
 use source\database\DBManager;
 use source\models\Empleado;
 
-$db = new DBManager('localhost', 'root', '', 'dirtytrucksdb');
+$db = new DBManager();
 
 $usuario = $_POST['usuario'];	
 $password = $_POST['password'];

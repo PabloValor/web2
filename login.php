@@ -10,7 +10,7 @@
 
 <body>
     <?php if(isset($_GET['error'])) { ?>
-            <script>alert("Su clave o contraseña es incorrecta o no existe el usuario")</script>
+            <script>alert('Su clave o contraseña es incorrecta o no existe el usuario')</script>
     <?php } ?>
 
     <div class="container">
