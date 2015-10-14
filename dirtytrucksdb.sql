@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2015 a las 04:58:21
+-- Tiempo de generación: 14-10-2015 a las 21:06:42
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -344,6 +344,11 @@ ALTER TABLE `empleado`
 -- AUTO_INCREMENT de la tabla `seguimiento`
 --
 ALTER TABLE `seguimiento`
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT de la tabla `service`
+--
+ALTER TABLE `service`
   MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT de la tabla `viaje`
