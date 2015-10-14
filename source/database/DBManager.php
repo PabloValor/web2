@@ -55,7 +55,7 @@ class DBManager {
 
 	public function eliminarEmpleado($id) {
 		try {
-			$query = 'delete from empleado where Id = :id';
+			$query = 'delete from empleado where ID = :id';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':id', $id);
 			$stmt->execute();

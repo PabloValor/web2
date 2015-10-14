@@ -18,6 +18,7 @@ $(document).on('ready', function() {
      // ABM Empleados
     $ABMEmpleados.on('click', function(e) {
         
+        //TODO: Mostrar loader
     	e.preventDefault();
 
     	var idUsuario = $(this).data('id');

@@ -63,14 +63,14 @@
                     <?php foreach($empleados as $empleado): ?>
                             <li class="collection-item avatar">
                                 <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle hide-on-small-only">
-                                <span class="title"><?php echo $empleado["nombre"]; ?>&nbsp;<?php echo $empleado["apellido"]; ?></span>
+                                <span class="title"><?php echo $empleado["NOMBRE"]; ?>&nbsp;<?php echo $empleado["APELLIDO"]; ?></span>
                                 <p class="grey-text">Supersayayin</p>
                                 <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>                                
                                 <div class="center-align">
-                                <a href ="#modalEliminarEmpleado" data-id="<?php echo $empleado["Id"]; ?>" data-accion="eliminar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Eliminar">
+                                <a href ="#modalEliminarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="eliminar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Eliminar">
                                     <i class="material-icons">delete</i>
                                 </a>
-                                <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["Id"]; ?>" data-accion="editar" class="secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Editar">
+                                <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="editar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Editar">
                                     <i class="material-icons">playlist_add</i>
                                 </a>
                                 
