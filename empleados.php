@@ -10,7 +10,7 @@
 
     // Se traen los empleados de tabla Empleado
     $db = new DBManager();
-    $empleados = $db->obtenerEmpleados();        
+    $empleados = $db->obtenerEmpleados();
 ?>
 
 <!doctype html>

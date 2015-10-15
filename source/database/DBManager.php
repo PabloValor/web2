@@ -1,19 +1,27 @@
 <?php
 namespace source\database;
-//include '/source/globalConfig.php';
+
+use source\Globales\ConfigGlobal;
 use \PDO;
+
+include_once dirname(dirname(__FILE__)) . '\ConfigGlobal.php';
 
 class DBManager {
 
+	private $configGlobal;
+	private $globales;
 	private $dbo;
 
 	public function __construct() {
 
 		try {
+			$this->configGlobal = new ConfigGlobal();
+			$this->globales = $this->configGlobal->ObtenerConfig();
+
 			$this->dbo = new PDO(
-				'mysql:host=' . 'localhost' . ';dbname=' . 'dirtytrucksdb', 
-				'root',
-				''
+				'mysql:host=' . $this->globales["db"]["host"] . ';dbname=' . $this->globales["db"]["nombre"], 
+				$this->globales["db"]["usuario"],
+				$this->globales["db"]["password"]
 			);
 		}
 		catch(PDOException $ex) {
