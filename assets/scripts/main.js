@@ -1,7 +1,8 @@
 $(document).on('ready', function() {
     'use strict';
 
-    var $ABMEmpleados = $('.ABMEmpleados');
+    var $ABMEmpleados   = $('.ABMEmpleados');
+    var $salir          = $('#salir');
 
     // Se inicializa navbar
      $(".button-collapse").sideNav();
@@ -14,6 +15,15 @@ $(document).on('ready', function() {
 
     // Se inicializa tooltip
      $('.tooltipped').tooltip({delay: 50});
+
+    $salir.on('click', function(e) {
+        e.preventDefault();
+        swal({
+            title: '¿Deseas salir?',
+            type: 'warning',
+            showCancelButton: true
+        });
+    });
 
      // ABM Empleados
     $ABMEmpleados.on('click', function(e) {

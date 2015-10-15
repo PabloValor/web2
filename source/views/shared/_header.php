@@ -26,7 +26,7 @@
 						</a>
 					</li>
 					<li>
-						<a href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir">
+						<a id="salir" href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir">
 							<i class="material-icons">settings_power</i>
 						</a>
 					</li>
