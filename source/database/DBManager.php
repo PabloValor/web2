@@ -30,6 +30,7 @@ class DBManager {
 		}
 	}
 
+	/*EMPLEADOS*/
 	public function validarEmpleadoLogin($usuario, $password) {
 
 		try {
@@ -77,5 +78,35 @@ class DBManager {
 	}
 
 
-	/**/
+	/*VEHICULOS*/
+
+	public function obtenerVehiculos() {
+		try {
+			$query = 'select * from vehiculo';
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+	
+	public function eliminarVehiculo($dominio) {
+		try {
+			$query = 'delete from empleado where DOMINIO = :dominio';
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':dominio', $dominio);
+			$stmt->execute();
+			$stmt->fetch();
+			return true;
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
 }
