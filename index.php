@@ -19,7 +19,7 @@
             <div class="col s12 m4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                        <img class="activator" src="assets/imagenes/alf.jpg">
                     </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Empleados<i class="material-icons right">more_vert</i></span>
@@ -37,7 +37,7 @@
             <div class="col s12 m4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                        <img class="activator" src="assets/imagenes/alf.jpg">
                     </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Flota<i class="material-icons right">more_vert</i></span>
@@ -55,7 +55,7 @@
             <div class="col s12 m4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                        <img class="activator" src="assets/imagenes/alf.jpg">
                     </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Viajes<i class="material-icons right">more_vert</i></span>
@@ -73,7 +73,7 @@
             <div class="col s12 m4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                        <img class="activator" src="assets/imagenes/alf.jpg">
                     </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Reportes<i class="material-icons right">more_vert</i></span>
@@ -91,7 +91,7 @@
             <div class="col s12 m4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="http://blogs.diariovasco.com/series-gourmets/files/2012/08/alf.jpg">
+                        <img class="activator" src="assets/imagenes/alf.jpg">
                     </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Seguimiento<i class="material-icons right">more_vert</i></span>

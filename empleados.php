@@ -64,25 +64,24 @@
                             <li class="collection-item avatar">
                                 <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle hide-on-small-only">
                                 <span class="title"><?php echo $empleado["NOMBRE"]; ?>&nbsp;<?php echo $empleado["APELLIDO"]; ?></span>
-                                <p class="grey-text">Supersayayin</p>
-                                <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>                                
-                                <div class="center-align">
-                                <a href ="#modalEliminarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="eliminar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Eliminar">
-                                    <i class="material-icons">delete</i>
-                                </a>
-                                <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="editar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Editar">
-                                    <i class="material-icons">playlist_add</i>
-                                </a>
+                                <p class="grey-text"><?php echo $empleado["CARGO"]; ?></p>
+                                <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>
+                                    <a href ="#modalEliminarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="eliminar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Eliminar">
+                                        <i class="material-icons">delete</i>
+                                    </a>
+                                    <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="editar" class="btnEditar ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Editar">
+                                        <i class="material-icons">playlist_add</i>
+                                    </a>
                                 
                                 <!-- Modal Datos de usuario -->
                                 <div id="modalDatosEmpleado" class="modal modal-fixed-footer">
                                     <div class="modal-content center-align">
-                                        <h4>Perfil de Son Goku</h4>
+                                        <h4>Perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
                                             <div class="center-align">
                                                 <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
                                             </div>
-                                            <h5 class="grey-text">supersayayin</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempora iusto fugit, quis veniam autem illo optio dolores facilis, facere, molestiae voluptatem reprehenderit reiciendis, quas molestias alias nihil? Dolores, nihil similique!</p>
+                                            <h5 class="grey-text"><?php echo $empleado["CARGO"]; ?></h5>
+                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos repellat quidem architecto magnam unde quisquam inventore illo impedit quod ipsum voluptate, vitae vel deleniti ut blanditiis voluptatum suscipit beatae, ratione!</p>
                                     </div>
                                     <div class="modal-footer">
                                         <!--<a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Eliminar</a>
@@ -95,36 +94,58 @@
                                 <!-- Modal Editar Usuario -->
                                 <div id="modalEditarEmpleado" class="modal modal-fixed-footer">
                                     <div class="modal-content center-align">
-                                        <h4>Editar perfil de Son Goku</h4>
+                                        <h4>Editar el perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
                                         <form action="ABM/Empleados.php">
                                             <div class="row">
                                                 <div class="input-field col s6">
-                                                    <input placeholder="Placeholder" id="first_name" type="text" class="validate">
-                                                    <label for="first_name">First Name</label>
+                                                    <input placeholder="Placeholder" id="nombre" name="NOMBRE" type="text" class="validate" value="<?php echo $empleado["NOMBRE"];?>">
+                                                    <label for="NOMBRE">Nombre</label>
                                                 </div>
                                                 <div class="input-field col s6">
-                                                    <input id="last_name" type="text" class="validate">
-                                                    <label for="last_name">Last Name</label>
+                                                    <input name="APELLIDO" id="apellido" type="text" class="validate" value="<?php echo $empleado["APELLIDO"];?>">
+                                                    <label for="APELLIDO">Apellido</label>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input disabled value="I am not editable" id="disabled" type="text" class="validate">
-                                                    <label for="disabled">Disabled</label>
+                                                <div class="input-field col s6">
+                                                    <input placeholder="Placeholder" id="dni" name="DNI" type="number" class="validate" value="<?php echo $empleado["DNI"];?>">
+                                                    <label for="DNI">Número de docuento</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <input placeholder="Placeholder" id="sueldo" name="SUELDO" type="number" class="validate" value="<?php echo $empleado["SUELDO"];?>">
+                                                    <label for="SUELDO">Sueldo</label>
+                                                </div>                                                
+                                            </div>
+                                            <div class="row">
+                                                <div class="input-field col s6">
+                                                    <input type="date" name="FECHA_NACIMIENTO" id="fecha_nacimiento" class="datepicker" value="">
+                                                    <label for="FECHA_NACIMIENTO">Fecha de nacimiento</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <input type="date" name="FECHA_INGRESO" id="fecha_ingreso" class="datepicker" value="">
+                                                    <label for="FECHA_INGRESO">Fecha de ingreso</label>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input id="password" type="password" class="validate">
-                                                    <label for="password">Password</label>
+                                                <div class="input-field col s6">
+                                                    <input placeholder="Placeholder" id="cargo" name="CARGO" type="text" class="validate" value="<?php echo $empleado["CARGO"];?>">
+                                                    <label for="CARGO">Cargo</label>
+                                                </div>
+                                                <div class="input-field col s6">
+                                                    <input name="ROL" id="rol" type="text" class="validate" value="<?php echo $empleado["ROL"];?>">
+                                                    <label for="ROL">Rol</label>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="input-field col s12">
-                                                    <input id="email" type="email" class="validate">
-                                                    <label for="email">Email</label>
+                                                <div class="input-field col s6">
+                                                    <input placeholder="Placeholder" id="usuario" name="USUARIO" type="text" class="validate" value="<?php echo $empleado["USUARIO"];?>">
+                                                    <label for="USUARIO">Usuario</label>
                                                 </div>
-                                            </div>
+                                                <div class="input-field col s6">
+                                                    <input name="PASSWORD" id="password" type="password" class="validate" value="<?php echo $empleado["PASSWORD"];?>">
+                                                    <label for="PASSWORD">Password</label>
+                                                </div>
+                                            </div>                                                                                                                                                                                
                                         </form>
                                     </div>
                                     <div class="modal-footer">

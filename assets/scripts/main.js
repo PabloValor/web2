@@ -13,6 +13,17 @@ $(document).on('ready', function() {
     // Se inicializa combo
     $('select').material_select();
 
+    // Se inicializan Datepickers
+    $('.datepicker').pickadate({
+        selectMonths: true, // Creates a dropdown to control month
+        selectYears: 15 // Creates a dropdown of 15 years to control year
+    });
+
+    // Se pone el foco en el primer campo del formulario de editar Empleado
+    $('.btnEditar').on('click', function(){
+        $('#nombre').focus();
+    });
+
     // Se inicializa tooltip
      $('.tooltipped').tooltip({delay: 50});
 

@@ -32,8 +32,8 @@ class DBManager {
 
 	public function validarEmpleadoLogin($usuario, $password) {
 
+		$query = 'select * from empleado where usuario = :usuario and password = :password';
 		try {
-			$query = 'select * from empleado where usuario = :usuario and password = :password';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':usuario', $usuario);
 			$stmt->bindParam(':password', $password);
@@ -48,8 +48,16 @@ class DBManager {
 	}
 
 	public function obtenerEmpleados() {
+		$query =
+		' 
+			select e.ID, e.NOMBRE, e.APELLIDO, e.DNI, e.SEXO, e.FECHA_NACIMIENTO,
+			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO,
+			e.PASSWORD, r.DESCRIPCION ROL
+			from empleado e 
+			join cargo c on e.ID_CARGO = c.ID
+			join rol r on e.ID_CARGO = r.ID
+		';
 		try {
-			$query = 'select * from empleado';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->execute();
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -75,7 +83,4 @@ class DBManager {
 			die();
 		}
 	}
-
-
-	/**/
 }
