@@ -41,12 +41,6 @@ form {
 	border-radius: 50%;
 }
 
-.lista-empleado-detalle {
-	font-size: 24px;
-}
-.lista-empleado-detalle li {
-	padding: 5px 0;
-}
 /*
 *
 *	Override de colores de formularios

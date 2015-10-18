@@ -11,6 +11,8 @@
     // Se traen los empleados de tabla Empleado
     $db = new DBManager();
     $empleados = $db->obtenerEmpleados();
+    $cargos = $db->obtenerCargos();
+    $roles = $db->obtenerRoles();
 ?>
 
 <!doctype html>
@@ -36,11 +38,12 @@
                 <div class="col s12 m5">
                     <div class="input-field">
                         <select>
-                            <option value="" disabled selected>Buscar por categoría...</option>
-                            <option value="1">Administradores</option>
-                            <option value="1">Mecánico</option>
-                            <option value="2">Chofer</option>
-                            <option value="3">Gerente</option>
+                            <option value="" disabled selected>Filtrar por Cargo</option>
+                            <?php foreach($cargos as $cargo): ?>
+                                <option value="<?php echo $cargo["ID"]; ?>">
+                                    <?php echo $cargo["DESCRIPCION"]; ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                 </div>
@@ -66,10 +69,10 @@
                                 <span class="title"><?php echo $empleado["NOMBRE"]; ?>&nbsp;<?php echo $empleado["APELLIDO"]; ?></span>
                                 <p class="grey-text"><?php echo $empleado["CARGO"]; ?></p>
                                 <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>
-                                    <a href ="#modalEliminarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="eliminar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-delay="50" data-tooltip="Eliminar">
+                                    <a href ="#modalEliminarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="eliminar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Eliminar">
                                         <i class="material-icons">delete</i>
                                     </a>
-                                    <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="editar" class="btnEditar ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-delay="50" data-tooltip="Editar">
+                                    <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" class="btnEditar secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
                                         <i class="material-icons">playlist_add</i>
                                     </a>
                                 
@@ -94,65 +97,75 @@
                                 <!-- Modal Editar Usuario -->
                                 <div id="modalEditarEmpleado" class="modal modal-fixed-footer">
                                     <div class="modal-content center-align">
-                                        <h4>Editar el perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
                                         <form action="ABM/Empleados.php">
+                                            <h4>Editar el perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
                                             <div class="row">
-                                                <div class="input-field col s6">
+                                                <div class="input-field col s12 m6">
                                                     <input placeholder="Placeholder" id="nombre" name="NOMBRE" type="text" class="validate" value="<?php echo $empleado["NOMBRE"];?>">
                                                     <label for="NOMBRE">Nombre</label>
                                                 </div>
-                                                <div class="input-field col s6">
+                                                <div class="input-field col s12 m6">
                                                     <input name="APELLIDO" id="apellido" type="text" class="validate" value="<?php echo $empleado["APELLIDO"];?>">
                                                     <label for="APELLIDO">Apellido</label>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="input-field col s6">
-                                                    <input placeholder="Placeholder" id="dni" name="DNI" type="number" class="validate" value="<?php echo $empleado["DNI"];?>">
+                                                <div class="input-field col s12 m6">
+                                                    <input placeholder="Ingrese DNI" id="dni" name="DNI" type="number" class="validate" value="<?php echo $empleado["DNI"];?>">
                                                     <label for="DNI">Número de docuento</label>
                                                 </div>
-                                                <div class="input-field col s6">
-                                                    <input placeholder="Placeholder" id="sueldo" name="SUELDO" type="number" class="validate" value="<?php echo $empleado["SUELDO"];?>">
+                                                <div class="input-field col s12 m6">
+                                                    <input placeholder="Ingrese sueldo" id="sueldo" name="SUELDO" type="number" class="validate" value="<?php echo $empleado["SUELDO"];?>">
                                                     <label for="SUELDO">Sueldo</label>
                                                 </div>                                                
                                             </div>
                                             <div class="row">
-                                                <div class="input-field col s6">
-                                                    <input type="date" name="FECHA_NACIMIENTO" id="fecha_nacimiento" class="datepicker" value="">
-                                                    <label for="FECHA_NACIMIENTO">Fecha de nacimiento</label>
+                                                <div class="input-field col s12 m6">
+                                                    <input placeholder="Fecha de nacimiento" type="date" name="FECHA_NACIMIENTO" id="fecha_nacimiento" class="datepicker" value="">
                                                 </div>
-                                                <div class="input-field col s6">
-                                                    <input type="date" name="FECHA_INGRESO" id="fecha_ingreso" class="datepicker" value="">
-                                                    <label for="FECHA_INGRESO">Fecha de ingreso</label>
+                                                <div class="input-field col s12 m6">
+                                                    <input placeholder="Fecha de ingreso" type="date" name="FECHA_INGRESO" id="fecha_ingreso" class="datepicker" value="">
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="input-field col s6">
-                                                    <input placeholder="Placeholder" id="cargo" name="CARGO" type="text" class="validate" value="<?php echo $empleado["CARGO"];?>">
-                                                    <label for="CARGO">Cargo</label>
+                                                <div class="input-field col s12">
+                                                    <select>
+                                                        <option value="" disabled selected>Seleccione el Cargo</option>
+                                                        <?php foreach($cargos as $cargo): ?>
+                                                            <option value="<?php echo $cargo["ID"]; ?>">
+                                                                <?php echo $cargo["DESCRIPCION"]; ?>
+                                                            </option>
+                                                        <?php endforeach; ?>
+                                                    </select>                   
                                                 </div>
-                                                <div class="input-field col s6">
-                                                    <input name="ROL" id="rol" type="text" class="validate" value="<?php echo $empleado["ROL"];?>">
-                                                    <label for="ROL">Rol</label>
+                                                <div class="input-field col s12">
+                                                    <select>
+                                                        <option value="" disabled selected>Seleccione el Rol</option>
+                                                        <?php foreach($roles as $rol): ?>
+                                                            <option value="<?php echo $rol["ID"]; ?>">
+                                                                <?php echo $rol["DESCRIPCION"]; ?>
+                                                            </option>
+                                                        <?php endforeach; ?>
+                                                    </select>                                                
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="input-field col s6">
-                                                    <input placeholder="Placeholder" id="usuario" name="USUARIO" type="text" class="validate" value="<?php echo $empleado["USUARIO"];?>">
+                                                <div class="input-field col s12 m6">
+                                                    <input placeholder="Ingrese nombre usuario" id="usuario" name="USUARIO" type="text" class="validate" value="<?php echo $empleado["USUARIO"];?>">
                                                     <label for="USUARIO">Usuario</label>
                                                 </div>
-                                                <div class="input-field col s6">
+                                                <div class="input-field col s12 m6">
                                                     <input name="PASSWORD" id="password" type="password" class="validate" value="<?php echo $empleado["PASSWORD"];?>">
                                                     <label for="PASSWORD">Password</label>
                                                 </div>
                                             </div>                                                                                                                                                                                
-                                        </form>
+                                        </form>                                        
                                     </div>
                                     <div class="modal-footer">
-                                        <a href="#!" class="ABMEmpleados modal-action modal-close waves-effect waves-green btn-flat" data-id="1" data-accion="editar">Actualizar Usuario</a>
-                                    </div>
+                                        <a href="#!" class="ABMEmpleados modal-action modal-close waves-effect waves-blue btn-flat" data-accion="editar">Actualizar Empleado</a>
+                                    </div>     
                                 </div>
-                                <!-- Fin Modal Datos de usuario -->                        
+                                <!-- Fin Modal Editar de usuario -->                        
                             </li>
                     <?php endforeach; ?>
                 </ul>  

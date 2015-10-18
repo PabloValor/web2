@@ -16,17 +16,17 @@
 						</a>
 					</li>
 					<li>
-						<a href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Mi perfil">
+						<a href="#!" class="tooltipped" data-position="bottom" data-tooltip="Mi perfil">
 							<i class="material-icons">assignment_ind</i>
 						</a>
 					</li>
 					<li>
-						<a href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Configuración">
+						<a href="#!" class="tooltipped" data-position="bottom" data-tooltip="Configuración">
 							<i class="material-icons" >settings</i>
 						</a>
 					</li>
 					<li>
-						<a id="salir" href="#!" class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="Salir">
+						<a id="salir" href="#!" class="tooltipped" data-position="bottom" data-tooltip="Salir">
 							<i class="material-icons">settings_power</i>
 						</a>
 					</li>

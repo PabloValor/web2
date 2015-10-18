@@ -25,7 +25,7 @@ $(document).on('ready', function() {
     });
 
     // Se inicializa tooltip
-     $('.tooltipped').tooltip({delay: 50});
+     $('.tooltipped').tooltip({delay: 20});
 
     $salir.on('click', function(e) {
         e.preventDefault();

@@ -83,4 +83,32 @@ class DBManager {
 			die();
 		}
 	}
+
+	public function obtenerCargos() {
+		$query = 'select * from cargo';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
+	public function obtenerRoles() {
+		$query = 'select * from rol';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}	
 }
