@@ -72,6 +72,38 @@ form {
  color: #03a9f4;
 }
 
+/* radio button */
+[type="radio"]:checked + label:after {
+    border: 2px solid #03a9f4;
+    background-color: #03a9f4;
+}
+
+/* color combos */
+.dropdown-content li > a,
+.dropdown-content li > span {
+	color: #03a9f4;
+}
+
+/* datepicker */
+.picker__date-display {
+	background: #03a9f4;
+}
+.picker__weekday-display {
+	background: #03a9f4;
+}
+.picker__day.picker__day--today {
+	color: #03a9f4;	
+}
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+	background: #03a9f4;
+}
+.picker__close,
+.picker__today {
+	color: #03a9f4;
+}
+
 
 /***************** Override de listas empleado *************************/
 .collection .collection-item.avatar .secondary-content {

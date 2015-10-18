@@ -39,14 +39,9 @@ function agregarEmpleado() {
 	// crear un obj Empleado y llenarlo con cada elemento el $_POST[]
 }
 
-function editarEmpleado($id) {
-	$db = new DBManager('localhost', 'root', '', 'dirtytrucksdb');
-	
-	echo "Se llama a editarEmpleado()";
-}
 
 function eliminarEmpleado($id) {
-	$db = new DBManager('localhost', 'root', '', 'dirtytrucksdb');
+	$db = new DBManager();
 
 	$resultado = $db->eliminarEmpleado($id);
 	if($resultado) {

@@ -1,8 +1,11 @@
 $(document).on('ready', function() {
     'use strict';
 
-    var $ABMEmpleados   = $('.ABMEmpleados');
-    var $salir          = $('#salir');
+    var $ABMEmpleados       = $('.ABMEmpleados');
+    var $salir              = $('#salir');
+    var $btnEditarLista     = $('.btn-editar-lista');
+    var $btnEditarEmpleado  = $('.btn-editar-empleado');
+    var $formEditarEmpleado = $('#formEditarEmpleado');
 
     // Se inicializa navbar
      $(".button-collapse").sideNav();
@@ -15,12 +18,12 @@ $(document).on('ready', function() {
 
     // Se inicializan Datepickers
     $('.datepicker').pickadate({
-        selectMonths: true, // Creates a dropdown to control month
-        selectYears: 15 // Creates a dropdown of 15 years to control year
+        selectMonths: true,
+        selectYears: 100
     });
 
     // Se pone el foco en el primer campo del formulario de editar Empleado
-    $('.btnEditar').on('click', function(){
+    $btnEditarLista.on('click', function(){
         $('#nombre').focus();
     });
 
@@ -32,8 +35,41 @@ $(document).on('ready', function() {
         swal({
             title: '¿Deseas salir?',
             type: 'warning',
-            showCancelButton: true
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#039be5"
         });
+    });
+
+    // Editar Empleado
+    $btnEditarEmpleado.on('click', function(e) {
+
+        var formData = $formEditarEmpleado.serialize();
+
+        e.preventDefault();
+
+        // TODO: validaciones del form con Validate.js
+        $.ajax({
+            url: 'source/ABM/empleados/editar.php',
+            method: 'POST',
+            data: formData,
+            success: function(data){
+                swal({
+                    title: 'Usuario editado con éxito',
+                    type: 'success'
+                });
+            },
+            error: function() {
+                swal({
+                    title: 'Ocurrió un error al editar usuario',
+                    type: 'error'
+                });
+            },
+            done: function() {
+                // TODO: ocultar loader
+            }
+        });
+        return false;
     });
 
      // ABM Empleados
