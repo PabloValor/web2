@@ -40,7 +40,14 @@ form {
 .redondear-imagen {
 	border-radius: 50%;
 }
-
+.tag {
+	background-color: #C3C3C3;
+	padding: 4px;
+	border-radius: 4px;
+	font-size: 10px;
+	vertical-align: top;
+	color: whitesmoke;
+}
 /*
 *
 *	Override de colores de formularios

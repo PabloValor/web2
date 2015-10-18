@@ -65,9 +65,11 @@
                 <ul class="collection">
                     <?php foreach($empleados as $empleado): ?>
                             <li class="collection-item avatar">
-                                <img src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="" class="circle hide-on-small-only">
+                                <img src="assets/imagenes/avatar.png" alt="" class="circle hide-on-small-only">
                                 <span class="title"><?php echo $empleado["NOMBRE"]; ?>&nbsp;<?php echo $empleado["APELLIDO"]; ?></span>
-                                <p class="grey-text"><?php echo $empleado["CARGO"]; ?></p>
+                                <p class="grey-text"><?php echo $empleado["CARGO"]; echo " "; ?>
+                                    <span class="tag"><?php echo $empleado["ROL"]; ?></span>
+                                </p>
                                 <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>
                                     <a href ="#modalEliminarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" data-accion="eliminar" class="ABMEmpleados secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Eliminar">
                                         <i class="material-icons">delete</i>
