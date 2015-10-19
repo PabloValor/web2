@@ -6,6 +6,7 @@ $(document).on('ready', function() {
     var $btnEditarLista     = $('.btn-editar-lista');
     var $btnEditarEmpleado  = $('.btn-editar-empleado');
     var $btnNuevoEmpleado   = $('.btn-nuevo-empleado');
+    var $btnBajaEmpleado    = $('.btn-baja-empleado');
     var $formEditarEmpleado = $('#formEditarEmpleado'); // estos deberían ser clases no id
     var $formNuevoEmpleado  = $('#formNuevoEmpleado'); // estos deberían ser clases no id
 
@@ -60,7 +61,7 @@ $(document).on('ready', function() {
             },
             error: function() {
                 swal({
-                    title: 'Ocurrió un error al editar usuario',
+                    title: 'Ocurrió un error al agregar usuario',
                     type: 'error'
                 });
             },
@@ -100,6 +101,50 @@ $(document).on('ready', function() {
         });
         //return false;
     });
+
+    // Baja empleado
+    $btnBajaEmpleado.on('click', function(e) {
+        e.preventDefault();
+        var $self = $(this);
+        var IdEmpleado = $self.data('id-eliminar');
+
+        swal({
+            title: '¿Está seguro que desea eliminar este usuario?',
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#039be5"
+        }, function() {
+            eliminarEmpleadoPorId(IdEmpleado);
+        });        
+    });
     
+    function eliminarEmpleadoPorId(id) {
+        // TODO: validaciones del form con Validate.js
+        var data = 'id=' + id;
+
+        $.ajax({
+            url: 'source/ABM/empleados/baja.php',
+            method: 'POST',
+            data: data,
+            success: function(data){
+                debugger;
+                swal({
+                    title: 'Usuario eliminado con éxito',
+                    type: 'success'
+                });
+            },
+            error: function() {
+                swal({
+                    title: 'Ocurrió un error al eliminar usuario',
+                    type: 'error'
+                });
+            },
+            done: function() {
+                // TODO: ocultar loader
+            }
+        });
+    }
+
     console.info("DOM ready");
 });

@@ -145,14 +145,12 @@ class DBManager {
 		}		
 	}
 
-	public function eliminarEmpleado($id) {
+	public function bajaEmpleado($id) {
 		try {
 			$query = 'delete from empleado where ID = :id';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':id', $id);
 			$stmt->execute();
-			$stmt->fetch();
-			return true;
 		}
 		catch(PDOException $ex) {
 			print "Chan: " . $ex->getMessage();
