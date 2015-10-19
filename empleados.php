@@ -81,12 +81,7 @@
                                 <!-- Modal Datos de usuario -->
                                 <div id="modalDatosEmpleado" class="modal modal-fixed-footer">
                                     <div class="modal-content center-align">
-                                        <h4>Perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
-                                            <div class="center-align">
-                                                <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
-                                            </div>
-                                            <h5 class="grey-text"><?php echo $empleado["CARGO"]; ?></h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos repellat quidem architecto magnam unde quisquam inventore illo impedit quod ipsum voluptate, vitae vel deleniti ut blanditiis voluptatum suscipit beatae, ratione!</p>
+                                        <?php include_once('source/views/shared/_empleadoDatos.php'); ?>
                                     </div>
                                     <div class="modal-footer">
                                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
@@ -95,7 +90,12 @@
                                 <!-- Fin Modal Datos de usuario -->
 
                                 <!-- Modal Editar Usuario -->
-                                <?php include_once('source/views/shared/_formularioEmpleadoEditar.php'); ?>
+                                <div id="modalEditarEmpleado" class="modal modal-fixed-footer">
+                                    <div class="modal-content center-align">
+                                        <?php include_once('source/views/shared/_formularioEmpleadoEditar.php'); ?>
+                                    </div>
+                                </div>
+                                
                                 <!-- Fin Modal Editar de usuario -->                        
                             </li>
                     <?php endforeach; ?>

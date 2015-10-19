@@ -85,7 +85,8 @@ class DBManager {
 			`ID_CARGO` = :id_cargo,
 			`USUARIO` = :usuario,
 			`PASSWORD` = :password,
-			`ID_ROL` = :id_rol
+			`ID_ROL` = :id_rol,
+			`ACTIVO` = :activo
 			where `ID` = :id;
 		";
 		try {
@@ -102,6 +103,7 @@ class DBManager {
 			$stmt->bindParam(':usuario', $_POST["USUARIO"], PDO::PARAM_STR);
 			$stmt->bindParam(':password', $_POST["PASSWORD"], PDO::PARAM_INT);
 			$stmt->bindParam(':id_rol', $_POST["ROL"], PDO::PARAM_INT);
+			$stmt->bindParam(':activo', $_POST["ACTIVO"], PDO::PARAM_INT);
 
 			$stmt->execute();
 		}
