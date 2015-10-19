@@ -71,7 +71,7 @@ class DBManager {
 		}		
 	}
 
-	public function editarEmpleado() {
+	public function editarEmpleado($datos) {
 		$query = "
 			update `EMPLEADO`
 			set
@@ -85,25 +85,26 @@ class DBManager {
 			`ID_CARGO` = :id_cargo,
 			`USUARIO` = :usuario,
 			`PASSWORD` = :password,
-			`ID_ROL` = :id_rol,
-			`ACTIVO` = :activo
+			`ID_ROL` = :id_rol
 			where `ID` = :id;
 		";
+
+		// `ACTIVO` = :activo  <--- agregarlo a la query 
 		try {
 			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':id', $_POST["ID"], PDO::PARAM_INT);
-			$stmt->bindParam(':nombre', $_POST["NOMBRE"], PDO::PARAM_STR);
-			$stmt->bindParam(':apellido', $_POST["APELLIDO"], PDO::PARAM_STR);
-			$stmt->bindParam(':dni', $_POST["DNI"], PDO::PARAM_INT);
-			$stmt->bindParam(':sexo', $_POST["SEXO"], PDO::PARAM_STR);
-			$stmt->bindParam(':fecha_nacimiento', $_POST["FECHA_NACIMIENTO"], PDO::PARAM_STR);
-			$stmt->bindParam(':fecha_ingreso', $_POST["FECHA_INGRESO"], PDO::PARAM_STR);
-			$stmt->bindParam(':sueldo', $_POST["SUELDO"], PDO::PARAM_INT);
-			$stmt->bindParam(':id_cargo', $_POST["CARGO"], PDO::PARAM_INT);
-			$stmt->bindParam(':usuario', $_POST["USUARIO"], PDO::PARAM_STR);
-			$stmt->bindParam(':password', $_POST["PASSWORD"], PDO::PARAM_INT);
-			$stmt->bindParam(':id_rol', $_POST["ROL"], PDO::PARAM_INT);
-			$stmt->bindParam(':activo', $_POST["ACTIVO"], PDO::PARAM_INT);
+			$stmt->bindParam(':id', $datos["ID"], PDO::PARAM_INT);
+			$stmt->bindParam(':nombre', $datos["NOMBRE"], PDO::PARAM_STR);
+			$stmt->bindParam(':apellido', $datos["APELLIDO"], PDO::PARAM_STR);
+			$stmt->bindParam(':dni', $datos["DNI"], PDO::PARAM_INT);
+			$stmt->bindParam(':sexo', $datos["SEXO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_nacimiento', $datos["FECHA_NACIMIENTO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_ingreso', $datos["FECHA_INGRESO"], PDO::PARAM_STR);
+			$stmt->bindParam(':sueldo', $datos["SUELDO"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_cargo', $datos["CARGO"], PDO::PARAM_INT);
+			$stmt->bindParam(':usuario', $datos["USUARIO"], PDO::PARAM_STR);
+			$stmt->bindParam(':password', $datos["PASSWORD"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_rol', $datos["ROL"], PDO::PARAM_INT);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
 
 			$stmt->execute();
 		}

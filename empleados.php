@@ -58,7 +58,7 @@
         <div class="row">           
             <div class="col s12 margin-top-10 margin-bottom-10">
                 <div class="center-align">
-                    <a class="light-blue darken-1 waves-effect waves-light btn-large"><i class="material-icons right">input</i>agregar nuevo</a>
+                    <a href ="#modalNuevoEmpleado" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar nuevo</a>
                 </div>
             </div>
             <div class="col s12">
@@ -77,8 +77,16 @@
                                     <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
                                         <i class="material-icons">playlist_add</i>
                                     </a>
-                                
-                                <!-- Modal Datos de usuario -->
+
+                                <!-- Modal Nuevo Empleado -->
+                                <div id="modalNuevoEmpleado" class="modal">
+                                    <div class="modal-content center-align">
+                                        <?php include_once('source/views/shared/_formularioEmpleadoNuevo.php'); ?>
+                                    </div>
+                                </div>
+                                <!-- Fin Modal Nuevo Empleado -->
+
+                                <!-- Modal Datos de Empleado -->
                                 <div id="modalDatosEmpleado" class="modal modal-fixed-footer">
                                     <div class="modal-content center-align">
                                         <?php include_once('source/views/shared/_empleadoDatos.php'); ?>
@@ -87,16 +95,15 @@
                                         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
                                     </div>
                                 </div>
-                                <!-- Fin Modal Datos de usuario -->
+                                <!-- Fin Modal Datos de Empleado -->
 
-                                <!-- Modal Editar Usuario -->
-                                <div id="modalEditarEmpleado" class="modal modal-fixed-footer">
+                                <!-- Modal Editar Empleado -->
+                                <div id="modalEditarEmpleado" class="modal">
                                     <div class="modal-content center-align">
                                         <?php include_once('source/views/shared/_formularioEmpleadoEditar.php'); ?>
                                     </div>
                                 </div>
-                                
-                                <!-- Fin Modal Editar de usuario -->                        
+                                <!-- Fin Modal Editar de Empleado -->                        
                             </li>
                     <?php endforeach; ?>
                 </ul>  

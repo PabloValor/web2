@@ -1,43 +1,43 @@
-
-<form id="formEditarEmpleado" action="ABM/empleados/editar.php">
+<form id="formEditarEmpleado">
     <h4>Editar el perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
-    <input type="hidden" name="ACTIVO" value="<?php echo $empleado["ACTIVO"];?>">
+    <input type="hidden" name="ID" value="<?php echo $empleado["ID"]; ?>">
+    <!--<input type="hidden" name="ACTIVO" value="">-->
     <div class="row">
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese nombre" id="nombre" name="NOMBRE" type="text" class="validate" value="<?php echo $empleado["NOMBRE"];?>">
+            <input placeholder="Ingrese nombre" name="NOMBRE" type="text" class="validate" value="<?php echo $empleado["NOMBRE"];?>">
             <label for="NOMBRE">Nombre</label>
         </div>
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese apellido" name="APELLIDO" id="apellido" type="text" class="validate" value="<?php echo $empleado["APELLIDO"];?>">
+            <input placeholder="Ingrese apellido" name="APELLIDO" type="text" class="validate" value="<?php echo $empleado["APELLIDO"];?>">
             <label for="APELLIDO">Apellido</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese DNI" id="dni" name="DNI" type="number" class="validate" value="<?php echo $empleado["DNI"];?>">
-            <label for="DNI">Número de docuento</label>
+            <input placeholder="Ingrese DNI" name="DNI" type="number" class="validate" value="<?php echo $empleado["DNI"];?>">
+            <label for="DNI">Número de documento</label>
         </div>
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese sueldo" id="sueldo" name="SUELDO" type="number" class="validate" value="<?php echo $empleado["SUELDO"];?>">
+            <input placeholder="Ingrese sueldo" name="SUELDO" type="number" class="validate" value="<?php echo $empleado["SUELDO"];?>">
             <label for="SUELDO">Sueldo</label>
         </div>                                                
     </div>
     <div class="row">
         <div class="input-field col s6">
-            <input name="SEXO" type="radio" id="radioMasculino" value="M" <?php if ($empleado["SEXO"] == 'M') echo "checked"; ?>/>
+            <input name="SEXO" type="radio" value="M" <?php if ($empleado["SEXO"] == 'M') echo "checked"; ?>/>
             <label for="radioMasculino">Masculino</label>                                                
         </div>
         <div class="input-field col s6">
-            <input name="SEXO" type="radio" id="radioFemenino" value="F" <?php if ($empleado["SEXO"] == 'F') echo "checked"; ?>/>
+            <input name="SEXO" type="radio" value="F" <?php if ($empleado["SEXO"] == 'F') echo "checked"; ?>/>
             <label for="radioFemenino">Femenino</label>
         </div>                                                
     </div>                                            
     <div class="row">
         <div class="input-field col s12 m6">
-            <input placeholder="Fecha de nacimiento" type="date" name="FECHA_NACIMIENTO" id="fecha_nacimiento" class="datepicker" value="">
+            <input placeholder="Fecha de nacimiento" type="date" name="FECHA_NACIMIENTO" class="datepicker" value="">
         </div>
         <div class="input-field col s12 m6">
-            <input placeholder="Fecha de ingreso" type="date" name="FECHA_INGRESO" id="fecha_ingreso" class="datepicker" value="">
+            <input placeholder="Fecha de ingreso" type="date" name="FECHA_INGRESO" class="datepicker" value="">
         </div>
     </div>
     <div class="row">
@@ -78,16 +78,17 @@
     </div>
     <div class="row">
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese usuario" id="usuario" name="USUARIO" type="text" class="validate" value="<?php echo $empleado["USUARIO"];?>">
+            <input placeholder="Ingrese usuario" name="USUARIO" type="text" class="validate" value="<?php echo $empleado["USUARIO"];?>">
             <label for="USUARIO">Usuario</label>
         </div>
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese clave" name="PASSWORD" id="password" type="password" class="validate" value="<?php echo $empleado["PASSWORD"];?>">
+            <input placeholder="Ingrese clave" name="PASSWORD" type="password" class="validate" value="<?php echo $empleado["PASSWORD"];?>">
             <label for="PASSWORD">Password</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <a href="#!" class="btn-editar-empleado modal-action modal-close light-blue darken-1 waves-effect waves-light btn-large">Actualizar Empleado</a>
+            <a href="#!" class="btn-editar-empleado modal-action light-blue darken-1 waves-effect waves-light btn-large">Actualizar Empleado</a>
         </div>
     </div>
+</form>

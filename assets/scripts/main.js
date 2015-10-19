@@ -5,7 +5,8 @@ $(document).on('ready', function() {
     var $salir              = $('#salir');
     var $btnEditarLista     = $('.btn-editar-lista');
     var $btnEditarEmpleado  = $('.btn-editar-empleado');
-    var $formEditarEmpleado = $('#formEditarEmpleado');
+    var $formEditarEmpleado = $('#formEditarEmpleado'); // estos deberían ser clases no id
+    var $formNuevoEmpleado  = $('#formNuevoEmpleado'); // estos deberían ser clases no id
 
     // Se inicializa navbar
      $(".button-collapse").sideNav();
@@ -69,33 +70,7 @@ $(document).on('ready', function() {
                 // TODO: ocultar loader
             }
         });
-        return false;
-    });
-
-     // ABM Empleados
-    $ABMEmpleados.on('click', function(e) {
-        
-        //TODO: Mostrar loader
-    	e.preventDefault();
-
-    	var idUsuario = $(this).data('id');
-        var accion = $(this).data('accion');
-
-		$.ajax({
-			url: 'source/ABM/Empleados.php?accion=' + accion,
-            data: {id: idUsuario},
-			method: 'POST',
-			success: function(data) {
-                debugger;
-			},
-			error: function(err) {
-                debugger;
-				console.error(err);
-			},
-			done: function(){
-                // TODO: ocultar el loader
-			}
-		});
+        //return false;
     });
     
     console.info("DOM ready");

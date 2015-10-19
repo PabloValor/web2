@@ -22,7 +22,7 @@
 			<li class="collection-item">Nombre de Usuario: <?php echo $empleado["USUARIO"]; ?></li>
 			<li class="collection-item">Password: <?php echo $empleado["PASSWORD"]; ?></li>
 			<li class="collection-item">Rol de Usuario: <?php echo $empleado["ROL"]; ?></li>
-			<!--<li class="collection-item">Usuario Activo: <?php echo $empleado["ACTIVO"]; ?></li>-->
+			<!--<li class="collection-item">Usuario Activo:</li>-->
 		</ul>		
 	</div>
 </div>
