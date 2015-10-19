@@ -4,31 +4,31 @@
     <!--<input type="hidden" name="ACTIVO" value="">-->
     <div class="row">
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese nombre" name="NOMBRE" type="text" class="validate" value="<?php echo $empleado["NOMBRE"];?>">
-            <label for="NOMBRE">Nombre</label>
+            <input id="nombre" placeholder="Ingrese nombre" name="NOMBRE" type="text" class="validate" value="<?php echo $empleado["NOMBRE"];?>">
+            <label for="nombre">Nombre</label>
         </div>
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese apellido" name="APELLIDO" type="text" class="validate" value="<?php echo $empleado["APELLIDO"];?>">
-            <label for="APELLIDO">Apellido</label>
+            <input id="apellido" placeholder="Ingrese apellido" name="APELLIDO" type="text" class="validate" value="<?php echo $empleado["APELLIDO"];?>">
+            <label for="apellido">Apellido</label>
         </div>
     </div>
     <div class="row">
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese DNI" name="DNI" type="number" class="validate" value="<?php echo $empleado["DNI"];?>">
-            <label for="DNI">Número de documento</label>
+            <input id="dni" placeholder="Ingrese DNI" name="DNI" type="number" class="validate" value="<?php echo $empleado["DNI"];?>">
+            <label for="dni">Número de documento</label>
         </div>
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese sueldo" name="SUELDO" type="number" class="validate" value="<?php echo $empleado["SUELDO"];?>">
-            <label for="SUELDO">Sueldo</label>
+            <input id="sueldo" placeholder="Ingrese sueldo" name="SUELDO" type="number" class="validate" value="<?php echo $empleado["SUELDO"];?>">
+            <label for="sueldo">Sueldo</label>
         </div>                                                
     </div>
     <div class="row">
         <div class="input-field col s6">
-            <input name="SEXO" type="radio" value="M" <?php if ($empleado["SEXO"] == 'M') echo "checked"; ?>/>
+            <input name="SEXO" id="radioMasculino" type="radio" value="M" <?php if ($empleado["SEXO"] == 'M') echo "checked"; ?>/>
             <label for="radioMasculino">Masculino</label>                                                
         </div>
         <div class="input-field col s6">
-            <input name="SEXO" type="radio" value="F" <?php if ($empleado["SEXO"] == 'F') echo "checked"; ?>/>
+            <input name="SEXO" id="radioFemenino" type="radio" value="F" <?php if ($empleado["SEXO"] == 'F') echo "checked"; ?>/>
             <label for="radioFemenino">Femenino</label>
         </div>                                                
     </div>                                            
@@ -78,12 +78,12 @@
     </div>
     <div class="row">
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese usuario" name="USUARIO" type="text" class="validate" value="<?php echo $empleado["USUARIO"];?>">
-            <label for="USUARIO">Usuario</label>
+            <input id="usuario" placeholder="Ingrese usuario" name="USUARIO" type="text" class="validate" value="<?php echo $empleado["USUARIO"];?>">
+            <label for="usuario">Usuario</label>
         </div>
         <div class="input-field col s12 m6">
-            <input placeholder="Ingrese clave" name="PASSWORD" type="password" class="validate" value="<?php echo $empleado["PASSWORD"];?>">
-            <label for="PASSWORD">Password</label>
+            <input id="password" placeholder="Ingrese clave" name="PASSWORD" type="password" class="validate" value="<?php echo $empleado["PASSWORD"];?>">
+            <label for="password">Password</label>
         </div>
     </div>
     <div class="row">

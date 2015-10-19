@@ -71,6 +71,37 @@ class DBManager {
 		}		
 	}
 
+	public function altaEmpleado($datos) {
+		$query = "
+			insert into `EMPLEADO`(`NOMBRE`, `APELLIDO`, `DNI`, `SEXO`,
+				`FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`,
+				`USUARIO`, `PASSWORD`, `ID_ROL`)
+			values(:nombre, :apellido, :dni, :sexo, :fecha_nacimiento,
+				:fecha_ingreso, :sueldo,:id_cargo, :usuario, :password,	:id_rol)
+		";
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':nombre', $datos["NOMBRE"], PDO::PARAM_STR);
+			$stmt->bindParam(':apellido', $datos["APELLIDO"], PDO::PARAM_STR);
+			$stmt->bindParam(':dni', $datos["DNI"], PDO::PARAM_INT);
+			$stmt->bindParam(':sexo', $datos["SEXO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_nacimiento', $datos["FECHA_NACIMIENTO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_ingreso', $datos["FECHA_INGRESO"], PDO::PARAM_STR);
+			$stmt->bindParam(':sueldo', $datos["SUELDO"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_cargo', $datos["CARGO"], PDO::PARAM_INT);
+			$stmt->bindParam(':usuario', $datos["USUARIO"], PDO::PARAM_STR);
+			$stmt->bindParam(':password', $datos["PASSWORD"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_rol', $datos["ROL"], PDO::PARAM_INT);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
 	public function editarEmpleado($datos) {
 		$query = "
 			update `EMPLEADO`

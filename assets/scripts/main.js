@@ -5,6 +5,7 @@ $(document).on('ready', function() {
     var $salir              = $('#salir');
     var $btnEditarLista     = $('.btn-editar-lista');
     var $btnEditarEmpleado  = $('.btn-editar-empleado');
+    var $btnNuevoEmpleado   = $('.btn-nuevo-empleado');
     var $formEditarEmpleado = $('#formEditarEmpleado'); // estos deberían ser clases no id
     var $formNuevoEmpleado  = $('#formNuevoEmpleado'); // estos deberían ser clases no id
 
@@ -39,6 +40,33 @@ $(document).on('ready', function() {
             showCancelButton: true,
             cancelButtonText: "Cancelar",
             confirmButtonColor: "#039be5"
+        });
+    });
+
+    // Agregar Empleado
+    $btnNuevoEmpleado.on('click', function(e) {
+        e.preventDefault();
+        var formData = $formNuevoEmpleado.serialize();
+
+        $.ajax({
+            url: 'source/ABM/empleados/nuevo.php',
+            method: 'POST',
+            data: formData,
+            success: function(data){
+                swal({
+                    title: 'Usuario agregado con éxito',
+                    type: 'success'
+                });
+            },
+            error: function() {
+                swal({
+                    title: 'Ocurrió un error al editar usuario',
+                    type: 'error'
+                });
+            },
+            done: function() {
+                // TODO: ocultar loader
+            }            
         });
     });
 

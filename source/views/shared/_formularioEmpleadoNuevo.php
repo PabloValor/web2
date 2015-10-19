@@ -4,11 +4,11 @@
     <div class="row">
         <div class="input-field col s12 m6">
             <input id="nombre" name="NOMBRE" type="text" class="validate">
-            <label for="NOMBRE">Nombre</label>
+            <label for="nombre">Nombre</label>
         </div>
         <div class="input-field col s12 m6">
-            <input name="APELLIDO" type="text" class="validate">
-            <label for="APELLIDO">Apellido</label>
+            <input id="apellido" name="APELLIDO" type="text" class="validate">
+            <label for="apellido">Apellido</label>
         </div>
     </div>
     <div class="row">
@@ -23,11 +23,11 @@
     </div>
     <div class="row">
         <div class="input-field col s6">
-            <input name="SEXO" type="radio" value="M" checked/>
+            <input id="radioMasculino" name="SEXO" type="radio" value="M" checked/>
             <label for="radioMasculino">Masculino</label>                                                
         </div>
         <div class="input-field col s6">
-            <input name="SEXO" type="radio" value="F"/>
+            <input id="radioFemenino" name="SEXO" type="radio" value="F"/>
             <label for="radioFemenino">Femenino</label>
         </div>                                                
     </div>                                            
