@@ -25,14 +25,15 @@ form {
     margin: 0 auto;
 }
 
-.margin-top-20 {
-	margin-top: 20px;
+.margin-top-0 {
+	margin-top: 0;
 }
-
 .margin-top-10 {
 	margin-top: 10px;
 }
-
+.margin-top-20 {
+	margin-top: 20px;
+}
 .margin-bottom-10 {
 	margin-bottom: 10px;
 }
@@ -47,6 +48,17 @@ form {
 	font-size: 10px;
 	vertical-align: top;
 	color: whitesmoke;
+}
+
+/* Login */
+h1 {
+	font-size: 40px;
+}
+h2 {
+	font-size: 22px;
+}
+.logo-camion {
+	width: 200px;
 }
 /*
 *

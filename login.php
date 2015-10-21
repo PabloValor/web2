@@ -14,7 +14,12 @@
     <?php } ?>
 
     <div class="container">
-        <h1 class="center-align">Dirty Trucks Inc.</h1>
+        <div class="center-align">
+            <h1>Dirty Trucks Inc.</h1>
+            <img src="assets/imagenes/camion.png" alt="Camión" class="responsive-img logo-camion">
+            <h2 class="margin-top-0">Sistema de gestión</h2>
+        </div>
+
         <!-- Contenido de pagina -->
         <form action="source/validarLogin.php" method="post">
             <div class="row">
