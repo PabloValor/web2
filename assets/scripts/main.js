@@ -7,7 +7,8 @@ $(document).on('ready', function() {
     var $btnEditarEmpleado  = $('.btn-editar-empleado');
     var $btnNuevoEmpleado   = $('.btn-nuevo-empleado');
     var $btnBajaEmpleado    = $('.btn-baja-empleado');
-    var $formEditarEmpleado = $('#formEditarEmpleado'); // estos deberían ser clases no id
+    // estos deberían ser clases no id -> hint: buscar por el partent al form
+    var $formEditarEmpleado = $('#formEditarEmpleado');
     var $formNuevoEmpleado  = $('#formNuevoEmpleado'); // estos deberían ser clases no id
 
     // Se inicializa navbar
@@ -128,7 +129,6 @@ $(document).on('ready', function() {
             method: 'POST',
             data: data,
             success: function(data){
-                debugger;
                 swal({
                     title: 'Usuario eliminado con éxito',
                     type: 'success'

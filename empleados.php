@@ -78,41 +78,40 @@
                                     <!-- Editar -->
                                     <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
                                         <i class="material-icons">playlist_add</i>
-                                    </a>
-
-                                <!-- Modal Nuevo Empleado -->
-                                <div id="modalNuevoEmpleado" class="modal">
-                                    <div class="modal-content center-align">
-                                        <?php include_once('source/views/shared/_formularioEmpleadoNuevo.php'); ?>
-                                    </div>
-                                </div>
-                                <!-- Fin Modal Nuevo Empleado -->
-
-                                <!-- Modal Datos de Empleado -->
-                                <div id="modalDatosEmpleado" class="modal modal-fixed-footer">
-                                    <div class="modal-content center-align">
-                                        <?php include_once('source/views/shared/_empleadoDatos.php'); ?>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
-                                    </div>
-                                </div>
-                                <!-- Fin Modal Datos de Empleado -->
-
-                                <!-- Modal Editar Empleado -->
-                                <div id="modalEditarEmpleado" class="modal">
-                                    <div class="modal-content center-align">
-                                        <?php include_once('source/views/shared/_formularioEmpleadoEditar.php'); ?>
-                                    </div>
-                                </div>
-                                <!-- Fin Modal Editar de Empleado -->                        
+                                    </a>                        
                             </li>
                     <?php endforeach; ?>
                 </ul>  
             </div>
         </div>        
     </div>
-        <!-- Fin Contenido de pagina -->
+    <!-- Modal Nuevo Empleado -->
+    <div id="modalNuevoEmpleado" class="modal">
+        <div class="modal-content center-align">
+            <?php include_once('source/views/shared/_formularioEmpleadoNuevo.php'); ?>
+        </div>
+    </div>
+    <!-- Fin Modal Nuevo Empleado -->
+
+    <!-- Modal Datos de Empleado -->
+    <div id="modalDatosEmpleado" class="modal modal-fixed-footer">
+        <div class="modal-content center-align">
+            <?php include_once('source/views/shared/_empleadoDatos.php'); ?>
+        </div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
+        </div>
+    </div>
+    <!-- Fin Modal Datos de Empleado -->
+
+    <!-- Modal Editar Empleado -->
+    <div id="modalEditarEmpleado" class="modal">
+        <div class="modal-content center-align">
+            <?php include_once('source/views/shared/_formularioEmpleadoEditar.php'); ?>
+        </div>
+    </div>
+    <!-- Fin Modal Editar de Empleado -->    
+    <!-- Fin Contenido de pagina -->
     <?php
         require_once('/source/views/shared/_footer.php');
         require_once('/source/inc/scripts.php');

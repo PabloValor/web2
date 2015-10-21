@@ -1,3 +1,12 @@
+<?php
+/*
+    TODO:
+    se instancia la DBManager.
+    se carga al empleado por ajax, pasandole el id (que puede ser un data-id del boton de editar
+    de la lista).
+    se retorna el html por ajax en el div correspondiente
+*/
+?>
 <form id="formEditarEmpleado">
     <h4>Editar el perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
     <input type="hidden" name="ID" value="<?php echo $empleado["ID"]; ?>">
