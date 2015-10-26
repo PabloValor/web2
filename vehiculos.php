@@ -26,14 +26,14 @@
         <!-- Filtro de busqueda -->
         <div class="card-panel grey lighten-5">
             <div class="row">
-                <div class="col s12 m5">
+                <div class="col s12 m8">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">search</i>
                         <input id="icon_prefix" type="text" class="validate">
                         <label for="icon_prefix">Buscar Vehículo por dominio</label>
                     </div>
                 </div>
-                <div class="col s12 m2">
+                <div class="col s12 m4">
                     <div class="input-field center-align">
                         <a class="light-blue darken-1 waves-effect waves-light btn-large">Buscar</a>
                     </div>
