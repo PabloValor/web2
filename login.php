@@ -15,8 +15,10 @@
 
     <div class="container">
         <h1 class="center-align">Dirty Trucks Inc.</h1>
+            <h1 class="h1-login margin-bottom-0">Dirty Trucks Inc.</h1>
+            <h2 class="h2-login margin-top-0">Sistema de gestión</h2>
         <!-- Contenido de pagina -->
-        <form action="source/validarLogin.php" method="post">
+        <form action="source/validarLogin.php" method="post" class="form-login margin-bottom-20">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="user" type="text" name="usuario" required>

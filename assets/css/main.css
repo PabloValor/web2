@@ -33,8 +33,14 @@ form {
 	margin-top: 10px;
 }
 
+.margin-bottom-0 {
+	margin-bottom: 0;
+}
 .margin-bottom-10 {
 	margin-bottom: 10px;
+}
+.margin-bottom-20 {
+	margin-bottom: 20px;
 }
 
 .redondear-imagen {
@@ -42,7 +48,13 @@ form {
 }
 
 
-
+.h1-login {
+.h2-login {
+	font-size: 22px;
+}
+.logo-camion {
+	width: 200px;
+}
 /*
 *
 *	Override de colores de formularios
@@ -72,6 +84,38 @@ form {
 /* icon prefix focus color */
 .input-field .prefix.active {
  color: #03a9f4;
+}
+
+/* radio button */
+[type="radio"]:checked + label:after {
+    border: 2px solid #03a9f4;
+    background-color: #03a9f4;
+}
+
+/* color combos */
+.dropdown-content li > a,
+.dropdown-content li > span {
+	color: #03a9f4;
+}
+
+/* datepicker */
+.picker__date-display {
+	background: #03a9f4;
+}
+.picker__weekday-display {
+	background: #03a9f4;
+}
+.picker__day.picker__day--today {
+	color: #03a9f4;	
+}
+.picker__day--selected,
+.picker__day--selected:hover,
+.picker--focused .picker__day--selected {
+	background: #03a9f4;
+}
+.picker__close,
+.picker__today {
+	color: #03a9f4;
 }
 
 

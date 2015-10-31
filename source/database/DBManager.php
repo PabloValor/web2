@@ -63,6 +63,29 @@ class DBManager {
 	}
 
 	public function eliminarEmpleado($id) {
+		$query =
+		' 
+			select e.ID, e.NOMBRE, e.APELLIDO, e.DNI, e.SEXO, e.FECHA_NACIMIENTO,
+			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO,
+			e.PASSWORD, r.DESCRIPCION ROL
+			from empleado e 
+			join cargo c on e.ID_CARGO = c.ID
+			join rol r on e.ID_ROL = r.ID
+			where e.ID = :id
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetch();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}	
+
 		try {
 			$query = 'delete from empleado where ID = :id';
 			$stmt = $this->dbo->prepare($query);

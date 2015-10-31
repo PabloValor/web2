@@ -13,6 +13,9 @@ $password = $_POST['password'];
 
 $resultado = $db->validarEmpleadoLogin($usuario, $password);
 
+// TODO: refactor de este if, la validación ya se hizo en validarEmpleadoLogin.
+// Averiguar que es lo que retorna validarEmpleadoLogin si no trae nada (null?) 
+
 if(isset($usuario) && isset($password)) {
     if($usuario == $resultado['USUARIO'] && $password == $resultado['PASSWORD']) {
 

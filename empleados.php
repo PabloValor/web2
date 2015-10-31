@@ -6,6 +6,7 @@
 
     if (!isset($_SESSION['usuario'])) {
         header("Location: login.php");
+        exit();
     }
 
     // Se traen los empleados de tabla Empleado
