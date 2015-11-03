@@ -1,7 +1,15 @@
 $(document).on('ready', function() {
     'use strict';
 
-    var $ABMEmpleados = $('.ABMEmpleados');
+    var $ABMEmpleados       = $('.ABMEmpleados');
+    var $salir              = $('#salir');
+    var $btnEditarLista     = $('.btn-editar-lista');
+    var $btnEditarEmpleado  = $('.btn-editar-empleado');
+    var $btnNuevoEmpleado   = $('.btn-nuevo-empleado');
+    var $btnBajaEmpleado    = $('.btn-baja-empleado');
+    // estos deberían ser clases no id -> hint: buscar por el partent al form
+    var $formEditarEmpleado = $('#formEditarEmpleado');
+    var $formNuevoEmpleado  = $('#formNuevoEmpleado'); // estos deberían ser clases no id
 
     // Se inicializa navbar
      $(".button-collapse").sideNav();
@@ -12,41 +20,81 @@ $(document).on('ready', function() {
     // Se inicializa combo
     $('select').material_select();
 
-        var IdEmpleado = $(this).data('id');
-        // Se carga el empleado en el modal
-        cargarEmpleado(IdEmpleado);
-    function cargarEmpleado(IdEmpleado) {
+    // Se inicializan Datepickers
+    $('.datepicker').pickadate({
+        selectMonths: true,
+        selectYears: 100
+    });
+
+    // Se pone el foco en el primer campo del formulario de editar Empleado
+    $btnEditarLista.on('click', function(){
+        $('#nombre').focus();
+    });
+
+    // Se inicializa tooltip
+     $('.tooltipped').tooltip({delay: 20});
+
+    $salir.on('click', function(e) {
+        e.preventDefault();
+        swal({
+            title: '¿Deseas salir?',
+            type: 'warning',
+            showCancelButton: true,
+            cancelButtonText: "Cancelar",
+            confirmButtonColor: "#039be5"
+        });
+    });
+
+    // Agregar Empleado
+    $btnNuevoEmpleado.on('click', function(e) {
+        e.preventDefault();
+        var formData = $formNuevoEmpleado.serialize();
+
         $.ajax({
-            url: 'source/ABM/empleados/cargarEmpleadoModal.php',
-            method: 'GET',
-            data: IdEmpleado,
+            url: 'source/ABM/empleados/nuevo.php',
+            method: 'POST',
+            data: formData,
             success: function(data){
-                
+                swal({
+                    title: 'Usuario agregado con éxito',
+                    type: 'success'
+                });
             },
             error: function() {
+                swal({
+                    title: 'Ocurrió un error al agregar usuario',
+                    type: 'error'
+                });
             },
             done: function() {
                 // TODO: ocultar loader
-            }
-        });        
-    }
+            }            
+        });
+    });
 
-    // Se inicializa tooltip
-     $('.tooltipped').tooltip({delay: 50});
+    // Cargar formulario empleado
+    $btnEditarLista.on('click', function() {
 
-     // ABM Empleados
-    $ABMEmpleados.on('click', function(e) {
-        
-        //TODO: Mostrar loader
-    	e.preventDefault();
+        var idUsuario = 'id=' + $(this).data('id');
 
-    	var idUsuario = $(this).data('id');
-        var accion = $(this).data('accion');
+        $.ajax({
+            url: 'source/ABM/empleados/cargarEmpleadoEnFormulario.php',
+            method: 'POST',
+            data: idUsuario,
+            success: function(data){
+                $('#modalEditarEmpleado .modal-content').html(data);
+            },
+            error: function(err) {
+            },
+        });
+    });
+
+    // Editar Empleado
+    $btnEditarEmpleado.on('click', function(e) {
+
+        var formData = $formEditarEmpleado.serialize();
+
         e.preventDefault();
-
-        var IdEmpleado = $(this).data('id');
-        // se appendea el id del empleado
-        formData + '&id=' + IdEmpleado;
 
         // TODO: validaciones del form con Validate.js
         $.ajax({

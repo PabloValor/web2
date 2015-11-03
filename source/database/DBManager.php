@@ -23,6 +23,8 @@ class DBManager {
 				$this->globales["db"]["usuario"],
 				$this->globales["db"]["password"]
 			);
+
+			$this->dbo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
 		}
 		catch(PDOException $ex) {
 			print "Chan: " . $ex->getMessage();
@@ -30,11 +32,10 @@ class DBManager {
 		}
 	}
 
-	/*EMPLEADOS*/
 	public function validarEmpleadoLogin($usuario, $password) {
 
+		$query = 'select * from empleado where usuario = :usuario and password = :password';
 		try {
-			$query = 'select * from empleado where usuario = :usuario and password = :password';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':usuario', $usuario);
 			$stmt->bindParam(':password', $password);
@@ -49,8 +50,16 @@ class DBManager {
 	}
 
 	public function obtenerEmpleados() {
+		$query =
+		' 
+			select e.ID, e.NOMBRE, e.APELLIDO, e.DNI, e.SEXO, e.FECHA_NACIMIENTO,
+			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO,
+			e.PASSWORD, r.DESCRIPCION ROL
+			from empleado e 
+			join cargo c on e.ID_CARGO = c.ID
+			join rol r on e.ID_ROL = r.ID
+		';
 		try {
-			$query = 'select * from empleado';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->execute();
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -62,7 +71,7 @@ class DBManager {
 		}		
 	}
 
-	public function eliminarEmpleado($id) {
+	public function ObtenerEmpleadoPorId($idEmpleado) {
 		$query =
 		' 
 			select e.ID, e.NOMBRE, e.APELLIDO, e.DNI, e.SEXO, e.FECHA_NACIMIENTO,
@@ -75,7 +84,7 @@ class DBManager {
 		';
 		try {
 			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+			$stmt->bindParam(':id', $idEmpleado, PDO::PARAM_INT);
 			$stmt->execute();
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			return $stmt->fetch();
@@ -83,16 +92,89 @@ class DBManager {
 		catch(PDOException $ex) {
 			print "Chan: " . $ex->getMessage();
 			die();
-		}		
-	}	
+		}
+	}
 
+	public function altaEmpleado($datos) {
+		$query = "
+			insert into `EMPLEADO`(`NOMBRE`, `APELLIDO`, `DNI`, `SEXO`,
+				`FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`,
+				`USUARIO`, `PASSWORD`, `ID_ROL`)
+			values(:nombre, :apellido, :dni, :sexo, :fecha_nacimiento,
+				:fecha_ingreso, :sueldo,:id_cargo, :usuario, :password,	:id_rol)
+		";
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':nombre', $datos["NOMBRE"], PDO::PARAM_STR);
+			$stmt->bindParam(':apellido', $datos["APELLIDO"], PDO::PARAM_STR);
+			$stmt->bindParam(':dni', $datos["DNI"], PDO::PARAM_INT);
+			$stmt->bindParam(':sexo', $datos["SEXO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_nacimiento', $datos["FECHA_NACIMIENTO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_ingreso', $datos["FECHA_INGRESO"], PDO::PARAM_STR);
+			$stmt->bindParam(':sueldo', $datos["SUELDO"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_cargo', $datos["CARGO"], PDO::PARAM_INT);
+			$stmt->bindParam(':usuario', $datos["USUARIO"], PDO::PARAM_STR);
+			$stmt->bindParam(':password', $datos["PASSWORD"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_rol', $datos["ROL"], PDO::PARAM_INT);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
+	public function editarEmpleado($datos) {
+		$query = "
+			update `EMPLEADO`
+			set
+			`NOMBRE` = :nombre,
+			`APELLIDO` = :apellido,
+			`DNI` = :dni,
+			`SEXO` = :sexo,
+			`FECHA_NACIMIENTO` = :fecha_nacimiento,
+			`FECHA_INGRESO` = :fecha_ingreso,
+			`SUELDO` = :sueldo,
+			`ID_CARGO` = :id_cargo,
+			`USUARIO` = :usuario,
+			`PASSWORD` = :password,
+			`ID_ROL` = :id_rol
+			where `ID` = :id;
+		";
+
+		// `ACTIVO` = :activo  <--- agregarlo a la query 
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $datos["ID"], PDO::PARAM_INT);
+			$stmt->bindParam(':nombre', $datos["NOMBRE"], PDO::PARAM_STR);
+			$stmt->bindParam(':apellido', $datos["APELLIDO"], PDO::PARAM_STR);
+			$stmt->bindParam(':dni', $datos["DNI"], PDO::PARAM_INT);
+			$stmt->bindParam(':sexo', $datos["SEXO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_nacimiento', $datos["FECHA_NACIMIENTO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_ingreso', $datos["FECHA_INGRESO"], PDO::PARAM_STR);
+			$stmt->bindParam(':sueldo', $datos["SUELDO"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_cargo', $datos["CARGO"], PDO::PARAM_INT);
+			$stmt->bindParam(':usuario', $datos["USUARIO"], PDO::PARAM_STR);
+			$stmt->bindParam(':password', $datos["PASSWORD"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_rol', $datos["ROL"], PDO::PARAM_INT);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
+	public function bajaEmpleado($id) {
 		try {
 			$query = 'delete from empleado where ID = :id';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':id', $id);
 			$stmt->execute();
-			$stmt->fetch();
-			return true;
 		}
 		catch(PDOException $ex) {
 			print "Chan: " . $ex->getMessage();
@@ -100,12 +182,9 @@ class DBManager {
 		}
 	}
 
-
-	/*VEHICULOS*/
-
-	public function obtenerVehiculos() {
+	public function obtenerCargos() {
+		$query = 'select * from cargo';
 		try {
-			$query = 'select * from vehiculo';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->execute();
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
@@ -116,20 +195,18 @@ class DBManager {
 			die();
 		}		
 	}
-	
-	public function eliminarVehiculo($dominio) {
+
+	public function obtenerRoles() {
+		$query = 'select * from rol';
 		try {
-			$query = 'delete from empleado where DOMINIO = :dominio';
 			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':dominio', $dominio);
 			$stmt->execute();
-			$stmt->fetch();
-			return true;
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
 		}
 		catch(PDOException $ex) {
 			print "Chan: " . $ex->getMessage();
 			die();
-		}
-	}
-
+		}		
+	}	
 }

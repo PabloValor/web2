@@ -25,31 +25,44 @@ form {
     margin: 0 auto;
 }
 
-.margin-top-20 {
-	margin-top: 20px;
+.form-login {
+	background: rgb(255, 255, 255);
+	border: 1px solid #E0E0E0;
+	border-bottom: 5px solid rgba(128, 128, 128, 0.15);
+	border-radius: 4px;	
+	padding: 10px 20px;
 }
 
+.margin-top-0 {
+	margin-top: 0;
+}
 .margin-top-10 {
 	margin-top: 10px;
 }
-
-.margin-bottom-0 {
-	margin-bottom: 0;
+.margin-top-20 {
+	margin-top: 20px;
 }
 .margin-bottom-10 {
 	margin-bottom: 10px;
-}
-.margin-bottom-20 {
-	margin-bottom: 20px;
 }
 
 .redondear-imagen {
 	border-radius: 50%;
 }
+.tag {
+	background-color: #C3C3C3;
+	padding: 4px;
+	border-radius: 4px;
+	font-size: 10px;
+	vertical-align: top;
+	color: whitesmoke;
+}
 
-
-.h1-login {
-.h2-login {
+/* Login */
+h1 {
+	font-size: 40px;
+}
+h2 {
 	font-size: 22px;
 }
 .logo-camion {

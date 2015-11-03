@@ -14,11 +14,14 @@
     <?php } ?>
 
     <div class="container">
-        <h1 class="center-align">Dirty Trucks Inc.</h1>
-            <h1 class="h1-login margin-bottom-0">Dirty Trucks Inc.</h1>
-            <h2 class="h2-login margin-top-0">Sistema de gestión</h2>
+        <div class="center-align">
+            <h1>Dirty Trucks Inc.</h1>
+            <img src="assets/imagenes/camion.png" alt="Camión" class="responsive-img logo-camion">
+            <h2 class="margin-top-0">Sistema de gestión</h2>
+        </div>
+
         <!-- Contenido de pagina -->
-        <form action="source/validarLogin.php" method="post" class="form-login margin-bottom-20">
+        <form action="source/validarLogin.php" method="post" class="form-login margin-bottom-10">
             <div class="row">
                 <div class="input-field col s12">
                     <input id="user" type="text" name="usuario" required>
@@ -33,7 +36,7 @@
             </div>
             <div class="row">
                 <div class="input-field col s12 center-align">
-                    <input type="submit" class="light-blue darken-1 btn-large" value="enviar">
+                    <input type="submit" class="light-blue darken-1 btn-large" value="entrar">
                 </div>
             </div>
         </form>

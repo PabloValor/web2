@@ -8,11 +8,11 @@
 			<div class="col l4 offset-l2 s12">
 				<h5 class="white-text">Links</h5>
 			<ul>
-				<li><a class="grey-text text-lighten-3" href="empleados.php">Empleados</a></li>
-				<li><a class="grey-text text-lighten-3" href="vehiculos.php">Vehiculos</a></li>
-				<li><a class="grey-text text-lighten-3" href="viajes.php">Viajes</a></li>
-				<li><a class="grey-text text-lighten-3" href="reportes.php">Reportes</a></li>
-				<li><a class="grey-text text-lighten-3" href="seguimientos.php">Seguimiento</a></li>
+				<li><a class="grey-text text-lighten-3" href="#!">Empleados</a></li>
+				<li><a class="grey-text text-lighten-3" href="#!">Flota</a></li>
+				<li><a class="grey-text text-lighten-3" href="#!">Viajes</a></li>
+				<li><a class="grey-text text-lighten-3" href="#!">Reportes</a></li>
+				<li><a class="grey-text text-lighten-3" href="#!">Seguimiento</a></li>
 			</ul>
 			</div>
 		</div>
