@@ -26,7 +26,7 @@
 						</a>
 					</li>
 					<li>
-						<a id="salir" href="#!" class="tooltipped" data-position="bottom" data-tooltip="Salir">
+						<a href="salir.php" class="tooltipped" data-position="bottom" data-tooltip="Salir">
 							<i class="material-icons">settings_power</i>
 						</a>
 					</li>

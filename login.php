@@ -15,9 +15,9 @@
 
     <div class="container">
         <div class="center-align">
-            <h1>Dirty Trucks Inc.</h1>
+            <h1 class="login">Dirty Trucks Inc.</h1>
             <img src="assets/imagenes/camion.png" alt="Camión" class="responsive-img logo-camion">
-            <h2 class="margin-top-0">Sistema de gestión</h2>
+            <h2 class="margin-top-0 login">Sistema de gestión</h2>
         </div>
 
         <!-- Contenido de pagina -->

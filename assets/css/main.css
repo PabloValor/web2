@@ -59,10 +59,10 @@ form {
 }
 
 /* Login */
-h1 {
+h1.login {
 	font-size: 40px;
 }
-h2 {
+h2.login {
 	font-size: 22px;
 }
 .logo-camion {

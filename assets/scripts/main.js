@@ -2,7 +2,6 @@ $(document).on('ready', function() {
     'use strict';
 
     var $ABMEmpleados       = $('.ABMEmpleados');
-    var $salir              = $('#salir');
     var $btnEditarLista     = $('.btn-editar-lista');
     var $btnEditarEmpleado  = $('.btn-editar-empleado');
     var $btnNuevoEmpleado   = $('.btn-nuevo-empleado');
@@ -33,17 +32,6 @@ $(document).on('ready', function() {
 
     // Se inicializa tooltip
      $('.tooltipped').tooltip({delay: 20});
-
-    $salir.on('click', function(e) {
-        e.preventDefault();
-        swal({
-            title: '¿Deseas salir?',
-            type: 'warning',
-            showCancelButton: true,
-            cancelButtonText: "Cancelar",
-            confirmButtonColor: "#039be5"
-        });
-    });
 
     // Agregar Empleado
     $btnNuevoEmpleado.on('click', function(e) {
