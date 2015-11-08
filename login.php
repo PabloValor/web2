@@ -24,8 +24,8 @@
         <form action="source/validarLogin.php" method="post" class="form-login margin-bottom-10">
             <div class="row">
                 <div class="input-field col s12">
-                    <input id="user" type="text" name="usuario" required>
-                    <label for="user" data-success="">Usuario</label>
+                    <input id="user" type="text" name="usuario" autocomplete="off" required>
+                    <label for="user" data-success="">Usuario</label> 
                 </div>
             </div>
             <div class="row">
