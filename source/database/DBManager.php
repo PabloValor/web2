@@ -209,4 +209,22 @@ class DBManager {
 			die();
 		}		
 	}	
+
+		public function obtenerVehiculos() {
+		$query =
+		' 
+			select *
+			from vehiculo
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
 }
