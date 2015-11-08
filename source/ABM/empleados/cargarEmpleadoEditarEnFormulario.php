@@ -7,7 +7,9 @@ $db = new DBManager();
 
 $idUsuario = $_POST["id"];
 
-$empleado = $db->ObtenerEmpleadoPorId($idUsuario);
+$empleado = $db->ObtenerEmpleadoPorId($idUsuario); 
+$cargos = $db->obtenerCargos();
+$roles = $db->obtenerRoles();
 ?>
 
 <form id="formEditarEmpleado">

@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="col s12">
-                <ul class="collection">
+                <ul class="collection" id="lista-empleados">
                     <?php foreach($empleados as $empleado): ?>
                             <li class="collection-item avatar">
                                 <img src="assets/imagenes/avatar.png" alt="" class="circle hide-on-small-only">
@@ -71,14 +71,14 @@
                                     <span class="tag"><?php echo $empleado["ROL"]; ?></span>
                                 </p>
                                 <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>
-                                    <!-- Eliminar -->
-                                    <a href ="#!" data-id-eliminar="<?php echo $empleado["ID"]; ?>" class="btn-baja-empleado secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Eliminar">
-                                        <i class="material-icons">delete</i>
-                                    </a>
-                                    <!-- Editar -->
-                                    <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
-                                        <i class="material-icons">playlist_add</i>
-                                    </a>
+                                <!-- Eliminar -->
+                                <a href ="#!" data-id-eliminar="<?php echo $empleado["ID"]; ?>" class="btn-baja-empleado secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Eliminar">
+                                    <i class="material-icons">delete</i>
+                                </a>
+                                <!-- Editar -->
+                                <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
+                                    <i class="material-icons">playlist_add</i>
+                                </a>
                             </li>
                     <?php endforeach; ?>
                 </ul>  
@@ -99,7 +99,7 @@
             <?php include_once('source/views/shared/_empleadoDatos.php'); ?>
         </div>
         <div class="modal-footer">
-            <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Aceptar</a>
+            <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat ">Aceptar</a>
         </div>
     </div>
     <!-- Fin Modal Datos de Empleado -->
