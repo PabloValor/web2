@@ -3,12 +3,11 @@ $(document).on('ready', function() {
 
     var $ABMEmpleados       = $('.ABMEmpleados');
     var $btnEditarLista     = $('.btn-editar-lista');
-    var $btnEditarEmpleado  = $('.btn-editar-empleado');
     var $btnNuevoEmpleado   = $('.btn-nuevo-empleado');
     var $btnBajaEmpleado    = $('.btn-baja-empleado');
     // estos deberían ser clases no id -> hint: buscar por el partent al form
-    var $formEditarEmpleado = $('#formEditarEmpleado');
     var $formNuevoEmpleado  = $('#formNuevoEmpleado'); // estos deberían ser clases no id
+    var $listaEmpleados     = $('#lista-empleados');
 
     // Se inicializa navbar
      $(".button-collapse").sideNav();
@@ -37,7 +36,6 @@ $(document).on('ready', function() {
     $btnNuevoEmpleado.on('click', function(e) {
         e.preventDefault();
         var formData = $formNuevoEmpleado.serialize();
-
         $.ajax({
             url: 'source/ABM/empleados/nuevo.php',
             method: 'POST',
@@ -66,47 +64,62 @@ $(document).on('ready', function() {
         var idUsuario = 'id=' + $(this).data('id');
 
         $.ajax({
-            url: 'source/ABM/empleados/cargarEmpleadoEnFormulario.php',
+            url: 'source/ABM/empleados/cargarEmpleadoEditarEnFormulario.php',
             method: 'POST',
             data: idUsuario,
             success: function(data){
                 $('#modalEditarEmpleado .modal-content').html(data);
             },
-            error: function(err) {
-            },
+            done: function() {
+            }
         });
     });
 
     // Editar Empleado
-    $btnEditarEmpleado.on('click', function(e) {
+    // Espero a que las llamadas asincronicas esten listas y poder colgarme del dom
+    $(document).ajaxSuccess(function() {
+        // FALTAN CARGAR LOS RADIO DE SEXO
+        // se cargan los combos que vinieron asincronicamente
+        $('select').material_select();
+        $('.btn-editar-empleado').on('click', function() {
 
-        var formData = $formEditarEmpleado.serialize();
+            var formData = $('#formEditarEmpleado').serialize();
 
-        e.preventDefault();
+            // TODO: validaciones del form con Validate.js
+            $.ajax({
+                url: 'source/ABM/empleados/editar.php',
+                method: 'POST',
+                data: formData,
+                success: function(data){
+                    swal({
+                        title: 'Usuario editado con éxito',
+                        type: 'success'
+                    });
+                    cargarEmpleadosLista();
+                },
+                error: function() {
+                    swal({
+                        title: 'Ocurrió un error al editar usuario',
+                        type: 'error'
+                    });
+                },
+                done: function() {
+                }
+            });
+        });
+    });
 
-        // TODO: validaciones del form con Validate.js
+    // Carga de lista de empleados asincronica
+    function cargarEmpleadosLista() {
         $.ajax({
-            url: 'source/ABM/empleados/editar.php',
-            method: 'POST',
-            data: formData,
+            url: 'source/ABM/empleados/cargarEmpleadosLista.php',
+            method: 'post',
             success: function(data){
-                swal({
-                    title: 'Usuario editado con éxito',
-                    type: 'success'
-                });
-            },
-            error: function() {
-                swal({
-                    title: 'Ocurrió un error al editar usuario',
-                    type: 'error'
-                });
-            },
-            done: function() {
-                // TODO: ocultar loader
+                debugger;
+                $listaEmpleados.html(data);
             }
         });
-        //return false;
-    });
+    }
 
     // Baja empleado
     $btnBajaEmpleado.on('click', function(e) {
