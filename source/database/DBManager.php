@@ -84,7 +84,7 @@ class DBManager {
 		';
 		try {
 			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':id', $idEmpleado, PDO::PARAM_STR);
+			$stmt->bindParam(':id', $idEmpleado, PDO::PARAM_INT);
 			$stmt->execute();
 			$stmt->setFetchMode(PDO::FETCH_ASSOC);
 			return $stmt->fetch();

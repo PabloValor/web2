@@ -58,33 +58,33 @@ $(document).on('ready', function() {
         });
     });
 
-    // Cargar formulario empleado
-    $btnEditarLista.on('click', function() {
+    // Cargar formulario empleado (boton de lista)
+    $('.btn-editar-lista').on('click', function() {
 
         var idUsuario = 'id=' + $(this).data('id');
 
         $.ajax({
             url: 'source/ABM/empleados/cargarEmpleadoEditarEnFormulario.php',
-            method: 'POST',
+            method: 'post',
             data: idUsuario,
+			dataType: 'html',
             success: function(data){
                 $('#modalEditarEmpleado .modal-content').html(data);
             },
             done: function() {
             }
         });
-    });
+    }); 
 
     // Editar Empleado
     // Espero a que las llamadas asincronicas esten listas y poder colgarme del dom
     $(document).ajaxSuccess(function() {
-        // FALTAN CARGAR LOS RADIO DE SEXO
+        // FALTAN CARGAR LOS RADIO DE SEXO (el problema debe ser que el id con algun otro)
         // se cargan los combos que vinieron asincronicamente
         $('select').material_select();
+
         $('.btn-editar-empleado').on('click', function() {
-
             var formData = $('#formEditarEmpleado').serialize();
-
             // TODO: validaciones del form con Validate.js
             $.ajax({
                 url: 'source/ABM/empleados/editar.php',
@@ -94,6 +94,8 @@ $(document).on('ready', function() {
                     swal({
                         title: 'Usuario editado con éxito',
                         type: 'success'
+                    }, function(){
+                        $('#modalEditarEmpleado').closeModal();
                     });
                     cargarEmpleadosLista();
                 },
@@ -102,8 +104,6 @@ $(document).on('ready', function() {
                         title: 'Ocurrió un error al editar usuario',
                         type: 'error'
                     });
-                },
-                done: function() {
                 }
             });
         });
@@ -114,8 +114,8 @@ $(document).on('ready', function() {
         $.ajax({
             url: 'source/ABM/empleados/cargarEmpleadosLista.php',
             method: 'post',
+            dataType: 'html',
             success: function(data){
-                debugger;
                 $listaEmpleados.html(data);
             }
         });

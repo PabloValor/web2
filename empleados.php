@@ -55,13 +55,16 @@
             </div>
         </div>
         <!-- Fin Filtro de busqueda -->
-        <div class="row">           
+        <div class="row">
+            <!-- boton nuevo empleado -->
             <div class="col s12 margin-top-10 margin-bottom-10">
                 <div class="center-align">
                     <a href ="#modalNuevoEmpleado" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar nuevo</a>
                 </div>
             </div>
+            <!-- Fin boton nuevo empleado -->
             <div class="col s12">
+                <!-- Lista Empleados -->
                 <ul class="collection" id="lista-empleados">
                     <?php foreach($empleados as $empleado): ?>
                             <li class="collection-item avatar">
@@ -81,7 +84,8 @@
                                 </a>
                             </li>
                     <?php endforeach; ?>
-                </ul>  
+                </ul>
+                <!-- Fin Lista Empleados -->
             </div>
         </div>        
     </div>
@@ -93,7 +97,7 @@
     </div>
     <!-- Fin Modal Nuevo Empleado -->
 
-    <!-- Modal Datos de Empleado -->
+    <!-- Modal Ver Datos de Empleado -->
     <div id="modalDatosEmpleado" class="modal modal-fixed-footer">
         <div class="modal-content center-align">
             <?php include_once('source/views/shared/_empleadoDatos.php'); ?>
@@ -102,7 +106,7 @@
             <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat ">Aceptar</a>
         </div>
     </div>
-    <!-- Fin Modal Datos de Empleado -->
+    <!-- Fin Modal Ver Datos de Empleado -->
 
     <!-- Modal Editar Empleado -->
     <div id="modalEditarEmpleado" class="modal">
