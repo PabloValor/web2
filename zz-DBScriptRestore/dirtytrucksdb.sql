@@ -221,7 +221,8 @@ CREATE TABLE IF NOT EXISTS `vehiculo` (
   `ANO` int(5) NOT NULL,
   `MARCA` varchar(25) NOT NULL,
   `NRO_CHASIS` bigint(50) NOT NULL,
-  `NRO_MOTOR` bigint(50) NOT NULL
+  `NRO_MOTOR` bigint(50) NOT NULL,
+  `ACTIVO` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

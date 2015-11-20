@@ -44,23 +44,23 @@
         <div class="row">           
             <div class="col s12 margin-top-10 margin-bottom-10">
                 <div class="center-align">
-                    <a href="#modalNuevoVehiculo" class="light-blue darken-1 waves-effect waves-light btn-large"><i class="material-icons right">input</i>agregar nuevo</a>
+                    <a href ="#modalNuevoVehiculo" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar nuevo</a>
                 </div>
             </div>
             <div class="col s12">
-                <ul class="collection">
+                <ul class="collection" id="lista-vehiculos">
                     <?php foreach($vehiculos as $vehiculo): ?>
                             <li class="collection-item avatar">
                                 <img src="assets/imagenes/avatar.png" alt="" class="circle hide-on-small-only">
                                 <span class="title"><?php echo $vehiculo["DOMINIO"]; ?></span>
                                 <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosVehiculo">Ver ficha del vehiculo</a></p>                                
                                 <div class="center-align">
-                              <!-- Eliminar -->
-                                    <a href ="#!" data-id-eliminar="<?php echo $vehiculo["DOMINIO"]; ?>" class="btn-baja-empleado secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Eliminar">
-                                        <i class="material-icons">delete</i>
-                                    </a>
+                                <!-- Eliminar -->
+                                <a href ="#!" data-id-eliminar="<?php echo $vehiculo["DOMINIO"]; ?>" class="btn-baja-vehiculo secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Eliminar">
+                                    <i class="material-icons">delete</i>
+                                </a>
                               <!-- Editar -->
-                                <a href ="#modalEditarVehiculo" data-id="<?php echo $vehiculo["DOMINIO"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
+                                <a href ="#modalEditarVehiculo" data-id="<?php echo $vehiculo["DOMINIO"]; ?>" class="btn-editar-vehiculo secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
                                     <i class="material-icons">playlist_add</i>
                                 </a>                    
                             </li>

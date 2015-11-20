@@ -12,7 +12,7 @@
 	</div>
 	<div class="col s12 m6">
 		<ul class="collection left-align">
-			<li class="collection-item">Anio: <?php echo $vehiculo["ANO"]; ?></li>
+			<li class="collection-item">Año: <?php echo $vehiculo["ANO"]; ?></li>
 			<li class="collection-item">Nro de Chasis: <?php echo $vehiculo["NRO_CHASIS"]; ?></li>
 			<li class="collection-item">Nro de Motor: <?php echo $vehiculo["NRO_MOTOR"]; ?></li>
 		</ul>		

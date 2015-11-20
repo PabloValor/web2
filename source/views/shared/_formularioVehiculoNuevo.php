@@ -1,5 +1,5 @@
 <form id="formNuevoVehiculo">
-    <h4>Agregar nuevo Vehiculo</h4>
+    <h4>Agregar nuevo Vehículo</h4>
     <!--<input type="hidden" name="ACTIVO" value="">-->
     <div class="row">
         <div class="input-field col s12 m6">
@@ -33,7 +33,7 @@
     </div>                                           
     <div class="row">
         <div class="input-field col s12">
-            <a href="#!" class="btn-nuevo-empleado modal-action modal-close light-blue darken-1 waves-effect waves-light btn-large">Agregar Nuevo Empleado</a>
+            <a href="#!" class="btn-nuevo-vehiculo modal-action modal-close light-blue darken-1 waves-effect waves-light btn-large">Agregar Nuevo Vehículo</a>
         </div>
     </div>
 </form>

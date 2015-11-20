@@ -210,11 +210,13 @@ class DBManager {
 		}		
 	}	
 
-		public function obtenerVehiculos() {
+	/*INICIO VEHICULOS*/
+	public function obtenerVehiculos() {
 		$query =
 		' 
-			select *
-			from vehiculo
+			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v. NRO_CHASIS, v.NRO_MOTOR
+			from vehiculo v
+			where v.ACTIVO = 1
 		';
 		try {
 			$stmt = $this->dbo->prepare($query);
@@ -227,4 +229,94 @@ class DBManager {
 			die();
 		}		
 	}
+
+	public function ObtenerVehiculoPorDominio($dominioVehiculo) {
+		$query =
+		' 
+			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v. NRO_CHASIS, v.NRO_MOTOR
+			from vehiculo v 
+			where v.DOMINIO = :dominio
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':dominio', $dominioVehiculo, PDO::PARAM_STR);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetch();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function bajaVehiculo($dominio) {
+		try {
+			$query = 'delete from vehiculo where DOMINIO = :dominio';
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':dominio', $dominio);
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function altaVehiculo($datos) {
+		$query = "
+			insert into `VEHICULO`(`DOMINIO`, `MODELO`, `MARCA`, `ANO`,
+				`NRO_CHASIS`, `NRO_MOTOR`)
+			values(:dominio, :modelo, :marca, :ano, :nro_chasis,
+				:nro_motor)
+		";
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':dominio', $datos["DOMINIO"], PDO::PARAM_STR);
+			$stmt->bindParam(':modelo', $datos["MODELO"], PDO::PARAM_STR);
+			$stmt->bindParam(':marca', $datos["MARCA"], PDO::PARAM_INT);
+			$stmt->bindParam(':ano', $datos["ANO"], PDO::PARAM_STR);
+			$stmt->bindParam(':nro_chasis', $datos["NRO_CHASIS"], PDO::PARAM_STR);
+			$stmt->bindParam(':nro_motor', $datos["NRO_MOTOR"], PDO::PARAM_STR);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
+	public function editarVehiculo($datos) {
+		$query = "
+			update `VEHICULO`
+			set
+			`MODELO` = :modelo,
+			`MARCA` = :marca,
+			`ANO` = :ano,
+			`NRO_CHASIS` = :nro_chasis,
+			`NRO_MOTOR` = :nro_motor,
+			 where `DOMINIO` = :dominio;
+		";
+
+		// `ACTIVO` = :activo  <--- agregarlo a la query 
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':modelo', $datos["MODELO"], PDO::PARAM_STR);
+			$stmt->bindParam(':marca', $datos["MARCA"], PDO::PARAM_STR);
+			$stmt->bindParam(':ano', $datos["ANO"], PDO::PARAM_INT);
+			$stmt->bindParam(':nro_chasis', $datos["NRO_CHASIS"], PDO::PARAM_INT);
+			$stmt->bindParam(':nro_motor', $datos["NRO_MOTOR"], PDO::PARAM_INT);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+	/*FIN VEHICULOS*/
+
 }

@@ -41,7 +41,7 @@
                     </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Flota<i class="material-icons right">more_vert</i></span>
-                            <p><a href="vehiculos.php">Ver flota de Vehículos</a></p>
+                            <p><a href="vehiculos.php" class="link">Ver flota de Vehículos</a></p>
                         </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
