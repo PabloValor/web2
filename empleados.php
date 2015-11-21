@@ -8,9 +8,8 @@
         header("Location: login.php");
     }
 
-    // Se traen los empleados de tabla Empleado
+    // TODO: esto no debería estar aca, hacer refacto de AGREGAR EMPLEADO NUEVO, esta dando un bug.
     $db = new DBManager();
-    $empleados = $db->obtenerEmpleados();
     $cargos = $db->obtenerCargos();
     $roles = $db->obtenerRoles();
 ?>
@@ -65,26 +64,7 @@
             <!-- Fin boton nuevo empleado -->
             <div class="col s12">
                 <!-- Lista Empleados -->
-                <ul class="collection" id="lista-empleados">
-                    <?php foreach($empleados as $empleado): ?>
-                            <li class="collection-item avatar">
-                                <img src="assets/imagenes/avatar.png" alt="" class="circle hide-on-small-only">
-                                <span class="title"><?php echo $empleado["NOMBRE"]; ?>&nbsp;<?php echo $empleado["APELLIDO"]; ?></span>
-                                <p class="grey-text"><?php echo $empleado["CARGO"]; echo " "; ?>
-                                    <span class="tag"><?php echo $empleado["ROL"]; ?></span>
-                                </p>
-                                <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>
-                                <!-- Eliminar -->
-                                <a href ="#!" data-id-eliminar="<?php echo $empleado["ID"]; ?>" class="btn-baja-empleado secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Eliminar">
-                                    <i class="material-icons">delete</i>
-                                </a>
-                                <!-- Editar -->
-                                <a href ="#modalEditarEmpleado" data-id="<?php echo $empleado["ID"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
-                                    <i class="material-icons">playlist_add</i>
-                                </a>
-                            </li>
-                    <?php endforeach; ?>
-                </ul>
+                <ul class="collection" id="lista-empleados"></ul>
                 <!-- Fin Lista Empleados -->
             </div>
         </div>        
@@ -99,9 +79,7 @@
 
     <!-- Modal Ver Datos de Empleado -->
     <div id="modalDatosEmpleado" class="modal modal-fixed-footer">
-        <div class="modal-content center-align">
-            <?php include_once('source/views/shared/_empleadoDatos.php'); ?>
-        </div>
+        <div class="modal-content center-align"></div>
         <div class="modal-footer">
             <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat ">Aceptar</a>
         </div>

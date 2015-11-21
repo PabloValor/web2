@@ -1,15 +1,15 @@
 <?php
-include '..\..\database\DBManager.php';
+    include '..\..\database\DBManager.php';
 
-use source\database\DBManager;
+    use source\database\DBManager;
 
-$db = new DBManager();
+    $db = new DBManager();
 
-$idUsuario = $_POST["id"];
+    $idUsuario = $_POST["id"];
 
-$empleado = $db->ObtenerEmpleadoPorId($idUsuario); 
-$cargos = $db->obtenerCargos();
-$roles = $db->obtenerRoles();
+    $empleado = $db->ObtenerEmpleadoPorId($idUsuario); 
+    $cargos = $db->obtenerCargos();
+    $roles = $db->obtenerRoles();
 ?>
 
 <form id="formEditarEmpleado">
@@ -94,7 +94,7 @@ $roles = $db->obtenerRoles();
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <a href="#!" class="btn-editar-empleado modal-action light-blue darken-1 waves-effect waves-light btn-large">Actualizar Empleado</a>
+            <a href="#!" id="btn-editar-empleado" class="modal-action light-blue darken-1 waves-effect waves-light btn-large">Actualizar Empleado</a>
         </div>
     </div>
 </form>

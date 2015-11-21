@@ -16,7 +16,7 @@ $empleados = $db->obtenerEmpleados();
             <p class="grey-text"><?php echo $empleado["CARGO"]; echo " "; ?>
                 <span class="tag"><?php echo $empleado["ROL"]; ?></span>
             </p>
-            <p><a class="modal-trigger link margin-bottom-10" href="#modalDatosEmpleado">Ver perfil completo</a></p>
+            <p><a class="btn-datos-empleado modal-trigger link margin-bottom-10" data-id="<?php echo $empleado["ID"]; ?>" href="#modalDatosEmpleado">Ver perfil completo</a></p>
             <!-- Eliminar -->
             <a href ="#!" data-id-eliminar="<?php echo $empleado["ID"]; ?>" class="btn-baja-empleado secondary-content light-blue lighten-1 waves-effect waves-light btn tooltipped" data-position="right" data-tooltip="Eliminar">
                 <i class="material-icons">delete</i>

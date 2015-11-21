@@ -1,3 +1,17 @@
+<?php
+    include '..\..\database\DBManager.php';
+
+    use source\database\DBManager;
+
+    $db = new DBManager();
+
+    $idUsuario = $_POST["id"];
+
+    $empleado = $db->ObtenerEmpleadoPorId($idUsuario); 
+    $cargos = $db->obtenerCargos();
+    $roles = $db->obtenerRoles();
+?>
+
 <h4>Perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
     <div class="center-align">
         <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
