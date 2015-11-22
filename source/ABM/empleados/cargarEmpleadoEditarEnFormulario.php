@@ -18,10 +18,10 @@
     <!--<input type="hidden" name="ACTIVO" value="">-->
     <div class="row">
         <div class="input-field col s12 m6">
-            <input id="nombre" placeholder="Ingrese nombre" name="NOMBRE" type="text" class="validate" value="<?php echo $empleado["NOMBRE"];?>">
+            <input id="nombre" placeholder="Ingrese nombre" name="NOMBRE" type="text" class="validate" value="<?php echo $empleado["NOMBRE"];?>" required>
         </div>
         <div class="input-field col s12 m6">
-            <input id="apellido" placeholder="Ingrese apellido" name="APELLIDO" type="text" class="validate" value="<?php echo $empleado["APELLIDO"];?>">
+            <input id="apellido" placeholder="Ingrese apellido" name="APELLIDO" type="text" class="validate" value="<?php echo $empleado["APELLIDO"];?>" required>
         </div>
     </div>
     <div class="row">
@@ -50,7 +50,7 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <select name="CARGO">
+            <select name="CARGO" required>
                 <option value="" disabled selected>Seleccione el Cargo</option>
                 <?php foreach($cargos as $cargo):
                     if($empleado["CARGO"] == $cargo["DESCRIPCION"]) {
@@ -67,7 +67,7 @@
             </select>                   
         </div>
         <div class="input-field col s12">
-            <select name="ROL">
+            <select name="ROL" required>
                 <option value="" disabled selected>Seleccione el Rol</option>
                 <?php foreach($roles as $rol):
                     if ($empleado["ROL"] == $rol["DESCRIPCION"]) {

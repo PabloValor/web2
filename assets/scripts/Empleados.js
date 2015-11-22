@@ -7,7 +7,7 @@ var Empleados = function () {
         cargarEmpleadosLista();
     };
 
-    /* metodos privados */
+    /* Métodos privados */
 
 	function cargarEmpleadosLista() { 
 		$.ajax({
@@ -158,7 +158,7 @@ var Empleados = function () {
             url: 'source/ABM/empleados/baja.php',
             method: 'POST',
             data: data,
-            success: function(data){
+            success: function(data) {
                 swal({
                     title: 'Usuario eliminado con éxito',
                     type: 'success'

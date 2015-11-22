@@ -1,9 +1,8 @@
 <?php
-namespace source\database;
 
+namespace source\database;
 use source\Globales\ConfigGlobal;
 use \PDO;
-
 include_once dirname(dirname(__FILE__)) . '\ConfigGlobal.php';
 
 class DBManager {
@@ -105,8 +104,8 @@ class DBManager {
 		";
 		try {
 			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':nombre', $datos["NOMBRE"], PDO::PARAM_STR);
-			$stmt->bindParam(':apellido', $datos["APELLIDO"], PDO::PARAM_STR);
+			$stmt->bindParam(':nombre', $this->configGlobal->normalizarTexto($datos["NOMBRE"]), PDO::PARAM_STR);
+			$stmt->bindParam(':apellido', $this->configGlobal->normalizarTexto($datos["APELLIDO"]), PDO::PARAM_STR);
 			$stmt->bindParam(':dni', $datos["DNI"], PDO::PARAM_INT);
 			$stmt->bindParam(':sexo', $datos["SEXO"], PDO::PARAM_STR);
 			$stmt->bindParam(':fecha_nacimiento', $datos["FECHA_NACIMIENTO"], PDO::PARAM_STR);
@@ -148,8 +147,8 @@ class DBManager {
 		try {
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':id', $datos["ID"], PDO::PARAM_INT);
-			$stmt->bindParam(':nombre', $datos["NOMBRE"], PDO::PARAM_STR);
-			$stmt->bindParam(':apellido', $datos["APELLIDO"], PDO::PARAM_STR);
+			$stmt->bindParam(':nombre', $this->configGlobal->normalizarTexto($datos["NOMBRE"]), PDO::PARAM_STR);
+			$stmt->bindParam(':apellido', $this->configGlobal->normalizarTexto($datos["APELLIDO"]), PDO::PARAM_STR);
 			$stmt->bindParam(':dni', $datos["DNI"], PDO::PARAM_INT);
 			$stmt->bindParam(':sexo', $datos["SEXO"], PDO::PARAM_STR);
 			$stmt->bindParam(':fecha_nacimiento', $datos["FECHA_NACIMIENTO"], PDO::PARAM_STR);

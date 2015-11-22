@@ -12,14 +12,14 @@
 
 <body>
     <?php require_once('/source/views/shared/_header.php'); ?>
-    <div class="container margin-top-20">
+    <div class=" tarjetas container margin-top-20">
         <!-- Contenido de pagina -->
         <div class="row">
             <!-- Tarjeta Empleados -->
             <div class="col s12 m4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="assets/imagenes/alf.jpg">
+                        <img class="activator" src="assets/imagenes/empleados.jpg">
                     </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Empleados<i class="material-icons right">more_vert</i></span>
@@ -37,7 +37,7 @@
             <div class="col s12 m4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="assets/imagenes/alf.jpg">
+                        <img class="activator" src="assets/imagenes/camion.jpg">
                     </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Flota<i class="material-icons right">more_vert</i></span>
@@ -67,7 +67,7 @@
                     </div>
                 </div>
             </div>
-            <!-- Fin Tarjeta Flota -->
+            <!-- Fin Tarjeta Viajes -->
 
             <!-- Tarjeta Reportes -->
             <div class="col s12 m4">

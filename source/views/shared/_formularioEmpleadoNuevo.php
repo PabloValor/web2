@@ -3,11 +3,11 @@
     <!--<input type="hidden" name="ACTIVO" value="">-->
     <div class="row">
         <div class="input-field col s12 m6">
-            <input id="nombre" name="NOMBRE" type="text" class="validate">
+            <input id="nombre" name="NOMBRE" type="text" class="validate" required>
             <label for="nombre">Nombre</label>
         </div>
         <div class="input-field col s12 m6">
-            <input id="apellido" name="APELLIDO" type="text" class="validate">
+            <input id="apellido" name="APELLIDO" type="text" class="validate" required>
             <label for="apellido">Apellido</label>
         </div>
     </div>
@@ -41,7 +41,7 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
-            <select name="CARGO">
+            <select name="CARGO" required>
                 <option value="" disabled selected>Seleccione el Cargo</option>
                 <?php foreach($cargos as $cargo): ?>
 	                <option value="<?php echo $cargo["ID"]; ?>">
@@ -51,7 +51,7 @@
             </select>                   
         </div>
         <div class="input-field col s12">
-            <select name="ROL">
+            <select name="ROL" required>
                 <option value="" disabled selected>Seleccione el Rol</option>
                 <?php foreach($roles as $rol): ?>
                     <option value="<?php echo $rol["ID"]; ?>">

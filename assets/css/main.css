@@ -58,6 +58,12 @@ form {
 	color: whitesmoke;
 }
 
+/* Tarjetas index */
+.tarjetas .card-image img {
+	height: 250px;
+	width: 100%;
+}
+
 /* Login */
 h1.login {
 	font-size: 40px;

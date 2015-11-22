@@ -15,4 +15,11 @@ class ConfigGlobal {
 		);
 	}
 
+	public function normalizarTexto($input) {
+		if(!empty($input)) {
+			$texto = strtolower($input); // -->>> esto NO está funcionando!
+			$texto = ucfirst($input);  // Primer letra en mayuscula.
+			return $texto;
+		}
+	}	
 }
