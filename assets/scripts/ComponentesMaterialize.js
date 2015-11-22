@@ -1,4 +1,4 @@
-function ComponentesMaterialize() {
+var ComponentesMaterialize = function () {
 	'use strict';
 	
 	this.cargar = function() {
@@ -32,4 +32,4 @@ function ComponentesMaterialize() {
     function inizializarTooltips() {
         $('.tooltipped').tooltip({delay: 20});
     }	
-}
+};

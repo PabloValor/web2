@@ -1,4 +1,4 @@
-function Empleados() {
+var Empleados = function () {
 	'use strict';
 
 	var componentesMaterialize = new ComponentesMaterialize();
@@ -17,7 +17,7 @@ function Empleados() {
 		    success: function(data) {
 		        $('#lista-empleados').html(data);
 		    }
-		}).done(function(){
+		}).done(function() {	
 			componentesMaterialize.cargar();
 			cargarEventos();
 			ponerFocoEnEmpleadoEditar();
