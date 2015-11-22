@@ -1,5 +1,6 @@
 <?php
     include '..\..\database\DBManager.php';
+    include '..\..\lib\phpqrcode\qrlib.php';
 
     use source\database\DBManager;
 
