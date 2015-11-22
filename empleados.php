@@ -26,8 +26,8 @@
         <!-- Contenido de pagina -->
         <!-- Filtro de busqueda -->
         <div class="card-panel grey lighten-5">
-            <form id="formularioListaFiltrada">
-                <div class="row">
+            <div class="row">
+                <form id="formularioListaFiltrada">
                     <div class="col s12 m10">
                         <div class="input-field col s12">
                             <i class="material-icons prefix">search</i>
@@ -39,9 +39,9 @@
                         <div class="input-field center-align">
                             <a id="btn-lista-filtrada" class="light-blue darken-1 waves-effect waves-light btn-large">Buscar</a>
                         </div>
-                    </div>                        
-                </div>                
-            </form>
+                    </div>
+                </form>
+            </div>
         </div>
         <!-- Fin Filtro de busqueda -->
         <div class="row">
