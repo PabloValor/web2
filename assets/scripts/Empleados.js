@@ -25,7 +25,7 @@ var Empleados = function () {
 	}
 
     function cargarEventos() {
-        btnEmpleadoNuevo();
+        btnEmpleadoNuevoLista();
         btnDatosEmpleado();
         btnEmpleadoEditarLista();
         btnEmpleadoEliminarLista();
@@ -60,6 +60,7 @@ var Empleados = function () {
                 }
             }).done(function(){
             	$('#modalNuevoEmpleado').closeModal();
+                cargarEmpleadosLista();
             });
         });
     }
@@ -79,10 +80,54 @@ var Empleados = function () {
                     $('#modalEditarEmpleado .modal-content').html(data);
                 }
             }).done(function(){
-            	btnEmpleadoEditar();
+                btnEmpleadoEditar();
+            });
+        });
+    }    
+
+    function btnEmpleadoNuevoLista() {
+        // Se carga evento boton editar de lista
+        $('#btn-nuevo-lista').on('click', function() {
+            $.ajax({
+                url: 'source/ABM/empleados/cargarEmpleadoNuevoEnFormulario.php',
+                method: 'post',
+                dataType: 'html',
+                success: function(data){
+                    $('#modalNuevoEmpleado .modal-content').html(data);
+                }
+            }).done(function(){
+                btnEmpleadoNuevo();
             });
         });
     }
+
+    function btnEmpleadoNuevo() {
+        $('#btn-nuevo-empleado').on('click', function() {
+            var formData = $('#formNuevoEmpleado').serialize();
+            // TODO: validaciones del form con Validate.js
+            $.ajax({
+                url: 'source/ABM/empleados/nuevo.php',
+                method: 'POST',
+                data: formData,
+                success: function(data){
+                    swal({
+                        title: 'Usuario de alta con éxito',
+                        type: 'success'
+                    }, function(){
+                        $('#modalNuevoEmpleado').closeModal();
+                    });
+                },
+                error: function() {
+                    swal({
+                        title: 'Ocurrió un error al dar alta a usuario',
+                        type: 'error'
+                    });
+                }
+            }).done(function(){
+                cargarEmpleadosLista();
+            });
+        });
+    }    
 
     function btnDatosEmpleado() {
         // Se carga evento boton ver empleado

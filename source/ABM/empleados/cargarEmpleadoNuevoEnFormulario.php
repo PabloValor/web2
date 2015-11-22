@@ -1,3 +1,14 @@
+<?php
+    include '..\..\database\DBManager.php';
+
+    use source\database\DBManager;
+
+    $db = new DBManager();
+ 
+    $cargos = $db->obtenerCargos();
+    $roles = $db->obtenerRoles();
+?>
+
 <form id="formNuevoEmpleado">
     <h4>Agregar nuevo Empleado</h4>
     <!--<input type="hidden" name="ACTIVO" value="">-->
@@ -44,9 +55,9 @@
             <select name="CARGO" required>
                 <option value="" disabled selected>Seleccione el Cargo</option>
                 <?php foreach($cargos as $cargo): ?>
-	                <option value="<?php echo $cargo["ID"]; ?>">
-	                    <?php echo $cargo["DESCRIPCION"]; ?>
-	                </option>
+                    <option value="<?php echo $cargo["ID"]; ?>">
+                        <?php echo $cargo["DESCRIPCION"]; ?>
+                    </option>
                 <?php endforeach; ?>
             </select>                   
         </div>

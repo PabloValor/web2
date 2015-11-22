@@ -58,7 +58,7 @@
             <!-- boton nuevo empleado -->
             <div class="col s12 margin-top-10 margin-bottom-10">
                 <div class="center-align">
-                    <a href ="#modalNuevoEmpleado" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar nuevo</a>
+                    <a href ="#modalNuevoEmpleado" id="btn-nuevo-lista" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar nuevo</a>
                 </div>
             </div>
             <!-- Fin boton nuevo empleado -->
@@ -71,9 +71,7 @@
     </div>
     <!-- Modal Nuevo Empleado -->
     <div id="modalNuevoEmpleado" class="modal">
-        <div class="modal-content center-align">
-            <?php include_once('source/views/shared/_formularioEmpleadoNuevo.php'); ?>
-        </div>
+        <div class="modal-content center-align"></div>
     </div>
     <!-- Fin Modal Nuevo Empleado -->
 

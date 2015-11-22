@@ -33,7 +33,7 @@
     </div>                                           
     <div class="row">
         <div class="input-field col s12">
-            <a href="#!" class="btn-nuevo-vehiculo modal-action modal-close light-blue darken-1 waves-effect waves-light btn-large">Agregar Nuevo Vehículo</a>
+            <a href="#!" id="btn-nuevo-lista" class="btn-nuevo-vehiculo modal-action modal-close light-blue darken-1 waves-effect waves-light btn-large">Agregar Nuevo Vehículo</a>
         </div>
     </div>
-</form>
+</form>btn-nuevo-lista
