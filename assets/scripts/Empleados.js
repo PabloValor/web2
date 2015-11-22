@@ -7,7 +7,31 @@ var Empleados = function () {
         cargarEmpleadosLista();
     };
 
+    this.cargarEventoBtnFiltroEmpleado = function() {
+        cargarEmpleadosListaFiltrada();
+    } 
+
     /* Métodos privados */
+
+    function cargarEmpleadosListaFiltrada() {
+        $('#btn-lista-filtrada').on('click', function(e){
+            e.preventDefault();
+            var formData = $('#formularioListaFiltrada').serialize();
+            $.ajax({
+                url: 'source/ABM/empleados/cargarEmpleadosListaFiltrada.php',
+                method: 'post',
+                data: formData,
+                dataType: 'html',
+                success: function(data) {
+                    $('#lista-empleados').html(data);
+                }
+            }).done(function() {    
+                componentesMaterialize.cargar();
+                cargarEventos();
+                ponerFocoEnEmpleadoEditar();
+            });
+        });        
+    }
 
 	function cargarEmpleadosLista() { 
 		$.ajax({
@@ -26,6 +50,7 @@ var Empleados = function () {
 
     function cargarEventos() {
         btnEmpleadoNuevoLista();
+        cargarEmpleadosListaFiltrada();
         btnDatosEmpleado();
         btnEmpleadoEditarLista();
         btnEmpleadoEliminarLista();

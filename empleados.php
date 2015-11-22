@@ -26,32 +26,22 @@
         <!-- Contenido de pagina -->
         <!-- Filtro de busqueda -->
         <div class="card-panel grey lighten-5">
-            <div class="row">
-                <div class="col s12 m5">
-                    <div class="input-field col s12">
-                        <i class="material-icons prefix">search</i>
-                        <input id="icon_prefix" type="text" class="validate">
-                        <label for="icon_prefix">Buscar Empleado</label>
+            <form id="formularioListaFiltrada">
+                <div class="row">
+                    <div class="col s12 m10">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">search</i>
+                            <input id="icon_prefix" type="text" class="validate" name="NOMBREEMPLEADO">
+                            <label for="icon_prefix">Buscar Empleado</label>
+                        </div>
                     </div>
-                </div>
-                <div class="col s12 m5">
-                    <div class="input-field">
-                        <select>
-                            <option value="" disabled selected>Filtrar por Cargo</option>
-                            <?php foreach($cargos as $cargo): ?>
-                                <option value="<?php echo $cargo["ID"]; ?>">
-                                    <?php echo $cargo["DESCRIPCION"]; ?>
-                                </option>
-                            <?php endforeach; ?>
-                        </select>
-                    </div>
-                </div>
-                <div class="col s12 m2">
-                    <div class="input-field center-align">
-                        <a class="light-blue darken-1 waves-effect waves-light btn-large">Buscar</a>
-                    </div>
-                </div>                        
-            </div>
+                    <div class="col s12 m2">
+                        <div class="input-field center-align">
+                            <a id="btn-lista-filtrada" class="light-blue darken-1 waves-effect waves-light btn-large">Buscar</a>
+                        </div>
+                    </div>                        
+                </div>                
+            </form>
         </div>
         <!-- Fin Filtro de busqueda -->
         <div class="row">

@@ -13,6 +13,7 @@ $(document).on('ready', function() {
 
     var empleados = new Empleados();
     empleados.cargarLista();
+    empleados.cargarEventoBtnFiltroEmpleado();
 
 
     // Baja vehiculo

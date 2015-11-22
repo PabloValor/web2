@@ -68,6 +68,30 @@ class DBManager {
 			print "Chan: " . $ex->getMessage();
 			die();
 		}		
+	}	
+
+	public function obtenerEmpleadosFiltrados($datoEmpleado) {
+		$query =
+		" 
+			select e.ID, e.NOMBRE, e.APELLIDO, e.DNI, e.SEXO, e.FECHA_NACIMIENTO,
+			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO,
+			e.PASSWORD, r.DESCRIPCION ROL
+			from empleado e 
+			join cargo c on e.ID_CARGO = c.ID
+			join rol r on e.ID_ROL = r.ID
+			where e.NOMBRE = :datoEmpleado or e.apellido = :datoEmpleado
+		";
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':datoEmpleado', $datoEmpleado, PDO::PARAM_STR);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
 	}
 
 	public function ObtenerEmpleadoPorId($idEmpleado) {

@@ -5,7 +5,12 @@ use source\database\DBManager;
 
 $db = new DBManager();
 
-$empleados = $db->obtenerEmpleados();
+if(empty($_POST["NOMBREEMPLEADO"])) {
+    $empleados = $db->obtenerEmpleados();
+} else {
+    $empleados = $db->obtenerEmpleadosFiltrados($_POST["NOMBREEMPLEADO"]);
+}
+
 ?>
 
 <?php foreach($empleados as $empleado): ?>
