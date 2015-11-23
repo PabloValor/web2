@@ -23,7 +23,8 @@ if(isset($usuario) && isset($password)) {
         $_SESSION['password']       = $resultado['PASSWORD'];
         $_SESSION['nombre']         = $resultado['NOMBRE'];
         $_SESSION['apellido']       = $resultado['APELLIDO'];
-        $_SESSION['rol']            = $resultado['ROL'];
+        $_SESSION['id_rol']         = $resultado['ID_ROL'];
+        $_SESSION['id_cargo']       = $resultado['ID_CARGO'];
         $_SESSION['dni']            = $resultado['DNI'];
 
         header("Location: ../index.php");

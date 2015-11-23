@@ -4,7 +4,6 @@
 <?php
     session_start();
     require_once('/source/inc/head.php');
-
     unset($_SESSION['logueado']);
 ?>
 
@@ -16,7 +15,7 @@
     <div class="container">
         <div class="center-align">
             <h1 class="login">Dirty Trucks Inc.</h1>
-            <img src="assets/imagenes/camion.png" alt="Camión" class="responsive-img logo-camion">
+            <img src="assets/imagenes/camion-login.png" alt="Camión" class="responsive-img logo-camion">
             <h2 class="margin-top-0 login">Sistema de gestión</h2>
         </div>
 

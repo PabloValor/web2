@@ -7,11 +7,6 @@
     if (empty($_SESSION['usuario'])) {
         header("Location: login.php");
     }
-
-    // TODO: esto no debería estar aca, hacer refacto de AGREGAR EMPLEADO NUEVO, esta dando un bug.
-    $db = new DBManager();
-    $cargos = $db->obtenerCargos();
-    $roles = $db->obtenerRoles();
 ?>
 
 <!doctype html>
@@ -46,11 +41,13 @@
         <!-- Fin Filtro de busqueda -->
         <div class="row">
             <!-- boton nuevo empleado -->
-            <div class="col s12 margin-top-10 margin-bottom-10">
-                <div class="center-align">
-                    <a href ="#modalNuevoEmpleado" id="btn-nuevo-lista" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar nuevo</a>
+            <?php if($_SESSION['id_rol'] == 3) { ?> <!-- Botón de agregar Empleado sólo habilitado para rol Supervisor -->
+                <div class="col s12 margin-top-10 margin-bottom-10">
+                    <div class="center-align">
+                        <a href ="#modalNuevoEmpleado" id="btn-nuevo-lista" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar nuevo</a>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
             <!-- Fin boton nuevo empleado -->
             <div class="col s12">
                 <!-- Lista Empleados -->
