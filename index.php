@@ -76,7 +76,7 @@
             <!-- Fin Tarjeta Viajes -->
 
             <!-- Tarjeta Reportes -->
-            <?php if($_SESSION['id_rol'] != 1) { ?>
+            <?php if($_SESSION['id_rol'] == 3) { ?>
                 <div class="col s12 m4">
                     <div class="card hoverable">
                         <div class="card-image waves-effect waves-block waves-light">
