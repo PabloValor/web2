@@ -237,7 +237,7 @@ class DBManager {
 	public function obtenerVehiculos() {
 		$query =
 		' 
-			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v. NRO_CHASIS, v.NRO_MOTOR
+			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR
 			from vehiculo v
 			where v.ACTIVO = 1
 		';
@@ -251,12 +251,12 @@ class DBManager {
 			print "Chan: " . $ex->getMessage();
 			die();
 		}		
-	}
+	}	
 
 	public function ObtenerVehiculoPorDominio($dominioVehiculo) {
 		$query =
 		' 
-			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v. NRO_CHASIS, v.NRO_MOTOR
+			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR
 			from vehiculo v 
 			where v.DOMINIO = :dominio
 		';
@@ -275,7 +275,7 @@ class DBManager {
 
 	public function bajaVehiculo($dominio) {
 		try {
-			$query = 'delete from vehiculo where DOMINIO = :dominio';
+			$query = 'UPDATE vehiculo SET activo = 0 WHERE dominio = :dominio';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':dominio', $dominio);
 			$stmt->execute();
@@ -297,10 +297,10 @@ class DBManager {
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':dominio', $datos["DOMINIO"], PDO::PARAM_STR);
 			$stmt->bindParam(':modelo', $datos["MODELO"], PDO::PARAM_STR);
-			$stmt->bindParam(':marca', $datos["MARCA"], PDO::PARAM_INT);
-			$stmt->bindParam(':ano', $datos["ANO"], PDO::PARAM_STR);
-			$stmt->bindParam(':nro_chasis', $datos["NRO_CHASIS"], PDO::PARAM_STR);
-			$stmt->bindParam(':nro_motor', $datos["NRO_MOTOR"], PDO::PARAM_STR);
+			$stmt->bindParam(':marca', $datos["MARCA"], PDO::PARAM_STR);
+			$stmt->bindParam(':ano', $datos["ANO"], PDO::PARAM_INT);
+			$stmt->bindParam(':nro_chasis', $datos["NRO_CHASIS"], PDO::PARAM_INT);
+			$stmt->bindParam(':nro_motor', $datos["NRO_MOTOR"], PDO::PARAM_INT);
 			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
 
 			$stmt->execute();
@@ -319,19 +319,18 @@ class DBManager {
 			`MARCA` = :marca,
 			`ANO` = :ano,
 			`NRO_CHASIS` = :nro_chasis,
-			`NRO_MOTOR` = :nro_motor,
+			`NRO_MOTOR` = :nro_motor
 			 where `DOMINIO` = :dominio;
 		";
 
-		// `ACTIVO` = :activo  <--- agregarlo a la query 
 		try {
 			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':dominio', $datos["DOMINIO"], PDO::PARAM_STR);
 			$stmt->bindParam(':modelo', $datos["MODELO"], PDO::PARAM_STR);
 			$stmt->bindParam(':marca', $datos["MARCA"], PDO::PARAM_STR);
 			$stmt->bindParam(':ano', $datos["ANO"], PDO::PARAM_INT);
 			$stmt->bindParam(':nro_chasis', $datos["NRO_CHASIS"], PDO::PARAM_INT);
 			$stmt->bindParam(':nro_motor', $datos["NRO_MOTOR"], PDO::PARAM_INT);
-			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
 
 			$stmt->execute();
 		}

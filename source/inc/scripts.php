@@ -3,4 +3,5 @@
 <script type="text/javascript" src="assets/scripts/vendor/sweetalert2.min.js"></script>
 <script type="text/javascript" src="assets/scripts/ComponentesMaterialize.js"></script>
 <script type="text/javascript" src="assets/scripts/Empleados.js"></script>
+<script type="text/javascript" src="assets/scripts/Vehiculos.js"></script>
 <script type="text/javascript" src="assets/scripts/main.js"></script>
