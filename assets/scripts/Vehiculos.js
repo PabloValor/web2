@@ -7,7 +7,31 @@ var Vehiculos = function () {
         cargarVehiculosLista();
     };
 
+    this.cargarEventoBtnFiltroVehiculo = function() {
+        cargarVehiculosListaFiltrada();
+    } 
+
     /* Métodos privados */
+
+    function cargarVehiculosListaFiltrada() {
+        $('#btn-lista-filtrada').on('click', function(e){
+            e.preventDefault();
+            var formData = $('#formularioListaFiltrada').serialize();
+            $.ajax({
+                url: 'source/ABM/vehiculos/cargarVehiculosListaFiltrada.php',
+                method: 'post',
+                data: formData,
+                dataType: 'html',
+                success: function(data) {
+                    $('#lista-vehiculos').html(data);
+                }
+            }).done(function() {    
+                componentesMaterialize.cargar();
+                cargarEventos();
+                ponerFocoEnVehiculoEditar();
+            });
+        });        
+    }
 
     function cargarVehiculosLista() { 
         $.ajax({
@@ -25,7 +49,8 @@ var Vehiculos = function () {
     }
 
     function cargarEventos() {
-        btnVehiculoNuevo();
+        btnVehiculoNuevoLista();
+        cargarVehiculosListaFiltrada();
         btnDatosVehiculo();
         btnVehiculoEditarLista();
         btnVehiculoEliminarLista();
@@ -54,12 +79,13 @@ var Vehiculos = function () {
                 },
                 error: function() {
                     swal({
-                        title: 'Ocurrió un error al agregar vehiculo',
+                        title: 'Ocurrió un error al dar de alta el vehiculo',
                         type: 'error'
                     });
                 }
             }).done(function(){
                 $('#modalNuevoVehiculo').closeModal();
+                cargarVehiculosLista();
             });
         });
     }
@@ -80,6 +106,22 @@ var Vehiculos = function () {
                 }
             }).done(function(){
                 btnVehiculoEditar();
+            });
+        });
+    }
+
+    function btnVehiculoNuevoLista() {
+        // Se carga evento boton editar de lista
+        $('#btn-nuevo-lista').on('click', function() {
+            $.ajax({
+                url: 'source/ABM/vehiculos/cargarVehiculoNuevoEnFormulario.php',
+                method: 'post',
+                dataType: 'html',
+                success: function(data){
+                    $('#modalNuevoVehiculo .modal-content').html(data);
+                }
+            }).done(function(){
+                btnVehiculoNuevo();
             });
         });
     }
@@ -155,7 +197,7 @@ var Vehiculos = function () {
         var data = 'dominio=' + dominio;
 
         $.ajax({
-            url: 'source/ABM/Vehiculos/baja.php',
+            url: 'source/ABM/vehiculos/baja.php',
             method: 'POST',
             data: data,
             success: function(data) {

@@ -1,3 +1,13 @@
+<?php
+    session_start();
+    include '..\..\database\DBManager.php';
+
+    use source\database\DBManager;
+
+    $db = new DBManager();
+
+?>
+
 <form id="formNuevoVehiculo">
     <h4>Agregar nuevo Vehiculo</h4>
     <!--<input type="hidden" name="ACTIVO" value="">-->

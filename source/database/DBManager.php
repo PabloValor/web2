@@ -253,6 +253,27 @@ class DBManager {
 		}		
 	}	
 
+	public function obtenerVehiculosFiltrados($dominio) {
+		$query =
+		" 
+			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR
+			from vehiculo v
+			where v.ACTIVO = 1
+			and v.DOMINIO = :dominio
+		";
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':dominio', $dominio, PDO::PARAM_STR);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
 	public function ObtenerVehiculoPorDominio($dominioVehiculo) {
 		$query =
 		' 
