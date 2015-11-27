@@ -58,6 +58,10 @@ form {
 	color: whitesmoke;
 }
 
+#formularioListaFiltrada {
+	max-width: inherit;
+}
+
 /* Tarjetas index */
 .tarjetas .card-image img {
 	height: 250px;

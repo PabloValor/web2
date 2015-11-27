@@ -121,6 +121,7 @@ var Empleados = function () {
                     $('#modalNuevoEmpleado .modal-content').html(data);
                 }
             }).done(function(){
+                componentesMaterialize.cargar();
                 btnEmpleadoNuevo();
             });
         });
