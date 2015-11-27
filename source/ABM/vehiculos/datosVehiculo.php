@@ -6,9 +6,11 @@
 
     $db = new DBManager();
 
+  
     $dominioVehiculo = $_POST["dominio"];
-
+    $codetext = 'DEMO -'.$dominioVehiculo;
     $vehiculo = $db->ObtenerVehiculoPorDominio($dominioVehiculo); 
+
 ?>
 
 <h4>Ficha del Vehículo</h4>
@@ -16,6 +18,8 @@
         <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
     </div>
 <h5 class="grey-text"><?php echo $vehiculo["DOMINIO"]; ?></h5>
+<h5 class="redondear-imagen"><?php echo $vehiculo["DOMINIO"]; ?></h5> <!--Aca se mostraria el codigo Qr -->
+
 <div class="row">
 	<div class="col s12 m6">
 		<ul class="collection left-align">
