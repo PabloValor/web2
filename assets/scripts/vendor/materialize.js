@@ -730,7 +730,8 @@ else {
       },
       $modal = $(this),
       overlayID = $modal.data('overlay-id'),
-      $overlay = $('#' + overlayID);
+      //$overlay = $('#' + overlayID);
+      $overlay = $('div.lean-overlay');
 
       options = $.extend(defaults, options);
 
