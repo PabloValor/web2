@@ -11,7 +11,7 @@ $empleados = $db->obtenerEmpleados();
 
 <?php foreach($empleados as $empleado):?> 
         <li class="collection-item avatar">
-            <img src="assets/imagenes/avatar.png" alt="" class="circle hide-on-small-only">
+            <img src="assets/imagenes/avatares/empleados/<?php echo $empleado["AVATAR"];?>.jpg" alt="<?php echo $empleado["AVATAR"];?>" class="circle hide-on-small-only">
             <span class="title"><?php echo $empleado["NOMBRE"]; ?>&nbsp;<?php echo $empleado["APELLIDO"]; ?></span>
             <p class="grey-text"><?php echo $empleado["CARGO"]; echo " "; ?>
                 <span class="tag"><?php echo $empleado["ROL"]; ?></span>

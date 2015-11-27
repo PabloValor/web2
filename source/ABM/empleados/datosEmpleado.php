@@ -16,7 +16,7 @@
 
 <h4>Perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
     <div class="center-align">
-        <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
+        <img class="avatar-perfil-usuario" src="assets/imagenes/avatares/empleados/<?php echo $empleado["AVATAR"];?>.jpg" alt="<?php echo $empleado["AVATAR"];?>">
     </div>
 <h5 class="grey-text"><?php echo $empleado["CARGO"]; ?></h5>
 <div class="row">

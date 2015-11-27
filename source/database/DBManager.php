@@ -52,7 +52,7 @@ class DBManager {
 		$query =
 		' 
 			select e.ID, e.NOMBRE, e.APELLIDO, e.DNI, e.SEXO, e.FECHA_NACIMIENTO,
-			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO,
+			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO, e.AVATAR,
 			e.PASSWORD, r.DESCRIPCION ROL
 			from empleado e 
 			join cargo c on e.ID_CARGO = c.ID
@@ -74,7 +74,7 @@ class DBManager {
 		$query =
 		" 
 			select e.ID, e.NOMBRE, e.APELLIDO, e.DNI, e.SEXO, e.FECHA_NACIMIENTO,
-			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO,
+			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO, e.AVATAR,
 			e.PASSWORD, r.DESCRIPCION ROL
 			from empleado e 
 			join cargo c on e.ID_CARGO = c.ID
@@ -98,7 +98,7 @@ class DBManager {
 		$query =
 		' 
 			select e.ID, e.NOMBRE, e.APELLIDO, e.DNI, e.SEXO, e.FECHA_NACIMIENTO,
-			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO,
+			e.FECHA_INGRESO, e.SUELDO, c.DESCRIPCION CARGO, e.USUARIO, e.AVATAR,
 			e.PASSWORD, r.DESCRIPCION ROL
 			from empleado e 
 			join cargo c on e.ID_CARGO = c.ID
@@ -122,9 +122,9 @@ class DBManager {
 		$query = "
 			insert into `EMPLEADO`(`NOMBRE`, `APELLIDO`, `DNI`, `SEXO`,
 				`FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`,
-				`USUARIO`, `PASSWORD`, `ID_ROL`)
+				`USUARIO`, `PASSWORD`, `ID_ROL`, `AVATAR`)
 			values(:nombre, :apellido, :dni, :sexo, :fecha_nacimiento,
-				:fecha_ingreso, :sueldo,:id_cargo, :usuario, :password,	:id_rol)
+				:fecha_ingreso, :sueldo,:id_cargo, :usuario, :password,	:id_rol, :avatar)
 		";
 		try {
 			$stmt = $this->dbo->prepare($query);
@@ -139,6 +139,7 @@ class DBManager {
 			$stmt->bindParam(':usuario', $datos["USUARIO"], PDO::PARAM_STR);
 			$stmt->bindParam(':password', $datos["PASSWORD"], PDO::PARAM_INT);
 			$stmt->bindParam(':id_rol', $datos["ROL"], PDO::PARAM_INT);
+			$stmt->bindParam(':avatar', $datos["AVATAR"], PDO::PARAM_STR);
 			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
 
 			$stmt->execute();
@@ -163,7 +164,8 @@ class DBManager {
 			`ID_CARGO` = :id_cargo,
 			`USUARIO` = :usuario,
 			`PASSWORD` = :password,
-			`ID_ROL` = :id_rol
+			`ID_ROL` = :id_rol,
+			`AVATAR` = :avatar
 			where `ID` = :id;
 		";
 
@@ -182,6 +184,7 @@ class DBManager {
 			$stmt->bindParam(':usuario', $datos["USUARIO"], PDO::PARAM_STR);
 			$stmt->bindParam(':password', $datos["PASSWORD"], PDO::PARAM_INT);
 			$stmt->bindParam(':id_rol', $datos["ROL"], PDO::PARAM_INT);
+			$stmt->bindParam(':avatar', $datos["AVATAR"], PDO::PARAM_STR);
 			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
 
 			$stmt->execute();

@@ -49,6 +49,10 @@ form {
 .redondear-imagen {
 	border-radius: 50%;
 }
+
+.avatar-perfil-usuario {
+	max-width: 200px;
+}
 .tag {
 	background-color: #C3C3C3;
 	padding: 4px;

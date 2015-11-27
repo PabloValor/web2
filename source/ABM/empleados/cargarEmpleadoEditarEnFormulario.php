@@ -95,6 +95,11 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
+            <input id="avatar" placeholder="Ingrese nombre de avatar" name="AVATAR" type="text" class="validate" value="<?php echo $empleado["AVATAR"];?>">
+        </div>
+    </div>    
+    <div class="row">
+        <div class="input-field col s12">
             <a href="#!" id="btn-editar-empleado" class="modal-action light-blue darken-1 waves-effect waves-light btn-large">Actualizar Empleado</a>
         </div>
     </div>

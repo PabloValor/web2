@@ -85,6 +85,12 @@
     </div>
     <div class="row">
         <div class="input-field col s12">
+            <input id="avatar" name="AVATAR" type="text" class="validate">
+            <label for="AVATAR">AVATAR</label>
+        </div>
+    </div>    
+    <div class="row">
+        <div class="input-field col s12">
             <a href="#!" id="btn-nuevo-empleado" class="modal-action modal-close light-blue darken-1 waves-effect waves-light btn-large">Agregar Nuevo Empleado</a>
         </div>
     </div>
