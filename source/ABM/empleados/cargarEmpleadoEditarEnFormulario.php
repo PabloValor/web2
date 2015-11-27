@@ -65,7 +65,7 @@
                         </option>
                 <?php    } ?>
                 <?php endforeach; ?>
-            </select>                   
+            </select>
         </div>
         <div class="input-field col s12">
             <select name="ROL" required>
@@ -82,7 +82,7 @@
                     </option>
                 <?php } ?>
                 <?php endforeach; ?>
-            </select>                                                
+            </select>
         </div>
     </div>
     <div class="row">

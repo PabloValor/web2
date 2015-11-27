@@ -106,6 +106,7 @@ var Empleados = function () {
                 }
             }).done(function(){
                 btnEmpleadoEditar();
+                componentesMaterialize.cargar();
             });
         });
     }    

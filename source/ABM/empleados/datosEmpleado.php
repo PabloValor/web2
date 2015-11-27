@@ -12,11 +12,12 @@
     $empleado = $db->ObtenerEmpleadoPorId($idUsuario); 
     $cargos = $db->obtenerCargos();
     $roles = $db->obtenerRoles();
+    $avatar = empty($empleado["AVATAR"]) ? "default" : $empleado["AVATAR"];
 ?>
 
 <h4>Perfil de <?php echo $empleado["NOMBRE"]; echo " "; echo $empleado["APELLIDO"];?></h4>
     <div class="center-align">
-        <img class="avatar-perfil-usuario" src="assets/imagenes/avatares/empleados/<?php echo $empleado["AVATAR"];?>.jpg" alt="<?php echo $empleado["AVATAR"];?>">
+        <img class="avatar-perfil-usuario" src="assets/imagenes/avatares/empleados/<?php echo $avatar; ?>.jpg" alt="<?php echo $avatar; ?>">
     </div>
 <h5 class="grey-text"><?php echo $empleado["CARGO"]; ?></h5>
 <div class="row">
