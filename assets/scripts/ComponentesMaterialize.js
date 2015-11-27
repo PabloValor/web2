@@ -5,7 +5,7 @@ var ComponentesMaterialize = function () {
 		inicializarSideNav();
 	    inicializarModals();
 	    inicilizarCombos();
-	    inicializarDatePickers();
+	    // inicializarDatePickers(); De momento se va a usar el datepicker de nativo de HTML5
 	    inizializarTooltips();
 	};
 

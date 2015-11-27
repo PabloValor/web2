@@ -45,10 +45,10 @@
     </div>                                            
     <div class="row">
         <div class="input-field col s12 m6">
-            <input placeholder="Fecha de nacimiento" type="date" name="FECHA_NACIMIENTO" class="datepicker" value="">
+            <input placeholder="Fecha de nacimiento" type="date" name="FECHA_NACIMIENTO">
         </div>
         <div class="input-field col s12 m6">
-            <input placeholder="Fecha de Ingreso" type="date" name="FECHA_INGRESO" class="datepicker" value="">
+            <input placeholder="Fecha de Ingreso" type="date" name="FECHA_INGRESO">
         </div>
     </div>
     <div class="row">
