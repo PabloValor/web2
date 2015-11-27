@@ -86,7 +86,7 @@
     <div class="row">
         <div class="input-field col s12">
             <input id="avatar" name="AVATAR" type="text" class="validate">
-            <label for="AVATAR">AVATAR</label>
+            <label for="Avatar">AVATAR</label>
         </div>
     </div>    
     <div class="row">
