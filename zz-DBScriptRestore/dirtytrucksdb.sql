@@ -2,10 +2,10 @@
 -- version 4.4.14
 -- http://www.phpmyadmin.net
 --
--- Servidor: 127.0.0.1
--- Tiempo de generación: 14-10-2015 a las 21:06:42
--- Versión del servidor: 5.6.26
--- Versión de PHP: 5.6.12
+-- Host: 127.0.0.1
+-- Generation Time: Nov 27, 2015 at 03:54 PM
+-- Server version: 5.6.26
+-- PHP Version: 5.6.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,13 +17,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `dirtytrucksdb`
+-- Database: `dirtytrucksdb`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cargo`
+-- Table structure for table `cargo`
 --
 
 CREATE TABLE IF NOT EXISTS `cargo` (
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `cargo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cargo`
+-- Dumping data for table `cargo`
 --
 
 INSERT INTO `cargo` (`ID`, `DESCRIPCION`) VALUES
@@ -42,7 +42,7 @@ INSERT INTO `cargo` (`ID`, `DESCRIPCION`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `cliente`
+-- Table structure for table `cliente`
 --
 
 CREATE TABLE IF NOT EXISTS `cliente` (
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `cliente`
+-- Dumping data for table `cliente`
 --
 
 INSERT INTO `cliente` (`ID`, `RAZON_SOCIAL`, `ACTIVO`) VALUES
@@ -63,7 +63,7 @@ INSERT INTO `cliente` (`ID`, `RAZON_SOCIAL`, `ACTIVO`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `empleado`
+-- Table structure for table `empleado`
 --
 
 CREATE TABLE IF NOT EXISTS `empleado` (
@@ -79,20 +79,37 @@ CREATE TABLE IF NOT EXISTS `empleado` (
   `USUARIO` varchar(25) NOT NULL,
   `PASSWORD` varchar(25) NOT NULL,
   `ID_ROL` int(3) NOT NULL,
-  `ACTIVO` char(1) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `ACTIVO` char(1) NOT NULL,
+  `AVATAR` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=45 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `empleado`
+-- Dumping data for table `empleado`
 --
 
-INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`, `USUARIO`, `PASSWORD`, `ID_ROL`, `ACTIVO`) VALUES
-(1, 'ELIAS', 'SIMAL', 36597152, 'M', '1991-11-05', '2013-10-06', '15000.00', 1, 'ESIMAL', '1234', 1, '1');
+INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`, `USUARIO`, `PASSWORD`, `ID_ROL`, `ACTIVO`, `AVATAR`) VALUES
+(1, 'Supervisor', 'Hol', 36597152, 'M', '0000-00-00', '0000-00-00', '15000.00', 2, 'supervisor', '123', 3, '1', 'foto1'),
+(20, 'Administrador', '', 2222, 'M', '0000-00-00', '0000-00-00', '1111.00', 1, 'administrador', '123', 2, '', 'foto2'),
+(22, 'Chofer', '', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, 'chofer', '123', 1, '', 'foto3'),
+(24, 'Adrian', 'VALOR', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 2, '', 'foto4'),
+(25, 'FERNANDO', 'BURLANDO', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 2, '', '', 1, '', 'foto5'),
+(26, 'Maasdsad', 'asdsa', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 2, '', '', 2, '', 'foto6'),
+(27, 'Pablo', 'valor', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 2, '', 'foto7'),
+(28, 'MAURICIO', 'MATRCI', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 1, '', 'foto8'),
+(30, 'Pablo', 'Valor', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 2, '', '', 1, '', 'foto9'),
+(31, 'PABLO', 'VALOR', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 2, '', 'foto10'),
+(32, 'PABLO', 'VALOR', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 2, '', 'foto11'),
+(33, 'pablo', 'valor', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 2, '', 'foto12'),
+(34, 'Hola', 'Chau', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 2, '', '', 1, '', 'foto13'),
+(40, 'Test', 'Test', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 1, '', 'foto14'),
+(41, 'Test', 'Test', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 2, '', 'foto15'),
+(43, 'Hola ', 'Test', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 3, '', 'foto16'),
+(44, 'Test', 'Test', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 2, '', '', 2, '', 'foto1');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `pais`
+-- Table structure for table `pais`
 --
 
 CREATE TABLE IF NOT EXISTS `pais` (
@@ -101,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `pais` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `pais`
+-- Dumping data for table `pais`
 --
 
 INSERT INTO `pais` (`ID`, `DESCRIPCION`) VALUES
@@ -111,7 +128,7 @@ INSERT INTO `pais` (`ID`, `DESCRIPCION`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `provincia`
+-- Table structure for table `provincia`
 --
 
 CREATE TABLE IF NOT EXISTS `provincia` (
@@ -121,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `provincia` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `provincia`
+-- Dumping data for table `provincia`
 --
 
 INSERT INTO `provincia` (`ID`, `DESCRIPCION`, `ID_PAIS`) VALUES
@@ -133,7 +150,7 @@ INSERT INTO `provincia` (`ID`, `DESCRIPCION`, `ID_PAIS`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `punto_entrega`
+-- Table structure for table `punto_entrega`
 --
 
 CREATE TABLE IF NOT EXISTS `punto_entrega` (
@@ -144,7 +161,7 @@ CREATE TABLE IF NOT EXISTS `punto_entrega` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `punto_entrega`
+-- Dumping data for table `punto_entrega`
 --
 
 INSERT INTO `punto_entrega` (`ID`, `DIRECCION`, `NRO`, `ID_PROVINCIA`) VALUES
@@ -160,7 +177,7 @@ INSERT INTO `punto_entrega` (`ID`, `DIRECCION`, `NRO`, `ID_PROVINCIA`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `rol`
+-- Table structure for table `rol`
 --
 
 CREATE TABLE IF NOT EXISTS `rol` (
@@ -170,7 +187,7 @@ CREATE TABLE IF NOT EXISTS `rol` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `rol`
+-- Dumping data for table `rol`
 --
 
 INSERT INTO `rol` (`ID`, `DESCRIPCION`, `NIVEL`) VALUES
@@ -181,7 +198,7 @@ INSERT INTO `rol` (`ID`, `DESCRIPCION`, `NIVEL`) VALUES
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `seguimiento`
+-- Table structure for table `seguimiento`
 --
 
 CREATE TABLE IF NOT EXISTS `seguimiento` (
@@ -196,7 +213,7 @@ CREATE TABLE IF NOT EXISTS `seguimiento` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `service`
+-- Table structure for table `service`
 --
 
 CREATE TABLE IF NOT EXISTS `service` (
@@ -212,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `service` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `vehiculo`
+-- Table structure for table `vehiculo`
 --
 
 CREATE TABLE IF NOT EXISTS `vehiculo` (
@@ -225,10 +242,18 @@ CREATE TABLE IF NOT EXISTS `vehiculo` (
   `ACTIVO` int(1) NOT NULL DEFAULT '1'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `vehiculo`
+--
+
+INSERT INTO `vehiculo` (`DOMINIO`, `MODELO`, `ANO`, `MARCA`, `NRO_CHASIS`, `NRO_MOTOR`, `ACTIVO`) VALUES
+('asd 123', '1234', 12345, 'ford test', 1234, 1234, 1),
+('asdsa', 'asdsad', 2321312, 'asdasd', 222, 2222, 1);
+
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `viaje`
+-- Table structure for table `viaje`
 --
 
 CREATE TABLE IF NOT EXISTS `viaje` (
@@ -248,7 +273,7 @@ CREATE TABLE IF NOT EXISTS `viaje` (
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `viaje_chofer`
+-- Table structure for table `viaje_chofer`
 --
 
 CREATE TABLE IF NOT EXISTS `viaje_chofer` (
@@ -257,102 +282,102 @@ CREATE TABLE IF NOT EXISTS `viaje_chofer` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Índices para tablas volcadas
+-- Indexes for dumped tables
 --
 
 --
--- Indices de la tabla `cargo`
+-- Indexes for table `cargo`
 --
 ALTER TABLE `cargo`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `cliente`
+-- Indexes for table `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `empleado`
+-- Indexes for table `empleado`
 --
 ALTER TABLE `empleado`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `pais`
+-- Indexes for table `pais`
 --
 ALTER TABLE `pais`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `provincia`
+-- Indexes for table `provincia`
 --
 ALTER TABLE `provincia`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `punto_entrega`
+-- Indexes for table `punto_entrega`
 --
 ALTER TABLE `punto_entrega`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `rol`
+-- Indexes for table `rol`
 --
 ALTER TABLE `rol`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `seguimiento`
+-- Indexes for table `seguimiento`
 --
 ALTER TABLE `seguimiento`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `service`
+-- Indexes for table `service`
 --
 ALTER TABLE `service`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `vehiculo`
+-- Indexes for table `vehiculo`
 --
 ALTER TABLE `vehiculo`
   ADD PRIMARY KEY (`DOMINIO`);
 
 --
--- Indices de la tabla `viaje`
+-- Indexes for table `viaje`
 --
 ALTER TABLE `viaje`
   ADD PRIMARY KEY (`ID`);
 
 --
--- Indices de la tabla `viaje_chofer`
+-- Indexes for table `viaje_chofer`
 --
 ALTER TABLE `viaje_chofer`
   ADD PRIMARY KEY (`ID_VIAJE`,`ID_CHOFER`);
 
 --
--- AUTO_INCREMENT de las tablas volcadas
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT de la tabla `empleado`
+-- AUTO_INCREMENT for table `empleado`
 --
 ALTER TABLE `empleado`
-  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=45;
 --
--- AUTO_INCREMENT de la tabla `seguimiento`
+-- AUTO_INCREMENT for table `seguimiento`
 --
 ALTER TABLE `seguimiento`
   MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `service`
+-- AUTO_INCREMENT for table `service`
 --
 ALTER TABLE `service`
   MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT;
 --
--- AUTO_INCREMENT de la tabla `viaje`
+-- AUTO_INCREMENT for table `viaje`
 --
 ALTER TABLE `viaje`
   MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT;
