@@ -8,8 +8,19 @@
 
   
     $dominioVehiculo = $_POST["dominio"];
-    $codetext = 'DEMO -'.$dominioVehiculo;
-    $vehiculo = $db->ObtenerVehiculoPorDominio($dominioVehiculo); 
+	$vehiculo = $db->ObtenerVehiculoPorDominio($dominioVehiculo); 
+
+	//INICIO CODIGO QR
+
+	// El nombre del fichero que se generará (una imagen PNG).
+	$file = 'CodigosQR/' . time() . '.png'; 
+	// La data que llevará.
+	$data = 'http://www.infobae.com/'; 
+
+	// Y generamos la imagen.
+	QRcode::png($data, $file);  
+
+	//FIN CODIGO QR
 
 ?>
 
@@ -18,8 +29,9 @@
         <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
     </div>
 <h5 class="grey-text"><?php echo $vehiculo["DOMINIO"]; ?></h5>
-<h5 class="redondear-imagen"><?php echo $vehiculo["DOMINIO"]; ?></h5> <!--Aca se mostraria el codigo Qr -->
-
+		<?php
+        	echo '<img class="redondear-imagen" src="source/ABM/vehiculos/' . $file . '" alt="" >'
+        ?>
 <div class="row">
 	<div class="col s12 m6">
 		<ul class="collection left-align">
