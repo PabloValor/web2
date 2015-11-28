@@ -20,7 +20,7 @@
 	<div class="footer-copyright">
 		<div class="container">
 		Dirty Trucks Inc. © <?php echo date("Y"); ?> Todos los derechos reservados.
-		<span class="grey-text text-lighten-4 right">Trabajo práctico final - Programación Web II ~ 2015</span>
+		<span class="grey-text text-lighten-4 right">Trabajo práctico final - Programación Web II UNLaM ~ 2015</span>
 	</div>
 	</div>
 </footer>

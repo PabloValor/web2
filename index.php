@@ -64,11 +64,11 @@
                         </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">Viajes<i class="material-icons right">more_vert</i></span>
-                                <p><a href="#">Ver Viajes</a></p>
+                                <p><a href="viajes.php" class="link">Ver Viajes</a></p>
                             </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4">Viajes<i class="material-icons right">close</i></span>
-                            <p>Ver información acerca de los viajes de esta empresa</p>
+                            <p>Ver información acerca de los viajes realizados</p>
                         </div>
                     </div>
                 </div>
@@ -107,7 +107,7 @@
                         </div>
                     <div class="card-reveal">
                         <span class="card-title grey-text text-darken-4">Seguimientos<i class="material-icons right">close</i></span>
-                        <p>Ver información acerca de los seguimientos de esta empresa</p>
+                        <p>Ver información acerca de los seguimientos de los viajes que realiza esta empresa</p>
                     </div>
                 </div>
             </div>
