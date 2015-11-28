@@ -146,11 +146,12 @@ h2.login {
 }
 
 
-/***************** Override de listas empleado *************************/
+/***************** Override de listas *************************/
 .collection .collection-item.avatar .secondary-content {
 	top: 25px !important;
 }
-.btn-empleado-editar {
+.btn-empleado-editar,
+.btn-viaje-editar {
 	right: 130px !important;
 }
 

@@ -57,6 +57,19 @@
         </div>             
     </div>
     <!-- Fin Contenido de pagina -->
+
+    <!-- Modal Nuevo Viaje -->
+    <div id="modalNuevoViaje" class="modal">
+        <div class="modal-content center-align"></div>
+    </div>
+    <!-- Fin Modal Nuevo Viaje -->
+
+    <!-- Modal Editar Viaje -->
+    <div id="modalEditarEmpleado" class="modal">
+        <div class="modal-content center-align"></div>
+    </div>
+    <!-- Fin Modal Editar de Viaje -->
+
     <?php
         require_once('/source/views/shared/_footer.php');
         require_once('/source/inc/scripts.php');

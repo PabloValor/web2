@@ -234,9 +234,39 @@ class DBManager {
 			print "Chan: " . $ex->getMessage();
 			die();
 		}		
+	}
+
+	/* Viajes */
+
+	public function obtenerViajes() {
+		$query =
+		' 
+			select vi.ID, des.DIRECCION, des.NUMERO, loc.DESCRIPCION LOCALIDAD, pais.DESCRIPCION PAIS, emp.NOMBRE, emp.APELLIDO, cli.RAZON_SOCIAL CLIENTE
+			from viaje vi
+			join vehiculo ve on vi.DOMINIO_VEHICULO = ve.DOMINIO
+			join destino des on vi.ID_DESTINO = des.ID
+			join localidad loc on des.ID_LOCALIDAD = loc.ID
+			join pais on des.ID_PAIS = pais.ID
+			join cliente cli on vi.ID_CLIENTE = cli.ID
+			join acoplado aco on vi.ID_TIPO_ACOPLADO = aco.ID
+			join empleado emp on vi.ID_EMPLEADO = emp.ID
+			where emp.ID_CARGO = 1
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
 	}	
 
-	/*INICIO VEHICULOS*/
+
+	/* Vehículos */
+
 	public function obtenerVehiculos() {
 		$query =
 		' 

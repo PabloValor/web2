@@ -8,6 +8,10 @@ $(document).on('ready', function() {
     empleados.cargarLista();
     empleados.cargarEventoBtnFiltroEmpleado();
 
+    var viajes = new Viajes();
+    viajes.cargarLista();
+    viajes.cargarEventoBtnFiltroViajes();
+
     var vehiculos = new Vehiculos();
     vehiculos.cargarLista();
     
