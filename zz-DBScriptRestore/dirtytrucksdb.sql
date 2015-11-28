@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 27, 2015 at 08:54 PM
+-- Generation Time: Nov 28, 2015 at 04:22 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -19,6 +19,26 @@ SET time_zone = "+00:00";
 --
 -- Database: `dirtytrucksdb`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `acoplado`
+--
+
+CREATE TABLE IF NOT EXISTS `acoplado` (
+  `ID` int(11) NOT NULL DEFAULT '0',
+  `DESCRIPCION` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `acoplado`
+--
+
+INSERT INTO `acoplado` (`ID`, `DESCRIPCION`) VALUES
+(1, 'Semirremolque'),
+(2, 'Acoplado Mixto'),
+(3, 'Full Trailer');
 
 -- --------------------------------------------------------
 
@@ -63,6 +83,21 @@ INSERT INTO `cliente` (`ID`, `RAZON_SOCIAL`, `ACTIVO`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `destino`
+--
+
+CREATE TABLE IF NOT EXISTS `destino` (
+  `ID` int(11) NOT NULL DEFAULT '0',
+  `DIRECCION` varchar(50) DEFAULT NULL,
+  `NUMERO` int(11) DEFAULT NULL,
+  `ID_LOCALIDAD` int(11) DEFAULT NULL,
+  `ID_PROV` int(11) DEFAULT NULL,
+  `ID_PAIS` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `empleado`
 --
 
@@ -88,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `empleado` (
 --
 
 INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`, `USUARIO`, `PASSWORD`, `ID_ROL`, `ACTIVO`, `AVATAR`) VALUES
-(1, 'Supervisor', 'Hol', 36597152, 'M', '0000-00-00', '0000-00-00', '15000.00', 2, 'supervisor', '123', 3, '1', 'foto1'),
+(1, 'Supervisor', 'Hol', 36597152, 'M', '1988-01-12', '0000-00-00', '15000.00', 2, 'supervisor', '123', 3, '1', 'foto1'),
 (20, 'Administrador', '', 2222, 'M', '0000-00-00', '0000-00-00', '1111.00', 1, 'administrador', '123', 2, '', 'foto2'),
 (22, 'Chofer', '', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, 'chofer', '123', 1, '', 'foto3'),
 (24, 'Adrian', 'VALOR', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 2, '', 'foto4'),
@@ -105,7 +140,18 @@ INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMI
 (41, 'Test', 'Test', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 2, '', 'foto15'),
 (43, 'Hola ', 'Test', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 3, '', 'foto16'),
 (44, 'Test', 'Test', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 2, '', '', 2, '', 'foto1'),
-(45, 'German', 'Polosky', 0, 'M', '0000-00-00', '0000-00-00', '0.00', 1, '', '', 1, '', '');
+(45, 'German', 'Polosky', 0, 'M', '1993-03-12', '2015-04-11', '0.00', 1, '', '', 1, '', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `localidad`
+--
+
+CREATE TABLE IF NOT EXISTS `localidad` (
+  `ID` int(11) NOT NULL DEFAULT '0',
+  `DESCRIPCION` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -114,7 +160,7 @@ INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMI
 --
 
 CREATE TABLE IF NOT EXISTS `pais` (
-  `ID` int(3) NOT NULL,
+  `ID` int(11) NOT NULL,
   `DESCRIPCION` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -129,51 +175,36 @@ INSERT INTO `pais` (`ID`, `DESCRIPCION`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `parada`
+--
+
+CREATE TABLE IF NOT EXISTS `parada` (
+  `ID` int(11) NOT NULL,
+  `ID_DESTINO` int(11) DEFAULT NULL,
+  `COORX` varchar(50) DEFAULT NULL,
+  `COORDY` varchar(50) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `provincia`
 --
 
 CREATE TABLE IF NOT EXISTS `provincia` (
-  `ID` int(3) NOT NULL,
-  `DESCRIPCION` varchar(25) NOT NULL,
-  `ID_PAIS` int(3) NOT NULL
+  `ID` int(11) NOT NULL,
+  `DESCRIPCION` varchar(25) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `provincia`
 --
 
-INSERT INTO `provincia` (`ID`, `DESCRIPCION`, `ID_PAIS`) VALUES
-(1, 'BUENOS AIRES', 1),
-(2, 'CORDOBA', 1),
-(3, 'MENDOZA', 1),
-(4, 'SANTIAGO DE CHILE', 2);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `punto_entrega`
---
-
-CREATE TABLE IF NOT EXISTS `punto_entrega` (
-  `ID` int(3) NOT NULL,
-  `DIRECCION` varchar(25) NOT NULL,
-  `NRO` int(10) NOT NULL,
-  `ID_PROVINCIA` int(3) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `punto_entrega`
---
-
-INSERT INTO `punto_entrega` (`ID`, `DIRECCION`, `NRO`, `ID_PROVINCIA`) VALUES
-(1, 'FLORENCIO VARELA', 3392, 1),
-(2, 'ARIETA', 2300, 1),
-(3, 'BELGRANO', 1500, 2),
-(4, 'ESPORA', 6000, 2),
-(5, 'LAPRIDA', 4000, 3),
-(6, 'LIBERTAD', 3600, 3),
-(7, 'COLINA', 1000, 4),
-(8, 'MONTENEGRO', 8300, 4);
+INSERT INTO `provincia` (`ID`, `DESCRIPCION`) VALUES
+(1, 'BUENOS AIRES'),
+(2, 'CORDOBA'),
+(3, 'MENDOZA'),
+(4, 'SANTIAGO DE CHILE');
 
 -- --------------------------------------------------------
 
@@ -206,9 +237,10 @@ CREATE TABLE IF NOT EXISTS `seguimiento` (
   `ID` int(3) NOT NULL,
   `ID_VIAJE` int(3) NOT NULL,
   `FECHA` date NOT NULL,
-  `COORDENADA` varchar(100) NOT NULL,
   `LT_COMBUSTIBLE` int(3) NOT NULL,
-  `LUGAR_CARGA` varchar(100) NOT NULL
+  `LUGAR_CARGA` varchar(100) NOT NULL,
+  `COORX` varchar(50) DEFAULT NULL,
+  `COORY` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -263,17 +295,16 @@ INSERT INTO `vehiculo` (`DOMINIO`, `MODELO`, `ANO`, `MARCA`, `NRO_CHASIS`, `NRO_
 --
 
 CREATE TABLE IF NOT EXISTS `viaje` (
-  `ID` int(3) NOT NULL,
+  `ID` int(11) NOT NULL,
   `DOMINIO_VEHICULO` varchar(25) NOT NULL,
-  `ID_ORIGEN` int(3) NOT NULL,
-  `ID_DESTINO` int(3) NOT NULL,
-  `ID_CLIENTE` int(3) NOT NULL,
-  `TIPO_CARGA` int(11) NOT NULL,
+  `ID_DESTINO` int(11) NOT NULL,
+  `ID_CLIENTE` int(11) NOT NULL,
   `FECHA_PROGRAMADA` date NOT NULL,
   `FECHA_INICIO` date NOT NULL,
   `FECHA_FIN` date NOT NULL,
   `CANT_KILOMETROS` decimal(10,2) NOT NULL,
-  `DOMINIO_ACOPLADO` varchar(25) NOT NULL
+  `ID_TIPO_ACOPLADO` int(11) NOT NULL,
+  `ID_EMPLEADO` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -292,6 +323,12 @@ CREATE TABLE IF NOT EXISTS `viaje_chofer` (
 --
 
 --
+-- Indexes for table `acoplado`
+--
+ALTER TABLE `acoplado`
+  ADD PRIMARY KEY (`ID`);
+
+--
 -- Indexes for table `cargo`
 --
 ALTER TABLE `cargo`
@@ -304,9 +341,24 @@ ALTER TABLE `cliente`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `destino`
+--
+ALTER TABLE `destino`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ID_PROV` (`ID_PROV`),
+  ADD KEY `ID_PAIS` (`ID_PAIS`),
+  ADD KEY `ID_LOCALIDAD` (`ID_LOCALIDAD`);
+
+--
 -- Indexes for table `empleado`
 --
 ALTER TABLE `empleado`
+  ADD PRIMARY KEY (`ID`);
+
+--
+-- Indexes for table `localidad`
+--
+ALTER TABLE `localidad`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -316,15 +368,16 @@ ALTER TABLE `pais`
   ADD PRIMARY KEY (`ID`);
 
 --
+-- Indexes for table `parada`
+--
+ALTER TABLE `parada`
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `ID_DESTINO` (`ID_DESTINO`);
+
+--
 -- Indexes for table `provincia`
 --
 ALTER TABLE `provincia`
-  ADD PRIMARY KEY (`ID`);
-
---
--- Indexes for table `punto_entrega`
---
-ALTER TABLE `punto_entrega`
   ADD PRIMARY KEY (`ID`);
 
 --
@@ -355,7 +408,10 @@ ALTER TABLE `vehiculo`
 -- Indexes for table `viaje`
 --
 ALTER TABLE `viaje`
-  ADD PRIMARY KEY (`ID`);
+  ADD PRIMARY KEY (`ID`),
+  ADD KEY `TIPO_ACOPLADO` (`ID_TIPO_ACOPLADO`),
+  ADD KEY `ID_DESTINO` (`ID_DESTINO`),
+  ADD KEY `ID_EMPLEADO` (`ID_EMPLEADO`);
 
 --
 -- Indexes for table `viaje_chofer`
@@ -386,7 +442,33 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `destino`
+--
+ALTER TABLE `destino`
+  ADD CONSTRAINT `destino_ibfk_1` FOREIGN KEY (`ID_PROV`) REFERENCES `provincia` (`ID`),
+  ADD CONSTRAINT `destino_ibfk_2` FOREIGN KEY (`ID_PAIS`) REFERENCES `pais` (`ID`),
+  ADD CONSTRAINT `destino_ibfk_3` FOREIGN KEY (`ID_LOCALIDAD`) REFERENCES `localidad` (`ID`);
+
+--
+-- Constraints for table `parada`
+--
+ALTER TABLE `parada`
+  ADD CONSTRAINT `parada_ibfk_1` FOREIGN KEY (`ID_DESTINO`) REFERENCES `destino` (`ID`);
+
+--
+-- Constraints for table `viaje`
+--
+ALTER TABLE `viaje`
+  ADD CONSTRAINT `viaje_ibfk_1` FOREIGN KEY (`ID_TIPO_ACOPLADO`) REFERENCES `acoplado` (`ID`),
+  ADD CONSTRAINT `viaje_ibfk_2` FOREIGN KEY (`ID_DESTINO`) REFERENCES `destino` (`ID`),
+  ADD CONSTRAINT `viaje_ibfk_3` FOREIGN KEY (`ID_EMPLEADO`) REFERENCES `empleado` (`ID`);
+
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
