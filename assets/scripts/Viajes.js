@@ -7,10 +7,6 @@ var Viajes = function() {
         cargarViajesLista();
     };
 
-    this.cargarEventoBtnFiltroViajes = function() {
-        cargarViajesListaFiltrada();
-    }
-
     /* Métodos privados */
 
     function cargarViajesLista() {
@@ -37,31 +33,10 @@ var Viajes = function() {
 
     function cargarEventos() {
         btnViajeNuevoLista();
-        cargarViajesListaFiltrada();
         btnDatosViaje();
         btnViajeEditarLista();
         btnViajeEliminarLista();
     };
-
-    function cargarViajesListaFiltrada() {
-        $('#btn-lista-viajes-filtrada').on('click', function(e) {
-            e.preventDefault();
-            var formData = $('#formularioListaViajesFiltrada').serialize();
-            $.ajax({
-                url: 'source/ABM/viajes/cargarViajesListaFiltrada.php',
-                method: 'post',
-                data: formData,
-                dataType: 'html',
-                success: function(data) {
-                    $('#lista-viajes').html(data);
-                }
-            }).done(function() {    
-                componentesMaterialize.cargar();
-                cargarEventos();
-                ponerFocoEnViajeEditar();
-            });
-        });        
-    }
 
     function btnViajeNuevoLista() {
         // Se carga evento boton editar de lista

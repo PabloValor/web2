@@ -19,26 +19,6 @@
     <div class="container margin-top-20">
         <h2 class="center-align">Viajes</h2>
         <!-- Contenido de pagina -->
-        <!-- Filtro de busqueda -->
-        <div class="card-panel grey lighten-5">
-            <div class="row">
-                <form id="formularioListaFiltrada">
-                    <div class="col s12 m10">
-                        <div class="input-field col s12">
-                            <i class="material-icons prefix">search</i>
-                            <input id="icon_prefix" type="text" class="validate" name="NOMBREEMPLEADO">
-                            <label for="icon_prefix">Buscar Viaje</label>
-                        </div>
-                    </div>
-                    <div class="col s12 m2">
-                        <div class="input-field center-align">
-                            <a id="btn-lista-viajes-filtrada" class="light-blue darken-1 waves-effect waves-light btn-large">Buscar</a>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <!-- Fin Filtro de busqueda -->
         <div class="row">
             <!-- boton nuevo viaje -->
             <?php if($_SESSION['id_rol'] == 3) { ?> <!-- Botón de agregar Viaje sólo habilitado para rol Supervisor -->
