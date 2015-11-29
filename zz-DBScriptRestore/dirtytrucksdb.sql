@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 28, 2015 at 11:11 PM
+-- Generation Time: Nov 29, 2015 at 05:16 PM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -318,17 +318,18 @@ CREATE TABLE IF NOT EXISTS `viaje` (
   `FECHA_PROGRAMADA` date NOT NULL,
   `FECHA_INICIO` date NOT NULL,
   `FECHA_FIN` date NOT NULL,
-  `CANT_KILOMETROS` decimal(10,2) NOT NULL,
+  `CANT_KILOMETROS` int(11) NOT NULL,
   `ID_TIPO_ACOPLADO` int(11) NOT NULL,
   `ID_EMPLEADO` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `viaje`
 --
 
 INSERT INTO `viaje` (`ID`, `DOMINIO_VEHICULO`, `ID_DESTINO`, `ID_CLIENTE`, `FECHA_PROGRAMADA`, `FECHA_INICIO`, `FECHA_FIN`, `CANT_KILOMETROS`, `ID_TIPO_ACOPLADO`, `ID_EMPLEADO`) VALUES
-(2, 'AXE-752', 1, 1, '0000-00-00', '0000-00-00', '0000-00-00', '500.00', 1, 22);
+(2, 'AXE-752', 1, 1, '0000-00-00', '0000-00-00', '0000-00-00', 500, 1, 22),
+(3, 'AXE-752', 1, 1, '2014-01-01', '2014-01-01', '2014-01-01', 500, 1, 22);
 
 -- --------------------------------------------------------
 
@@ -465,7 +466,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- Constraints for dumped tables
 --
