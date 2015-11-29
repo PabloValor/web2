@@ -84,7 +84,7 @@
                         </div>
                             <div class="card-content">
                                 <span class="card-title activator grey-text text-darken-4">Reportes<i class="material-icons right">more_vert</i></span>
-                                <p><a href="#">Ver Reportes</a></p>
+                                <p><a href="reportes.php" class="link">Ver Reportes</a></p>
                             </div>
                         <div class="card-reveal">
                             <span class="card-title grey-text text-darken-4">Reportes<i class="material-icons right">close</i></span>
