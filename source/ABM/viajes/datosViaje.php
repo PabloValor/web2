@@ -20,6 +20,8 @@
 			<li class="collection-item">Altura: <?php echo $viaje["NUMERO"]; ?></li>
 			<li class="collection-item">Localidad: <?php echo $viaje["LOCALIDAD"]; ?></li>
 			<li class="collection-item">Pais: <?php echo $viaje["PAIS"]; ?></li>
+			<li class="collection-item">Camión: <?php echo $viaje["VEHICULO_MARCA"]; echo " "; echo $viaje["VEHICULO_MODELO"]; ?></li>
+			<li class="collection-item">Acoplado Tipo: <?php echo $viaje["ACOPLADO"]; ?></li>
 		</ul>		
 	</div>
 	<div class="col s12 m6">
