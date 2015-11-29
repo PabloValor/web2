@@ -16,7 +16,7 @@
 	//$qr = $_GET['id'];
 
 	// El nombre del fichero que se generará (una imagen PNG).
-	$file = 'CodigosQR/' . time() . '.png'; 
+	$file = '..\..\imagenes\qr\Camion-qr/' . time() . '.png'; 
 	// La data que llevará.
 	$data = 'http://localhost/web2/viajes.php?id=' . $dominioVehiculo; 
 
