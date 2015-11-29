@@ -264,6 +264,36 @@ class DBManager {
 		}		
 	}
 
+	public function ObtenerViajePorId($idViaje) {
+		$query =
+		' 
+			select vi.ID, vi.FECHA_PROGRAMADA, vi.FECHA_INICIO, vi.FECHA_FIN,
+			vi.CANT_KILOMETROS, des.DIRECCION, des.NUMERO, loc.DESCRIPCION LOCALIDAD,
+			pais.DESCRIPCION PAIS, emp.NOMBRE CHOFER_NOMBRE, emp.APELLIDO CHOFER_APELLIDO,
+			cli.RAZON_SOCIAL CLIENTE
+			from viaje vi
+			join vehiculo ve on vi.DOMINIO_VEHICULO = ve.DOMINIO
+			join destino des on vi.ID_DESTINO = des.ID
+			join localidad loc on des.ID_LOCALIDAD = loc.ID
+			join pais on des.ID_PAIS = pais.ID
+			join cliente cli on vi.ID_CLIENTE = cli.ID
+			join acoplado aco on vi.ID_TIPO_ACOPLADO = aco.ID
+			join empleado emp on vi.ID_EMPLEADO = emp.ID
+			where vi.ID = :id
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $idViaje, PDO::PARAM_INT);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetch();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}	
+
 	public function bajaViaje($id) {
 		try {
 			$query = 'delete from viaje where ID = :id';

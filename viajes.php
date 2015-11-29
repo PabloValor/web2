@@ -70,6 +70,15 @@
     </div>
     <!-- Fin Modal Editar de Viaje -->
 
+    <!-- Modal Ver Datos de Viaje -->
+    <div id="modalDatosViaje" class="modal modal-fixed-footer">
+        <div class="modal-content center-align"></div>
+        <div class="modal-footer">
+            <a href="#!" class="modal-action modal-close waves-effect waves-blue btn-flat">Aceptar</a>
+        </div>
+    </div>
+    <!-- Fin Modal Ver Datos de Viaje -->
+
     <?php
         require_once('/source/views/shared/_footer.php');
         require_once('/source/inc/scripts.php');
