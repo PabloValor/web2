@@ -262,7 +262,139 @@ class DBManager {
 			print "Chan: " . $ex->getMessage();
 			die();
 		}		
-	}	
+	}
+
+	public function obtenerDestinos() {
+		$query = '
+			select des.ID, des.DIRECCION, des.NUMERO, loc.DESCRIPCION LOCALIDAD, prov.DESCRIPCION PROVINCIA, pais.DESCRIPCION PAIS
+			from destino des
+			join localidad loc on des.ID_LOCALIDAD = loc.ID
+			join provincia prov on des.ID_PROV = prov.ID
+			join pais on des.ID_PAIS = pais.ID
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function obtenerClientes() {
+		$query = 'select * from cliente';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}	
+	}
+
+	public function obtenerAcoplados() {
+		$query = 'select * from acoplado';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function obtenerChoferes() {
+		$query = 'select * from empleado where ID_CARGO = 1';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function obtenerLocalidades() {
+		$query = 'select * from localidad';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function obtenerProvincias() {
+		$query = 'select * from provincia';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function obtenerPaises() {
+		$query = 'select * from pais';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function altaViaje($datos) {
+		$query = "
+			insert into viaje (DOMINIO_VEHICULO, ID_EMPLEADO, ID_DESTINO, ID_CLIENTE, FECHA_PROGRAMADA,
+				FECHA_INICIO, FECHA_FIN, CANT_KILOMETROS, ID_TIPO_ACOPLADO)
+			values (:dominio_vehiculo, :id_empleado, :id_destino, :id_cliente, :fecha_programada, :fecha_inicio,
+				:fecha_fin, :cant_kilometros, :id_tipo_acoplado)
+		";
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':dominio_vehiculo', $datos["DOMINIO_VEHICULO"], PDO::PARAM_STR);
+			$stmt->bindParam(':id_empleado', $datos["ID_EMPLEADO"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_destino', $datos["ID_DESTINO"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_cliente', $datos["ID_CLIENTE"], PDO::PARAM_INT);
+			$stmt->bindParam(':fecha_programada', $datos["FECHA_PROGRAMADA"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_inicio', $datos["FECHA_INICIO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_fin', $datos["FECHA_FIN"], PDO::PARAM_STR);
+			$stmt->bindParam(':cant_kilometros', $datos["CANT_KILOMETROS"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_tipo_acoplado', $datos["ID_ACOPLADO"], PDO::PARAM_INT);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}		
 
 
 	/* Vehículos */

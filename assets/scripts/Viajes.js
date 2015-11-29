@@ -7,7 +7,7 @@ var Viajes = function() {
         cargarViajesLista();
     };
 
-    this.cargarEventoBtnFiltroViaje = function() {
+    this.cargarEventoBtnFiltroViajes = function() {
         cargarViajesListaFiltrada();
     }
 
@@ -82,7 +82,9 @@ var Viajes = function() {
 
     function btnViajeNuevo() {
         $('#btn-nuevo-viaje').on('click', function() {
+
             var formData = $('#formNuevoViaje').serialize();
+            
             // TODO: validaciones del form con Validate.js
             $.ajax({
                 url: 'source/ABM/viajes/nuevo.php',

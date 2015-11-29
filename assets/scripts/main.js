@@ -10,7 +10,7 @@ $(document).on('ready', function() {
 
     var viajes = new Viajes();
     viajes.cargarLista();
-    viajes.cargarEventoBtnFiltroViajes();
+    //viajes.cargarEventoBtnFiltroViajes();
 
     var vehiculos = new Vehiculos();
     vehiculos.cargarLista();

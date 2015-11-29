@@ -65,7 +65,7 @@
     <!-- Fin Modal Nuevo Viaje -->
 
     <!-- Modal Editar Viaje -->
-    <div id="modalEditarEmpleado" class="modal">
+    <div id="modalEditarViaje" class="modal">
         <div class="modal-content center-align"></div>
     </div>
     <!-- Fin Modal Editar de Viaje -->
