@@ -8,7 +8,7 @@
 
     $idViaje = $_POST["id"];
 
-    $viaje = $db->ObtenerViajePorId($idViaje); 
+    $viaje = $db->ObtenerViajePorId($idViaje);
 ?>
 
 <h4>Datos de Viaje</h4>

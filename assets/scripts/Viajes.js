@@ -135,7 +135,7 @@ var Viajes = function() {
             $.ajax({
                 url: 'source/ABM/viajes/cargarViajeEditarEnFormulario.php',
                 method: 'post',
-                data: idUsuario,
+                data: idViaje,
                 dataType: 'html',
                 success: function(data){
                     $('#modalEditarViaje .modal-content').html(data);
@@ -145,6 +145,34 @@ var Viajes = function() {
                 componentesMaterialize.cargar();
             });
         });
+    }
+
+    function btnViajeEditar() {
+		$('#btn-editar-viaje').on('click', function() {
+	        var formData = $('#formEditarviaje').serialize();
+	        // TODO: validaciones del form con Validate.js
+	        $.ajax({
+	            url: 'source/ABM/viajes/editar.php',
+	            method: 'POST',
+	            data: formData,
+	            success: function(data){
+	                swal({
+	                    title: 'Viaje editado con éxito',
+	                    type: 'success'
+	                }, function(){
+	                    $('#modalEditarViaje').closeModal();
+	                });
+	            },
+	            error: function() {
+	                swal({
+	                    title: 'Ocurrió un error al editar viaje',
+	                    type: 'error'
+	                });
+	            }
+	        }).done(function(){
+	        	cargarViajesLista();
+	        });
+		});    	
     }
 
     function btnViajeEliminarLista() {

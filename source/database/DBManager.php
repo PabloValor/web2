@@ -192,7 +192,7 @@ class DBManager {
 		catch(PDOException $ex) {
 			print "Chan: " . $ex->getMessage();
 			die();
-		}		
+		}
 	}
 
 	public function bajaEmpleado($id) {
@@ -268,9 +268,9 @@ class DBManager {
 		$query =
 		' 
 			select vi.ID, vi.FECHA_PROGRAMADA, vi.FECHA_INICIO, vi.FECHA_FIN,
-			vi.CANT_KILOMETROS, des.DIRECCION, des.NUMERO, loc.DESCRIPCION LOCALIDAD,
-			pais.DESCRIPCION PAIS, emp.NOMBRE CHOFER_NOMBRE, emp.APELLIDO CHOFER_APELLIDO,
-			cli.RAZON_SOCIAL CLIENTE, aco.DESCRIPCION ACOPLADO, ve.MARCA VEHICULO_MARCA,
+			vi.CANT_KILOMETROS,des.ID DESTINO_ID ,des.DIRECCION, des.NUMERO, loc.DESCRIPCION LOCALIDAD,
+			pais.DESCRIPCION PAIS, emp.ID CHOFER_ID, emp.NOMBRE CHOFER_NOMBRE, emp.APELLIDO CHOFER_APELLIDO,
+			cli.ID CLIENTE_ID, cli.RAZON_SOCIAL CLIENTE,aco.ID ACOPLADO_ID, aco.DESCRIPCION ACOPLADO, ve.DOMINIO DOMINIO ,ve.MARCA VEHICULO_MARCA,
 			ve.MODELO VEHICULO_MODELO
 			from viaje vi
 			join vehiculo ve on vi.DOMINIO_VEHICULO = ve.DOMINIO
@@ -300,6 +300,45 @@ class DBManager {
 			$query = 'delete from viaje where ID = :id';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function editarViaje($datos) {
+		$query = "
+			update `viaje`
+			set
+			`DOMINIO_VEHICULO` = :dominio_vehiculo,
+			`ID_DESTINO` = :id_destino,
+			`ID_CLIENTE` = :id_cliente,
+			`FECHA_PROGRAMADA` = :fecha_programada,
+			`FECHA_INICIO` = :fecha_inicio,
+			`FECHA_FIN` = :fecha_fin,
+			`CANT_KILOMETROS` = :cant_kilometros,
+			`ID_TIPO_ACOPLADO` = :id_acoplado,
+			`ID_EMPLEADO` = :id_empleado
+			where `ID` = :id;
+		";
+
+		// `ACTIVO` = :activo  <--- agregarlo a la query 
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $datos["ID"], PDO::PARAM_INT);
+			$stmt->bindParam(':dominio_vehiculo', $datos["DOMINIO_VEHICULO"], PDO::PARAM_STR);			
+			$stmt->bindParam(':id_destino', $datos["ID_DESTINO"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_cliente', $datos["ID_CLIENTE"], PDO::PARAM_INT);
+			$stmt->bindParam(':fecha_programada', $datos["FECHA_PROGRAMADA"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_inicio', $datos["FECHA_INICIO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha_fin', $datos["FECHA_FIN"], PDO::PARAM_STR);
+			$stmt->bindParam(':cant_kilometros', $datos["CANT_KILOMETROS"], PDO::PARAM_INT);
+			$stmt->bindParam(':id_acoplado', $datos["ID_ACOPLADO"], PDO::PARAM_INT);				
+			$stmt->bindParam(':id_empleado', $datos["ID_EMPLEADO"], PDO::PARAM_INT);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
 			$stmt->execute();
 		}
 		catch(PDOException $ex) {
