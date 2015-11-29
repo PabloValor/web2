@@ -264,6 +264,19 @@ class DBManager {
 		}		
 	}
 
+	public function bajaViaje($id) {
+		try {
+			$query = 'delete from viaje where ID = :id';
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}	
+
 	public function obtenerDestinos() {
 		$query = '
 			select des.ID, des.DIRECCION, des.NUMERO, loc.DESCRIPCION LOCALIDAD, prov.DESCRIPCION PROVINCIA, pais.DESCRIPCION PAIS
