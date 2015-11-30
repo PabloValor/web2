@@ -678,6 +678,29 @@ class DBManager {
 		catch(PDOException $ex) {
 			print "Chan: " . $ex->getMessage();
 			die();
-		}		
+		}
+	}
+
+	public function obtenerAcopladosUsadosEnAcualAnio() {
+		$anioActual = date("Y");
+		$query =
+		' 
+			select acoplado.DESCRIPCION DESCRIPCION, count(*) VECES
+			from viaje
+			join acoplado on viaje.ID_TIPO_ACOPLADO = acoplado.ID
+			where YEAR(viaje.FECHA_INICIO) = :anioActual
+			group by viaje.ID_TIPO_ACOPLADO
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':anioActual', $anioActual, PDO::PARAM_STR);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
 	}
 }
