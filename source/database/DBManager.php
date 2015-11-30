@@ -657,4 +657,27 @@ class DBManager {
 			die();
 		}
 	}
+
+	public function obtenerViajesChoferesEnAcualAnio() {
+		$anioActual = date("Y");
+		$query =
+		' 
+			select empleado.NOMBRE, empleado.APELLIDO, count(*) CHOFER_VECES
+			from viaje
+			join empleado on viaje.ID_EMPLEADO = empleado.ID
+			where YEAR(viaje.FECHA_INICIO) = :anioActual
+			group by viaje.ID_EMPLEADO
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':anioActual', $anioActual, PDO::PARAM_STR);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
 }

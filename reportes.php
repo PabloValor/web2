@@ -30,6 +30,13 @@
                 </div>                
             </div>
         </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="center-align">
+                    <img class="responsive-img" src="source/generadorGraficas/choferes.php" alt="">
+                </div>                
+            </div>
+        </div>        
         <!-- Fin Lista de Reportes -->
     </div>
     <?php

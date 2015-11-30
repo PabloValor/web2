@@ -1,4 +1,5 @@
 <?php
+
 require_once ('..\lib\jpgraph\jpgraph.php');
 require_once ('..\lib\jpgraph\jpgraph_pie.php');
 require_once ('..\lib\jpgraph\jpgraph_pie3d.php');
@@ -8,31 +9,30 @@ use source\database\DBManager;
 
 $db = new DBManager();
 
-$clientes = $db->obtenerClientesEnAcualAnio();
-$clientesNombres = array();
-$clientesUsos = array();
+$choferes = $db->obtenerViajesChoferesEnAcualAnio();
+$choferesNombres = array();
+$choferesVeces = array();
 
-foreach($clientes as $cliente) {
-	array_push($clientesNombres, $cliente["NOMBRE"]);
-	array_push($clientesUsos, $cliente["CLIENTE_VECES"]);
+foreach($choferes as $chofer) {
+	array_push($choferesNombres, $chofer["NOMBRE"] . " " . $chofer["APELLIDO"]);
+	array_push($choferesVeces, $chofer["CHOFER_VECES"]);
 }
 
-$data = $clientesUsos;
+$data = $choferesVeces;
 
-// Create the Pie Graph.
+// Create the Pie Graph. 
 $graph = new PieGraph(600,600);
 
 $theme_class= new VividTheme;
 $graph->SetTheme($theme_class);
 
 // Set A title for the plot
-$graph->title->Set("Clientes con mas entregas realizas en el año " . date("Y"));
-
+$graph->title->Set("Choferes con mas viajes realizados en el año " . date("Y"));
 
 // Create
 $p1 = new PiePlot3D($data);
 $graph->Add($p1);
-$p1->SetLegends($clientesNombres);
+$p1->SetLegends($choferesNombres);
 
 $p1->ShowBorder();
 $p1->SetColor('black');
