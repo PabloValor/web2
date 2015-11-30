@@ -1,8 +1,5 @@
 <?php
     session_start();
-    include_once (__DIR__ . '\source\database\DBManager.php');
-
-    use source\database\DBManager;
 
     if (empty($_SESSION['usuario'])) {
         header("Location: login.php");
@@ -18,21 +15,36 @@
     <?php require_once('/source/views/shared/_header.php'); ?>
     <div class="container margin-top-20">
         <h2 class="center-align">Reportes</h2>
-        <!-- Contenido de pagina -->
+        <!-- Lista de Reportes -->
         <div class="row">
             <div class="col s12">
-                <!-- Lista Vehiculos -->
-                <ul class="collection" id="lista-reportes">
-
-                    <div class="center-align">
-                        <img src="source/generadorGraficas/usoCamionesEnViaje.php?data1=33&data2=33&data3=33&data4=1" alt="">
-                    </div>
-
-                </ul>
-                <!-- Fin Lista Vehiculos -->
+                <div class="center-align">
+                    <img class="responsive-img" src="source/generadorGraficas/usoCamionesEnViaje.php" alt="">
+                </div>                
             </div>
         </div>
-        <!-- Fin Contenido de pagina -->        
+        <div class="row">
+            <div class="col s12">
+                <div class="center-align">
+                    <img class="responsive-img" src="" alt="">
+                </div>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="center-align">
+                    <img class="responsive-img" src="" alt="">
+                </div>                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col s12">
+                <div class="center-align">
+                    <img class="responsive-img" src="" alt="">
+                </div>                
+            </div>
+        </div>                                
+        <!-- Fin Lista de Reportes -->        
     </div>
     <?php
         require_once('/source/views/shared/_footer.php');

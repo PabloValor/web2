@@ -611,4 +611,27 @@ class DBManager {
 	}
 	/*FIN VEHICULOS*/
 
+	/* Reportes */
+	public function obtenerUsosdeCamionesEnAcualAnio() {
+		$anioActual = date("Y");
+		$query =
+		' 
+			select vehiculo.MODELO, vehiculo.MARCA, count(*) CANT_VEHICULO_VIAJES
+			from viaje
+			join vehiculo on vehiculo.DOMINIO = viaje.DOMINIO_VEHICULO
+			where YEAR(viaje.FECHA_INICIO) = :anioActual
+			group by DOMINIO_VEHICULO
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':anioActual', $anioActual, PDO::PARAM_STR);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
 }

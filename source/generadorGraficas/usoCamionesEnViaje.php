@@ -1,55 +1,41 @@
 <?php
 
 require_once ('..\lib\jpgraph\jpgraph.php');
-require_once ('..\lib\jpgraph\jpgraph_line.php');
+require_once ('..\lib\jpgraph\jpgraph_pie.php');
+require_once ('..\lib\jpgraph\jpgraph_pie3d.php');
+include_once ('..\database\DBManager.php');
 
-// Test
-//$data = array($_GET['data1'],$_GET['data2'],$_GET['data3'],$_GET['data4']);
-$datay1 = array(20,15,23,15);
-$datay2 = array(12,9,42,8);
-$datay3 = array(5,17,32,24);
+use source\database\DBManager;
 
-// Setup the graph
-$graph = new Graph(500,500);
-$graph->SetScale("textlin");
+$db = new DBManager();
 
-$theme_class=new UniversalTheme;
+$camiones = $db->obtenerUsosdeCamionesEnAcualAnio();
+$camionesMarcas = array();
+$camionesCantUsos = array();
 
+foreach($camiones as $camion) {
+	array_push($camionesMarcas, $camion["MARCA"] . " " . $camion["MODELO"]);
+	array_push($camionesCantUsos, $camion["CANT_VEHICULO_VIAJES"]);
+}
+
+$data = $camionesCantUsos;
+
+// Create the Pie Graph. 
+$graph = new PieGraph(600,600);
+
+$theme_class= new VividTheme;
 $graph->SetTheme($theme_class);
-$graph->img->SetAntiAliasing(false);
-$graph->title->Set('Filled Y-grid');
-$graph->SetBox(false);
 
-$graph->img->SetAntiAliasing();
+// Set A title for the plot
+$graph->title->Set("Camiones mas usados en el año " . date("Y"));
 
-$graph->yaxis->HideZeroLabel();
-$graph->yaxis->HideLine(false);
-$graph->yaxis->HideTicks(false,false);
 
-$graph->xgrid->Show();
-$graph->xgrid->SetLineStyle("solid");
-$graph->xaxis->SetTickLabels(array('A','B','C','D'));
-$graph->xgrid->SetColor('#E3E3E3');
-
-// Create the first line
-$p1 = new LinePlot($datay1);
+// Create
+$p1 = new PiePlot3D($data);
 $graph->Add($p1);
-$p1->SetColor("#6495ED");
-$p1->SetLegend('Line 1');
+$p1->SetLegends($camionesMarcas);
 
-// Create the second line
-$p2 = new LinePlot($datay2);
-$graph->Add($p2);
-$p2->SetColor("#B22222");
-$p2->SetLegend('Line 2');
-
-// Create the third line
-$p3 = new LinePlot($datay3);
-$graph->Add($p3);
-$p3->SetColor("#FF1493");
-$p3->SetLegend('Line 3');
-
-$graph->legend->SetFrameWeight(1);
-
-// Output line
+$p1->ShowBorder();
+$p1->SetColor('black');
+$p1->ExplodeSlice(1);
 $graph->Stroke();
