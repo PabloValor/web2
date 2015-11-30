@@ -632,6 +632,29 @@ class DBManager {
 		catch(PDOException $ex) {
 			print "Chan: " . $ex->getMessage();
 			die();
-		}		
+		}
+	}
+
+	public function obtenerClientesEnAcualAnio() {
+		$anioActual = date("Y");
+		$query =
+		' 
+			select cliente.RAZON_SOCIAL NOMBRE, count(*) CLIENTE_VECES
+			from viaje
+			join cliente on viaje.ID_CLIENTE = cliente.ID
+			where YEAR(viaje.FECHA_INICIO) = :anioActual
+			group by viaje.ID_CLIENTE
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':anioActual', $anioActual, PDO::PARAM_STR);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
 	}
 }
