@@ -46,7 +46,7 @@
                 <option value="" disabled selected>Seleccione el Destino</option>
                 <?php foreach($destinos as $destino): ?>
                     <option value="<?php echo $destino["ID"]; ?>">
-                        <?php echo $destino["DIRECCION"]; echo " "; echo $destino["NUMERO"]; echo ", "; echo $destino["PROVINCIA"]; echo ", "; echo $destino["PAIS"];?>
+                        <?php echo $destino["DIRECCION"]; echo " "; echo $destino["NUMERO"]; echo ", "; echo $destino["LOCALIDAD"]; echo ", "; echo $destino["PROVINCIA"]; echo ", "; echo $destino["PAIS"];?>
                     </option>
                 <?php endforeach; ?>
             </select>
