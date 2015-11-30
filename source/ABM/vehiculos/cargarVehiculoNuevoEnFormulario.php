@@ -40,7 +40,13 @@
             <input name="NRO_MOTOR" type="text" class="validate">
             <label for="NRO_MOTOR">Nro.Motor</label>
         </div>                                                
-    </div>                                           
+    </div>     
+    <div class="row">
+        <div class="input-field col s12">
+            <input name="AVATAR" type="text" class="validate">
+            <label for="AVATAR">AVATAR</label>
+        </div>                                                
+    </div>                                       
     <div class="row">
         <div class="input-field col s12">
             <a href="#!" id="btn-nuevo-vehiculo" class="modal-action modal-close light-blue darken-1 waves-effect waves-light btn-large">Agregar Nuevo Vehiculo</a>

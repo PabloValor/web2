@@ -1,4 +1,5 @@
 <?php
+	session_start();
     include '..\..\database\DBManager.php';
     include '..\..\lib\phpqrcode\qrlib.php';
 
@@ -9,14 +10,14 @@
   
     $dominioVehiculo = $_POST["dominio"];
 	$vehiculo = $db->ObtenerVehiculoPorDominio($dominioVehiculo); 
-
+    $avatar = empty($vehiculo["AVATAR"]) ? "default" : $vehiculo["AVATAR"];
 
 	//INICIO CODIGO QR
 	
 	//$qr = $_GET['id'];
 
 	// El nombre del fichero que se generará (una imagen PNG).
-	$file = '..\..\imagenes\qr\Camion-qr/' . time() . '.png'; 
+	$file = '../../../assets/imagenes/qr/Camion-qr/' . time() . '.png'; 
 	// La data que llevará.
 	$data = 'http://localhost/web2/viajes.php?id=' . $dominioVehiculo; 
 
@@ -29,11 +30,11 @@
 
 <h4>Ficha del Vehículo</h4>
     <div class="center-align">
-        <img class="redondear-imagen" src="https://31.media.tumblr.com/avatar_bdbe42ad80b3_128.png" alt="">
+        <img class="avatar-perfil-usuario" src="assets/imagenes/avatares/vehiculos/<?php echo $avatar; ?>.jpg" alt="<?php echo $avatar; ?>">     
     </div>
 <h5 class="grey-text"><?php echo $vehiculo["DOMINIO"]; ?></h5>
 		<?php
-        	echo '<img  src="source/ABM/vehiculos/' . $file . '" alt="" >'
+        	echo '<img  src="imagenes/qr/Camion-qr/' . $file . '" alt="" >'
         ?>
 <div class="row">
 	<div class="col s12 m6">

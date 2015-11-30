@@ -485,7 +485,7 @@ class DBManager {
 	public function obtenerVehiculos() {
 		$query =
 		' 
-			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR
+			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR, v.AVATAR
 			from vehiculo v
 			where v.ACTIVO = 1
 		';
@@ -504,7 +504,7 @@ class DBManager {
 	public function obtenerVehiculosFiltrados($dominio) {
 		$query =
 		" 
-			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR
+			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR, v.AVATAR
 			from vehiculo v
 			where v.ACTIVO = 1
 			and v.DOMINIO = :dominio
@@ -525,7 +525,7 @@ class DBManager {
 	public function ObtenerVehiculoPorDominio($dominioVehiculo) {
 		$query =
 		' 
-			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR
+			select v.DOMINIO, v.MARCA, v.MODELO, v.ANO, v.NRO_CHASIS, v.NRO_MOTOR, v.AVATAR
 			from vehiculo v 
 			where v.DOMINIO = :dominio
 		';
@@ -558,9 +558,9 @@ class DBManager {
 	public function altaVehiculo($datos) {
 		$query = "
 			insert into `VEHICULO`(`DOMINIO`, `MODELO`, `MARCA`, `ANO`,
-				`NRO_CHASIS`, `NRO_MOTOR`)
+				`NRO_CHASIS`, `NRO_MOTOR`, `AVATAR`)
 			values(:dominio, :modelo, :marca, :ano, :nro_chasis,
-				:nro_motor)
+				:nro_motor, :avatar)
 		";
 		try {
 			$stmt = $this->dbo->prepare($query);
@@ -570,6 +570,7 @@ class DBManager {
 			$stmt->bindParam(':ano', $datos["ANO"], PDO::PARAM_INT);
 			$stmt->bindParam(':nro_chasis', $datos["NRO_CHASIS"], PDO::PARAM_INT);
 			$stmt->bindParam(':nro_motor', $datos["NRO_MOTOR"], PDO::PARAM_INT);
+			$stmt->bindParam(':avatar', $datos["AVATAR"], PDO::PARAM_STR);
 			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
 
 			$stmt->execute();

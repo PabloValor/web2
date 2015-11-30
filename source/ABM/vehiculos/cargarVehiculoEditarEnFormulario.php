@@ -1,4 +1,6 @@
 <?php
+    session_start();
+
     include '..\..\database\DBManager.php';
 
     use source\database\DBManager;
