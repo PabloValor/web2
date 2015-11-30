@@ -1,6 +1,7 @@
 <?php
 	session_start();
     include '..\..\database\DBManager.php';
+    include '..\..\lib\phpqrcode\qrlib.php';
 
     use source\database\DBManager;
 
@@ -9,9 +10,24 @@
     $idViaje = $_POST["id"];
 
     $viaje = $db->ObtenerViajePorId($idViaje);
+
+    //INICIO DE CODIGO QR
+	
+	// El nombre del fichero que se generará (una imagen PNG).
+	$file = '../../../assets/imagenes/qr/Camion-qr/' . time() . '.png'; 
+	// La data que llevará.
+	$data = 'http://localhost/web2/viajes.php?id=' . $idViaje; 
+
+	// Y generamos la imagen.
+	QRcode::png($data, $file);  
+
+	//FIN CODIGO QR
 ?>
 
 <h4>Datos de Viaje</h4>
+<?php
+        	echo '<img  src="imagenes/qr/Camion-qr/' . $file . '" alt="" >'
+ ?>
 <div class="row">
 	<div class="col s12 m6">
 		<ul class="collection left-align">

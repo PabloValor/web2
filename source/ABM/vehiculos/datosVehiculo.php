@@ -7,24 +7,10 @@
 
     $db = new DBManager();
 
-  
+	 
     $dominioVehiculo = $_POST["dominio"];
 	$vehiculo = $db->ObtenerVehiculoPorDominio($dominioVehiculo); 
-    $avatar = empty($vehiculo["AVATAR"]) ? "default" : $vehiculo["AVATAR"];
-
-	//INICIO CODIGO QR
-	
-	//$qr = $_GET['id'];
-
-	// El nombre del fichero que se generará (una imagen PNG).
-	$file = '../../../assets/imagenes/qr/Camion-qr/' . time() . '.png'; 
-	// La data que llevará.
-	$data = 'http://localhost/web2/viajes.php?id=' . $dominioVehiculo; 
-
-	// Y generamos la imagen.
-	QRcode::png($data, $file);  
-
-	//FIN CODIGO QR
+	$avatar = empty($vehiculo["AVATAR"]) ? "default" : $vehiculo["AVATAR"];
 
 ?>
 
