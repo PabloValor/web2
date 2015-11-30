@@ -19,9 +19,6 @@
         <img class="avatar-perfil-usuario" src="assets/imagenes/avatares/vehiculos/<?php echo $avatar; ?>.jpg" alt="<?php echo $avatar; ?>">     
     </div>
 <h5 class="grey-text"><?php echo $vehiculo["DOMINIO"]; ?></h5>
-		<?php
-        	echo '<img  src="imagenes/qr/Camion-qr/' . $file . '" alt="" >'
-        ?>
 <div class="row">
 	<div class="col s12 m6">
 		<ul class="collection left-align">
