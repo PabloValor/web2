@@ -41,10 +41,6 @@ var Mapas = function() {
 						}
 					});     
                 }
-            }).done(function() {    
-                //componentesMaterialize.cargar();
-                //cargarEventos();
-                //ponerFocoEnEmpleadoEditar();
             });
 		});
 	};
