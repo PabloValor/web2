@@ -12,7 +12,7 @@ $(document).on('ready', function() {
     viajes.cargarLista();
 
     var mapas = new Mapas();
-    mapas.graficarMapa();
+    mapas.cargarEventos();
 
     var vehiculos = new Vehiculos();
     vehiculos.cargarLista();

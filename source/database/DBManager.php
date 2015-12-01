@@ -611,7 +611,31 @@ class DBManager {
 	}
 	/*FIN VEHICULOS*/
 
+	/* Seguimientos */
+
+	public function obtenerParadas($idViaje) {
+		$query = '
+			select parada.LATITUD LATITUD, parada.LONGITUD LONGITUD
+			from viaje
+			join destino on viaje.ID_DESTINO = destino.ID
+			join parada on parada.ID_DESTINO = destino.ID
+			where viaje.ID = :idViaje
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':idViaje', $idViaje, PDO::PARAM_INT);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
 	/* Reportes */
+
 	public function obtenerUsosdeCamionesEnAcualAnio() {
 		$anioActual = date("Y");
 		$query =
