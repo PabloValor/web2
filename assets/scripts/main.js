@@ -11,6 +11,9 @@ $(document).on('ready', function() {
     var viajes = new Viajes();
     viajes.cargarLista();
 
+    var mapas = new Mapas();
+    mapas.graficarMapa();
+
     var vehiculos = new Vehiculos();
     vehiculos.cargarLista();
     

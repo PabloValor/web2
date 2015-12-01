@@ -1,8 +1,11 @@
 <script type="text/javascript" src="assets/scripts/vendor/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="assets/scripts/vendor/googlemapsAPI.js"></script>
+<script type="text/javascript" src="assets/scripts/vendor/gmaps.js"></script>
 <script type="text/javascript" src="assets/scripts/vendor/materialize.js"></script>
 <script type="text/javascript" src="assets/scripts/vendor/sweetalert2.min.js"></script>
 <script type="text/javascript" src="assets/scripts/ComponentesMaterialize.js"></script>
 <script type="text/javascript" src="assets/scripts/Empleados.js"></script>
 <script type="text/javascript" src="assets/scripts/Viajes.js"></script>
 <script type="text/javascript" src="assets/scripts/Vehiculos.js"></script>
+<script type="text/javascript" src="assets/scripts/Mapas.js"></script>
 <script type="text/javascript" src="assets/scripts/main.js"></script>

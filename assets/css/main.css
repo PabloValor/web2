@@ -82,6 +82,14 @@ h2.login {
 .logo-camion {
 	width: 200px;
 }
+
+/* Mapas */
+#contenedor-mapa {
+	height: 400px !important;
+	width: 100% !important;
+	margin: 0 auto;
+}
+
 /*
 *
 *	Override de colores de formularios
