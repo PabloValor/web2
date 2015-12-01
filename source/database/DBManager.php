@@ -715,12 +715,12 @@ class DBManager {
 		try {
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':id', $service["ID"], PDO::PARAM_STR);
-			$stmt->bindParam(':modelo', $service["DOMINIO_VEHICULO"], PDO::PARAM_STR);
-			$stmt->bindParam(':marca', $service["FECHA"], PDO::PARAM_STR);
-			$stmt->bindParam(':ano', $service["KM_VEHICULO"], PDO::PARAM_INT);
-			$stmt->bindParam(':nro_chasis', $service["COSTO"], PDO::PARAM_INT);
-			$stmt->bindParam(':nro_motor', $service["ES_INTERNO"], PDO::PARAM_INT);
-			$stmt->bindParam(':avatar', $service["COMENTARIO"], PDO::PARAM_STR);
+			$stmt->bindParam(':dominio_vehiculo', $service["DOMINIO_VEHICULO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha', $service["FECHA"], PDO::PARAM_STR);
+			$stmt->bindParam(':km_vehiculo', $service["KM_VEHICULO"], PDO::PARAM_INT);
+			$stmt->bindParam(':costo', $service["COSTO"], PDO::PARAM_INT);
+			$stmt->bindParam(':es_interno', $service["ES_INTERNO"], PDO::PARAM_INT);
+			$stmt->bindParam(':comentario', $service["COMENTARIO"], PDO::PARAM_STR);
 			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
 
 			$stmt->execute();
