@@ -45,6 +45,7 @@
                 <div class="col s12 margin-top-10 margin-bottom-10">
                     <div class="center-align">
                         <a href ="#modalNuevoVehiculo" id="btn-nuevo-lista" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar nuevo</a>
+                        <a href ="#" id="btn-nuevo-lista" class="light-blue darken-1 waves-effect waves-light btn-large modal-trigger"><i class="material-icons right">input</i>agregar mantenimiento</a>
                     </div>
                 </div>
             <?php } ?>
