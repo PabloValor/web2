@@ -4,6 +4,7 @@
 			<div class="col l6 s12">
 				<h5 class="white-text">Dirty Trucks</h5>
 				<p class="grey-text text-lighten-4">Empresa ficticia de logística de camiones</p>
+				<p class="grey-text text-lighten-4"><a style="color:white;" class="link" href="https://github.com/PabloValor/web2" target="_blank">Ver código en Github</a></p>
 			</div>
 			<div class="col l4 offset-l2 s12">
 				<h5 class="white-text">Mapa del sitio</h5>
