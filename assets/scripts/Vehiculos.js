@@ -90,6 +90,51 @@ var Vehiculos = function () {
         });
     }
 
+    function btnMantenimientoNuevo() {
+        $('#btn-nuevo-mantenimiento').on('click', function(e) {
+            e.preventDefault();
+            var formData = $('#formNuevoMantenimiento').serialize();
+            $.ajax({
+                url: 'source/ABM/mantenimiento/nuevo.php',
+                method: 'POST',
+                data: formData,
+                success: function(data){
+                    swal({
+                        title: 'Mantenimiento agregado con éxito',
+                        type: 'success'
+                    });
+                },
+                error: function() {
+                    swal({
+                        title: 'Ocurrió un error al dar de alta el vehiculo',
+                        type: 'error'
+                    });
+                }
+            }).done(function(){
+                $('#modalNuevoMantenimiento').closeModal();
+                obtenerMantenimientos();
+            });
+        });
+    }
+
+    function btnDatosService() {
+        // Se carga evento boton ver Vehiculo
+        $('.btn-datos-service').on('click', function() {
+
+            var dominiovehiculo = 'dominio_patente=' + $(this).data('id');
+
+            $.ajax({
+                url: 'source/ABM/vehiculos/datosService.php',
+                method: 'post',
+                data: dominiovehiculo,
+                dataType: 'html',
+                success: function(data){
+                    $('#modalDatosVehiculo .modal-content').html(data);
+                }
+            });
+        });
+    }    
+
     function btnVehiculoEditarLista() {
         // Se carga evento boton editar de lista
         $('.btn-editar-lista').on('click', function() {

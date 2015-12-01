@@ -611,31 +611,7 @@ class DBManager {
 	}
 	/*FIN VEHICULOS*/
 
-	/* Seguimientos */
-
-	public function obtenerParadas($idViaje) {
-		$query = '
-			select parada.LATITUD LATITUD, parada.LONGITUD LONGITUD
-			from viaje
-			join destino on viaje.ID_DESTINO = destino.ID
-			join parada on parada.ID_DESTINO = destino.ID
-			where viaje.ID = :idViaje
-		';
-		try {
-			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':idViaje', $idViaje, PDO::PARAM_INT);
-			$stmt->execute();
-			$stmt->setFetchMode(PDO::FETCH_ASSOC);
-			return $stmt->fetchAll();
-		}
-		catch(PDOException $ex) {
-			print "Chan: " . $ex->getMessage();
-			die();
-		}		
-	}
-
 	/* Reportes */
-
 	public function obtenerUsosdeCamionesEnAcualAnio() {
 		$anioActual = date("Y");
 		$query =
@@ -728,7 +704,7 @@ class DBManager {
 		}
 	}
 
-
+    /* Mantenimiento */
 	public function altaService($service) {
 		$query = "
 			insert into `SERVICE`(`ID`, `DOMINIO_VEHICULO`, `FECHA`, `KM_VEHICULO`,
@@ -754,4 +730,23 @@ class DBManager {
 			die();
 		}		
 	}
+
+	public function obtenerMantenimientos() {
+		$query =
+		' 
+			select s.ID, s.DOMINIO_VEHICULO, s.FECHA, s.KM_VEHICULO, s.COSTO, s.ES_INTERNO, s.COMENTARIO
+			from service s
+			where s.ID = 1
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}	
 }
