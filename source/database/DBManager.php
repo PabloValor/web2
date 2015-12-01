@@ -703,4 +703,31 @@ class DBManager {
 			die();
 		}
 	}
+
+
+	public function altaService($service) {
+		$query = "
+			insert into `SERVICE`(`ID`, `DOMINIO_VEHICULO`, `FECHA`, `KM_VEHICULO`,
+				`COSTO`, `ES_INTERNO`, `COMENTARIO`)
+			values(:id, :dominio, :fecha, :km_vehiculo, :costo,
+				:es_interno, :comentario)
+		";
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $service["ID"], PDO::PARAM_STR);
+			$stmt->bindParam(':modelo', $service["DOMINIO_VEHICULO"], PDO::PARAM_STR);
+			$stmt->bindParam(':marca', $service["FECHA"], PDO::PARAM_STR);
+			$stmt->bindParam(':ano', $service["KM_VEHICULO"], PDO::PARAM_INT);
+			$stmt->bindParam(':nro_chasis', $service["COSTO"], PDO::PARAM_INT);
+			$stmt->bindParam(':nro_motor', $service["ES_INTERNO"], PDO::PARAM_INT);
+			$stmt->bindParam(':avatar', $service["COMENTARIO"], PDO::PARAM_STR);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
 }
