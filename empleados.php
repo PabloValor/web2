@@ -38,6 +38,10 @@
                 </form>
             </div>
         </div>
+        <p>
+            <i class="material-icons prefix">print</i> 
+            <a class="btn-exportar-pdf link margin-bottom-10" href="#">Exportar listado a PDF</a>
+        </p>
         <!-- Fin Filtro de busqueda -->
         <div class="row">
             <!-- boton nuevo empleado -->

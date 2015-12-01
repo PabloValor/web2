@@ -7,7 +7,7 @@ use source\database\DBManager;
 
 $db = new DBManager();
 //$dato = $_POST["id"];
-$empleado = $db->ObtenerEmpleadoPorId(1); 
+$empleados = $db->obtenerEmpleados(); 
 
 	class PDF extends FPDF
 	{
@@ -15,15 +15,15 @@ $empleado = $db->ObtenerEmpleadoPorId(1);
 	function Header()
 	{
 	    // Logo
-	    $this->Image('http://localhost/web2/web2/assets/imagenes/avatar.png',10,6,30);
+	    //$this->Image('http://localhost/web2/web2/assets/imagenes/avatar.png',10,6,30);
 	    // Arial bold 15
 	    $this->SetFont('Arial','B',15);
 	    // Move to the right
 	    $this->Cell(50);
 	    // Title
-		$this->Cell(100,10,'FICHA DEL EMPLEADO',1,0,'C');
+		$this->Cell(100,10,'EMPLEADOS DE LA EMPRESA',1,0,'C');
 	    // Line break
-	    $this->Ln(20);
+	    $this->Ln(10);
 
 	}
 
@@ -45,16 +45,26 @@ $empleado = $db->ObtenerEmpleadoPorId(1);
 	$pdf->AddPage();
 	$pdf->SetFont('Times','',12);
 
-    $pdf->Cell(0,10,'ID : ' . $empleado["ID"],0,1);
-    $pdf->Cell(0,10,'NOMBRE : ' . $empleado["NOMBRE"],0,1);
-    $pdf->Cell(0,10,'APELLIDO : ' . $empleado["APELLIDO"],0,1);
-    $pdf->Cell(0,10,'DNI : ' . $empleado["DNI"],0,1);
-	$pdf->Cell(0,10,'SEXO : ' . $empleado["SEXO"],0,1);
-	$pdf->Cell(0,10,'FECHA DE NACIMIENTO : ' . $empleado["FECHA_NACIMIENTO"],0,1);
-	$pdf->Cell(0,10,'FECHA DE INGRESO : ' . $empleado["FECHA_INGRESO"],0,1);
-	$pdf->Cell(0,10,'SUELDO : $' . $empleado["SUELDO"],0,1);
-	$pdf->Cell(0,10,'CARGO : ' . $empleado["CARGO"],0,1);
-	$pdf->Cell(0,10,'ROL : ' . $empleado["ROL"],0,1);
+
+	foreach($empleados as $empleado):
+
+		//$pdf->Cell(1,8, $pdf->Image('http://localhost/web2/web2/assets/imagenes/avatar.png', $pdf->GetX() + 80, null, 30));
+		$pdf->Cell(0,0,'',1,1,'C');
+	    $pdf->Cell(0,8,'',0,1);
+	    $pdf->Cell(0,8,'NOMBRE : ' . $empleado["NOMBRE"],0,1);
+	    $pdf->Cell(0,8,'APELLIDO : ' . $empleado["APELLIDO"],0,1);
+	    $pdf->Cell(0,8,'DNI : ' . $empleado["DNI"],0,1);
+		$pdf->Cell(0,8,'SEXO : ' . $empleado["SEXO"],0,1);
+		$pdf->Cell(0,8,'FECHA DE NACIMIENTO : ' . $empleado["FECHA_NACIMIENTO"],0,1);
+		$pdf->Cell(0,8,'FECHA DE INGRESO : ' . $empleado["FECHA_INGRESO"],0,1);
+		$pdf->Cell(0,8,'SUELDO : $' . $empleado["SUELDO"],0,1);
+		$pdf->Cell(0,8,'CARGO : ' . $empleado["CARGO"],0,1);
+		$pdf->Cell(0,8,'ROL : ' . $empleado["ROL"],0,1);
+		$pdf->Ln();
+		If ($empleado <> end($empleados))
+			$pdf->Cell(0,0,'',1,1,'C');
+
+	endforeach;
 
 	$pdf->Output();
 ?>

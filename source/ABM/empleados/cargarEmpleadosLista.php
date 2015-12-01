@@ -21,7 +21,6 @@ $empleados = $db->obtenerEmpleados();
             <span class="tag"><?php echo $empleado["ROL"]; ?></span>
         </p>
         <p><a class="btn-datos-empleado modal-trigger link margin-bottom-10" data-id="<?php echo $empleado["ID"]; ?>" href="#modalDatosEmpleado">Ver perfil completo</a></p>
-        <p><a class="btn-exportar-pdf link margin-bottom-10" data-id="<?php echo $empleado["ID"]; ?>" href="#">Exportar a PDF</a></p>
         <!-- 
             Los botones de de Editar y Eliminar Empleado solo estan disponibles si el usuario
             que esta navegando la aplicación tiene rol de Supervisor 
