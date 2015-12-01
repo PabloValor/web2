@@ -11,6 +11,7 @@ var Empleados = function () {
         cargarEmpleadosListaFiltrada();
     } 
 
+
     /* Métodos privados */
 
     function cargarEmpleadosListaFiltrada() {
@@ -52,6 +53,7 @@ var Empleados = function () {
         btnEmpleadoNuevoLista();
         cargarEmpleadosListaFiltrada();
         btnDatosEmpleado();
+        btnExportarPDF();
         btnEmpleadoEditarLista();
         btnEmpleadoEliminarLista();
     };
@@ -173,6 +175,14 @@ var Empleados = function () {
             });
         });
     }    
+
+    function btnExportarPDF() {
+        $('.btn-exportar-pdf').on('click', function() {
+            var $self = $(this);
+            var IdEmpleado = $self.data('id');
+            window.open("source/ABM/empleados/PDFDatosEmpleado.php");
+        });
+    }   
 
     function btnEmpleadoEditar() {
 		$('#btn-editar-empleado').on('click', function() {
