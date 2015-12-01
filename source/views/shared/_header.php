@@ -16,16 +16,6 @@
 						</a>
 					</li>
 					<li>
-						<a href="#!" class="tooltipped" data-position="bottom" data-tooltip="Mi perfil">
-							<i class="material-icons">assignment_ind</i>
-						</a>
-					</li>
-					<li>
-						<a href="#!" class="tooltipped" data-position="bottom" data-tooltip="Configuración">
-							<i class="material-icons" >settings</i>
-						</a>
-					</li>
-					<li>
 						<a href="salir.php" class="tooltipped" data-position="bottom" data-tooltip="Salir">
 							<i class="material-icons">settings_power</i>
 						</a>
