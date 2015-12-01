@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2015 at 04:08 AM
+-- Generation Time: Dec 01, 2015 at 04:40 AM
 -- Server version: 5.6.26
 -- PHP Version: 5.6.12
 
@@ -142,7 +142,7 @@ INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMI
 (27, 'Roberto', 'Sensini', 8875677, 'M', '1990-04-17', '2015-11-29', '13000.00', 1, 'robert', 'skjsdklfds', 2, '', 'foto7'),
 (28, 'Claudio Javier', 'LÃ³pez', 1234533, 'M', '1988-10-30', '2015-11-29', '8700.00', 1, 'piojo', 'lopezzzz', 1, '', 'foto8'),
 (30, 'Diego Pablo', 'Simeone', 14322, 'M', '1970-06-19', '2015-11-12', '11000.00', 2, 'deigote', '123654', 1, '', 'foto9'),
-(31, 'Gabriel ', 'Batistuta', 44345677, 'M', '1966-01-24', '2015-11-29', '15000.00', 1, 'gaby', '123333', 2, '', 'foto10'),
+(31, 'Gabriel ', 'Gates', 44345677, 'M', '1966-01-24', '2015-11-29', '15000.00', 1, 'gaby', '123333', 2, '', 'foto10'),
 (45, 'German', 'Polosky', 4468800, 'M', '1993-03-12', '2015-04-11', '12600.00', 1, 'loco123', '223344', 1, '', '');
 
 -- --------------------------------------------------------
@@ -194,9 +194,23 @@ INSERT INTO `pais` (`ID`, `DESCRIPCION`) VALUES
 CREATE TABLE IF NOT EXISTS `parada` (
   `ID` int(11) NOT NULL,
   `ID_DESTINO` int(11) DEFAULT NULL,
-  `COORX` varchar(50) DEFAULT NULL,
-  `COORY` varchar(50) DEFAULT NULL
+  `LATITUD` varchar(50) DEFAULT NULL,
+  `LONGITUD` varchar(50) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `parada`
+--
+
+INSERT INTO `parada` (`ID`, `ID_DESTINO`, `LATITUD`, `LONGITUD`) VALUES
+(1, 1, '-34.692239', ' -58.585623'),
+(2, 1, '-34.608530', '-58.421677'),
+(3, 2, '-43.162433', '-66.095400'),
+(4, 2, '-43.284075 ', '-65.143432'),
+(5, 3, '-34.692239', ' -58.585623'),
+(6, 3, '-33.155451', '-71.459791'),
+(7, 4, '-32.885774', '-68.887323'),
+(8, 4, '-34.601190', '-58.455416');
 
 -- --------------------------------------------------------
 
@@ -320,20 +334,22 @@ CREATE TABLE IF NOT EXISTS `viaje` (
   `CANT_KILOMETROS` int(11) NOT NULL,
   `ID_TIPO_ACOPLADO` int(11) NOT NULL,
   `ID_EMPLEADO` int(11) DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `viaje`
 --
 
 INSERT INTO `viaje` (`ID`, `DOMINIO_VEHICULO`, `ID_DESTINO`, `ID_CLIENTE`, `FECHA_PROGRAMADA`, `FECHA_INICIO`, `FECHA_FIN`, `CANT_KILOMETROS`, `ID_TIPO_ACOPLADO`, `ID_EMPLEADO`) VALUES
-(2, 'RSC-987', 1, 2, '2015-11-25', '2015-11-29', '2015-12-06', 500, 1, 22),
+(2, 'RSC-987', 1, 3, '2015-11-25', '2015-11-29', '2015-12-06', 500, 1, 22),
 (3, 'AXE-752', 1, 1, '2014-01-01', '2015-11-29', '2014-01-01', 500, 1, 22),
 (5, 'PYH-985', 3, 2, '2015-11-30', '2015-11-14', '2015-12-01', 1200, 3, 28),
 (6, 'PYH-985', 2, 2, '2015-11-30', '2015-12-03', '2015-12-06', 4600, 1, 31),
 (7, 'AXJ-777', 4, 1, '2015-11-12', '2015-11-27', '2015-12-06', 13455, 3, 45),
-(8, 'AXJ-777', 3, 1, '2015-11-30', '2015-11-30', '2016-01-02', 14000, 3, 20),
-(9, 'COH-876', 1, 1, '2015-12-25', '2015-12-30', '2015-12-31', 1200, 2, 20);
+(8, 'AXJ-777', 3, 1, '2015-11-30', '2015-11-30', '2016-01-02', 14000, 3, 22),
+(9, 'COH-876', 1, 1, '2015-12-25', '2015-12-30', '2015-12-31', 1200, 2, 20),
+(10, 'PYH-985', 2, 2, '2015-11-30', '2015-11-30', '2015-11-30', 200, 3, 28),
+(11, 'COH-876', 4, 2, '2015-11-30', '2015-11-30', '2015-12-03', 1300, 3, 31);
 
 -- --------------------------------------------------------
 
@@ -470,7 +486,7 @@ ALTER TABLE `service`
 -- AUTO_INCREMENT for table `viaje`
 --
 ALTER TABLE `viaje`
-  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=10;
+  MODIFY `ID` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 --
 -- Constraints for dumped tables
 --
