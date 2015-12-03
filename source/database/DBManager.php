@@ -727,38 +727,12 @@ class DBManager {
 	}
 
     /* Mantenimiento */
-	public function altaService($service) {
-		$query = "
-			insert into `SERVICE`(`ID`, `DOMINIO_VEHICULO`, `FECHA`, `KM_VEHICULO`,
-				`COSTO`, `ES_INTERNO`, `COMENTARIO`)
-			values(:id, :dominio, :fecha, :km_vehiculo, :costo,
-				:es_interno, :comentario)
-		";
-		try {
-			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':id', $service["ID"], PDO::PARAM_STR);
-			$stmt->bindParam(':dominio_vehiculo', $service["DOMINIO_VEHICULO"], PDO::PARAM_STR);
-			$stmt->bindParam(':fecha', $service["FECHA"], PDO::PARAM_STR);
-			$stmt->bindParam(':km_vehiculo', $service["KM_VEHICULO"], PDO::PARAM_INT);
-			$stmt->bindParam(':costo', $service["COSTO"], PDO::PARAM_INT);
-			$stmt->bindParam(':es_interno', $service["ES_INTERNO"], PDO::PARAM_INT);
-			$stmt->bindParam(':comentario', $service["COMENTARIO"], PDO::PARAM_STR);
-			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
-
-			$stmt->execute();
-		}
-		catch(PDOException $ex) {
-			print "Chan: " . $ex->getMessage();
-			die();
-		}		
-	}
-
 	public function obtenerMantenimientos() {
 		$query =
 		' 
-			select s.ID, s.DOMINIO_VEHICULO, s.FECHA, s.KM_VEHICULO, s.COSTO, s.ES_INTERNO, s.COMENTARIO
-			from service s
-			where s.ID = 1
+			select *
+			from service 
+			where activo = 1
 		';
 		try {
 			$stmt = $this->dbo->prepare($query);
@@ -770,5 +744,129 @@ class DBManager {
 			print "Chan: " . $ex->getMessage();
 			die();
 		}		
-	}	
+	}
+
+	public function obtenerMantenimientoPorID($idMantenimiento) {
+		$query =
+		' 
+			select s.*, e.NOMBRE, e.APELLIDO
+			from service s
+			inner join empleado e
+			on s.empleado_encargado	= e.id
+			where s.ID = :id
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $idMantenimiento, PDO::PARAM_INT);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetch();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function altaMantenimiento($datos) {
+		$query = "
+			insert into `SERVICE`(`DOMINIO_VEHICULO`, `FECHA`, `KM_VEHICULO`, `COSTO`,
+				`EMPLEADO_ENCARGADO`, `COMENTARIO`)
+			values(:dominio_vehiculo, :fecha, :km_vehiculo, :costo, :empleado_encargado, :comentario)
+		";
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':dominio_vehiculo	', $datos["DOMINIO_VEHICULO"], PDO::PARAM_STR);
+			$stmt->bindParam(':fecha', $datos["FECHA"], PDO::PARAM_STR);
+			$stmt->bindParam(':km_vehiculo	', $datos["KM_VEHICULO"], PDO::PARAM_INT);
+			$stmt->bindParam(':costo', $datos["COSTO"], PDO::PARAM_INT);
+			$stmt->bindParam(':empleado_encargado', $datos["EMPLEADO_ENCARGADO"], PDO::PARAM_INT);
+			$stmt->bindParam(':comentario', $this->configGlobal->normalizarTexto($datos["COMENTARIO"]), PDO::PARAM_STR);
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
+	public function editarMantenimiento($datos) {
+		$query = "
+			update `SERVICE`
+			set
+			`DOMINIO_VEHICULO` = :dominio_vehiculo,
+			`FECHA` = :fecha,
+			`KM_VEHICULO` = :km_vehiculo,
+			`COSTO` = :costo,
+			`EMPLEADO_ENCARGADO` = :empleado_encargado,
+			`COMENTARIO` = :comentario
+			 where ID = :id;
+		";
+
+		// `ACTIVO` = :activo  <--- agregarlo a la query 
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $datos["ID"], PDO::PARAM_INT);
+			$stmt->bindParam(':fecha', $datos["FECHA"], PDO::PARAM_STR);
+			$stmt->bindParam(':km_vehiculo', $datos["KM_VEHICULO"], PDO::PARAM_INT);
+			$stmt->bindParam(':costo', $datos["COSTO"], PDO::PARAM_INT);
+			$stmt->bindParam(':empleado_encargado', $datos["EMPLEADO_ENCARGADO"], PDO::PARAM_INT);
+			$stmt->bindParam(':dominio_vehiculo', $datos["DOMINIO_VEHICULO"], PDO::PARAM_STR);
+			$stmt->bindParam(':comentario', $this->configGlobal->normalizarTexto($datos["COMENTARIO"]), PDO::PARAM_STR);
+
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function bajaMantenimiento($id) {
+		try {
+			$query = 'UPDATE service SET activo = 0 WHERE id = :id';
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':id', $id);
+			$stmt->execute();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}
+	}
+
+	public function obtenerDominios() {
+		$query = 'select DOMINIO from vehiculo where activo=1';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
+
+	public function obtenerMecanicos() {
+		$query = 
+		//Traigo solo MECANICOS
+		'
+		 select e.ID, e.NOMBRE, e.APELLIDO
+		 from empleado e
+		 where e.activo = 1
+		 and e.id_cargo = 2 
+		 ';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+	}
 }

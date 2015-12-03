@@ -16,6 +16,9 @@ $(document).on('ready', function() {
 
     var vehiculos = new Vehiculos();
     vehiculos.cargarLista();
+
+    var mantenimientos = new Mantenimientos();
+    mantenimientos.cargarLista();
     
     console.info("DOM ready");
 });
