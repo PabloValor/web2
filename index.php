@@ -111,25 +111,25 @@
                     </div>
                 </div>
             </div>
-            <!-- Fin Tarjeta Seguimiento -->
-            
-            <!-- Tarjeta Services -->
+            <!-- Fin Tarjeta Seguimiento -->        
+
+            <!-- Tarjeta Mantenimientos -->
             <div class="col s12 m4">
                 <div class="card hoverable">
                     <div class="card-image waves-effect waves-block waves-light">
-                        <img class="activator" src="assets/imagenes/engranajes.jpg">
+                        <img class="activator" src="assets/imagenes/mantenimientos.jpg">
                     </div>
                         <div class="card-content">
-                            <span class="card-title activator grey-text text-darken-4">Services<i class="material-icons right">more_vert</i></span>
-                            <p><a href="services.php" class="link">Ver Services</a></p>
+                            <span class="card-title activator grey-text text-darken-4">Mantenimientos<i class="material-icons right">more_vert</i></span>
+                            <p><a href="mantenimientos.php" class="link">Ver Mantenimientos</a></p>
                         </div>
                     <div class="card-reveal">
-                        <span class="card-title grey-text text-darken-4">Services<i class="material-icons right">close</i></span>
-                        <p>Ver información acerca de los seguimientos de los services que realiza esta empresa</p>
+                        <span class="card-title grey-text text-darken-4">Mantenimientos<i class="material-icons right">close</i></span>
+                        <p>Ver información acerca de los mantenimientos de los vehículos de la empresa</p>
                     </div>
                 </div>
             </div>
-            <!-- Fin Tarjeta Services -->            
+            <!-- Fin Tarjeta Mantenimientos -->                             
         </div>
     </div>
 
