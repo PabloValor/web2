@@ -16,13 +16,28 @@
     <div class="row">
         <div class="input-field col s12 m6">
             <select name="DOMINIO_VEHICULO" required>
-                <option value="" disabled selected>Seleccione dominio afectado</option>
+                <option value="" disabled selected>Seleccione el Dominio</option>
                 <?php foreach($dominios as $dominio): ?>
                     <option value="<?php echo $dominio["DOMINIO"]; ?>">
                         <?php echo $dominio["DOMINIO"]; ?>
+                    </option>                                                                
+                <?php endforeach; ?>
+            </select>                  
+        </div>
+        <div class="input-field col s12 m6">
+            <select name="EMPLEADO_ENCARGADO" required>
+                <option value="" disabled selected>Seleccione mecanico</option>
+                <?php foreach($empleados as $empleado): ?>
+                    <option value="<?php echo $empleado["ID"]; ?>">
+                        <?php echo $empleado["NOMBRE"]; ?>&nbsp;<?php echo $empleado["APELLIDO"]; ?>
                     </option>
                 <?php endforeach; ?>
             </select>                   
+        </div>
+    </div>
+    <div class="row">
+        <div class="input-field col s12 m6">
+            <label for="LABEL">Seleccione la fecha a realizarlo</label>
         </div>
         <div class="input-field col s12 m6">
             <input placeholder="Fecha" type="date" name="FECHA" required>
@@ -38,20 +53,10 @@
             <label for="COSTO">Costo</label>
         </div>                                                
     <div class="row">
-        <div class="input-field col s12 m6">
-            <select name="EMPLEADO_ENCARGADO" required>
-                <option value="" disabled selected>Seleccione mecanico</option>
-                <?php foreach($empleados as $empleado): ?>
-                    <option value="<?php echo $empleado["ID"]; ?>">
-                        <?php echo $empleado["NOMBRE"]; ?>&nbsp;<?php echo $empleado["APELLIDO"]; ?>
-                    </option>
-                <?php endforeach; ?>
-            </select>                   
-        </div>
     </div>    
         <div class="input-field col s12">
-            <input name="COMENTARIOS" type="text" class="validate" required>
-            <label for="COMENTARIOS">Trabajo realizado</label>
+            <input name="COMENTARIO" type="text" class="validate" required>
+            <label for="COMENTARIO">Trabajo realizado</label>
         </div>
     <div class="row">
         <div class="input-field col s12">

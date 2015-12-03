@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2015 a las 02:53:42
+-- Tiempo de generación: 03-12-2015 a las 04:38:33
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -134,14 +134,14 @@ CREATE TABLE IF NOT EXISTS `empleado` (
 
 INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`, `USUARIO`, `PASSWORD`, `ID_ROL`, `ACTIVO`, `AVATAR`) VALUES
 (1, 'Juan', 'Perez', 36597152, 'M', '1988-01-12', '2015-11-22', '15000.00', 2, 'supervisor', '123', 3, '1', 'foto1'),
-(20, 'RamÃ³n', 'Aguirre', 2222, 'M', '2015-11-29', '2015-11-07', '1111.00', 1, 'administrador', '123', 2, '1', 'foto2'),
+(20, 'Roman', 'Aguirre', 2222, 'M', '2015-11-29', '2015-11-07', '1111.00', 1, 'administrador', '123', 2, '1', 'foto2'),
 (22, 'Carlos', 'Roa', 2233456, 'M', '2004-03-13', '2015-11-29', '22000.00', 1, 'chofer', '123', 1, '1', 'foto3'),
-(24, 'JosÃ© ', 'Chamot', 66567890, 'M', '1988-07-17', '2015-11-29', '13400.00', 1, 'josem', '123', 2, '1', 'foto4'),
-(25, 'Mauricio HÃ©ctor', 'Pineda', 9987654, 'M', '1976-11-03', '2015-11-29', '13000.00', 2, 'mauriciom', '1234', 1, '1', 'foto8'),
-(26, 'MatÃ­as', 'Almeyda', 28456300, 'M', '1977-11-29', '2015-11-29', '9000.00', 2, 'almeyda', '123444', 2, '1', 'foto6'),
+(24, 'Jose', 'Chamot', 66567890, 'M', '1988-07-17', '2015-11-29', '13400.00', 1, 'josem', '123', 2, '1', 'foto4'),
+(25, 'Mauricio', 'Pineda', 9987654, 'M', '1976-11-03', '2015-11-29', '13000.00', 2, 'mauriciom', '1234', 1, '1', 'foto8'),
+(26, 'Matias', 'Almeyda', 28456300, 'M', '1977-11-29', '2015-11-29', '9000.00', 2, 'almeyda', '123444', 2, '1', 'foto6'),
 (27, 'Roberto', 'Sensini', 8875677, 'M', '1990-04-17', '2015-11-29', '13000.00', 1, 'robert', 'skjsdklfds', 2, '1', 'foto7'),
-(28, 'Claudio Javier', 'LÃ³pez', 1234533, 'M', '1988-10-30', '2015-11-29', '8700.00', 1, 'piojo', 'lopezzzz', 1, '1', 'foto8'),
-(30, 'Diego Pablo', 'Simeone', 14322, 'M', '1970-06-19', '2015-11-12', '11000.00', 2, 'deigote', '123654', 1, '1', 'foto9'),
+(28, 'Claudio', 'Lopez', 1234533, 'M', '1988-10-30', '2015-11-29', '8700.00', 1, 'piojo', 'lopezzzz', 1, '1', 'foto8'),
+(30, 'Pablo', 'Simeone', 14322, 'M', '1970-06-19', '2015-11-12', '11000.00', 2, 'deigote', '123654', 1, '1', 'foto9'),
 (31, 'Gabriel ', 'Gates', 44345677, 'M', '1966-01-24', '2015-11-29', '15000.00', 1, 'gaby', '123333', 2, '1', 'foto10'),
 (45, 'German', 'Polosky', 4468800, 'M', '1993-03-12', '2015-04-11', '12600.00', 1, 'loco123', '223344', 1, '1', '');
 
@@ -287,14 +287,18 @@ CREATE TABLE IF NOT EXISTS `service` (
   `ACTIVO` int(1) NOT NULL DEFAULT '1',
   `EMPLEADO_ENCARGADO` int(3) NOT NULL,
   `REALIZADO` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `service`
 --
 
 INSERT INTO `service` (`ID`, `DOMINIO_VEHICULO`, `FECHA`, `KM_VEHICULO`, `COSTO`, `COMENTARIO`, `ACTIVO`, `EMPLEADO_ENCARGADO`, `REALIZADO`) VALUES
-(2, 'AXE-752', '2015-12-01', '1111.00', '222.00', 'Se realizo cambio de amortiguadores', 1, 25, 0);
+(2, 'AXE-752', '2015-10-01', '140000.00', '80000.00', 'Se deben cambiar las 8 cubiertas del camion.', 1, 25, 1),
+(3, 'NYP-872', '2015-11-02', '75000.00', '10000.00', 'Se debe realizar el cambio de aceite y filtros.', 1, 26, 1),
+(4, 'PYH-985', '2015-12-01', '85000.00', '15000.00', 'Se deben cambiar los amortiguadores delanteros y traseros del vehiculo .', 1, 30, 0),
+(5, 'CIH-796', '2015-12-14', '50000.00', '20000.00', 'Se deben cambiar las luces traseras del vehiculo.', 1, 26, 0),
+(6, 'AXJ-777', '2015-12-30', '100000.00', '40000.00', 'Se deben cambiar las pastillas de freno del vehiculo.', 1, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -490,7 +494,7 @@ ALTER TABLE `seguimiento`
 -- AUTO_INCREMENT de la tabla `service`
 --
 ALTER TABLE `service`
-  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT de la tabla `viaje`
 --

@@ -51,10 +51,6 @@
     </div>
     <!-- Fin Modal Ver Datos de mantenimiento -->
 
-    <!-- Modal Editar mantenimiento -->
-    <div id="modalEditarMantenimiento" class="modal">
-        <div class="modal-content center-align"></div>
-    </div>
     <!-- Fin Modal Editar de mantenimiento -->    
     <!-- Fin Contenido de pagina -->
     <?php

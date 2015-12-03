@@ -793,16 +793,19 @@ class DBManager {
 		$query = "
 			insert into `SERVICE`(`DOMINIO_VEHICULO`, `FECHA`, `KM_VEHICULO`, `COSTO`,
 				`EMPLEADO_ENCARGADO`, `COMENTARIO`)
-			values(:dominio_vehiculo, :fecha, :km_vehiculo, :costo, :empleado_encargado, :comentario)
+			values(:dominio_vehiculo, :fecha, :km_vehiculo, :costo,
+				:empleado_encargado, :comentario)
 		";
 		try {
 			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':dominio_vehiculo	', $datos["DOMINIO_VEHICULO"], PDO::PARAM_STR);
+			$stmt->bindParam(':dominio_vehiculo', $datos["DOMINIO_VEHICULO"], PDO::PARAM_STR);
 			$stmt->bindParam(':fecha', $datos["FECHA"], PDO::PARAM_STR);
-			$stmt->bindParam(':km_vehiculo	', $datos["KM_VEHICULO"], PDO::PARAM_INT);
+			$stmt->bindParam(':km_vehiculo', $datos["KM_VEHICULO"], PDO::PARAM_INT);
 			$stmt->bindParam(':costo', $datos["COSTO"], PDO::PARAM_INT);
 			$stmt->bindParam(':empleado_encargado', $datos["EMPLEADO_ENCARGADO"], PDO::PARAM_INT);
-			$stmt->bindParam(':comentario', $this->configGlobal->normalizarTexto($datos["COMENTARIO"]), PDO::PARAM_STR);
+			$stmt->bindParam(':comentario', $datos["COMENTARIO"], PDO::PARAM_STR);
+			//$stmt->bindParam(':activo', $datos["ACTIVO"], PDO::PARAM_INT);
+
 			$stmt->execute();
 		}
 		catch(PDOException $ex) {
@@ -811,30 +814,11 @@ class DBManager {
 		}		
 	}
 
-	public function editarMantenimiento($datos) {
-		$query = "
-			update `SERVICE`
-			set
-			`DOMINIO_VEHICULO` = :dominio_vehiculo,
-			`FECHA` = :fecha,
-			`KM_VEHICULO` = :km_vehiculo,
-			`COSTO` = :costo,
-			`EMPLEADO_ENCARGADO` = :empleado_encargado,
-			`COMENTARIO` = :comentario
-			 where ID = :id;
-		";
-
-		// `ACTIVO` = :activo  <--- agregarlo a la query 
+	public function bajaMantenimiento($id) {
 		try {
+			$query = 'UPDATE service SET activo = 0 WHERE id = :id';
 			$stmt = $this->dbo->prepare($query);
-			$stmt->bindParam(':id', $datos["ID"], PDO::PARAM_INT);
-			$stmt->bindParam(':fecha', $datos["FECHA"], PDO::PARAM_STR);
-			$stmt->bindParam(':km_vehiculo', $datos["KM_VEHICULO"], PDO::PARAM_INT);
-			$stmt->bindParam(':costo', $datos["COSTO"], PDO::PARAM_INT);
-			$stmt->bindParam(':empleado_encargado', $datos["EMPLEADO_ENCARGADO"], PDO::PARAM_INT);
-			$stmt->bindParam(':dominio_vehiculo', $datos["DOMINIO_VEHICULO"], PDO::PARAM_STR);
-			$stmt->bindParam(':comentario', $this->configGlobal->normalizarTexto($datos["COMENTARIO"]), PDO::PARAM_STR);
-
+			$stmt->bindParam(':id', $id);
 			$stmt->execute();
 		}
 		catch(PDOException $ex) {
@@ -843,9 +827,9 @@ class DBManager {
 		}
 	}
 
-	public function bajaMantenimiento($id) {
+	public function marcarMantenimientoRealizado($id) {
 		try {
-			$query = 'UPDATE service SET activo = 0 WHERE id = :id';
+			$query = 'UPDATE service SET realizado = 1 WHERE id = :id';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':id', $id);
 			$stmt->execute();
