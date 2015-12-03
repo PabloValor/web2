@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 03-12-2015 a las 04:38:33
+-- Tiempo de generación: 03-12-2015 a las 05:49:54
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -133,9 +133,8 @@ CREATE TABLE IF NOT EXISTS `empleado` (
 --
 
 INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`, `USUARIO`, `PASSWORD`, `ID_ROL`, `ACTIVO`, `AVATAR`) VALUES
-(1, 'Juan', 'Perez', 36597152, 'M', '1988-01-12', '2015-11-22', '15000.00', 2, 'supervisor', '123', 3, '1', 'foto1'),
-(20, 'Roman', 'Aguirre', 2222, 'M', '2015-11-29', '2015-11-07', '1111.00', 1, 'administrador', '123', 2, '1', 'foto2'),
-(22, 'Carlos', 'Roa', 2233456, 'M', '2004-03-13', '2015-11-29', '22000.00', 1, 'chofer', '123', 1, '1', 'foto3'),
+(20, 'Roman', 'Aguirre', 2222, 'M', '2015-11-29', '2015-11-07', '1111.00', 1, 'administrador', '123', 2, '0', 'foto2'),
+(22, 'Carlos', 'Roa', 2233456, 'M', '2004-03-13', '2015-11-29', '22000.00', 1, 'chofer', '123', 1, '0', 'foto3'),
 (24, 'Jose', 'Chamot', 66567890, 'M', '1988-07-17', '2015-11-29', '13400.00', 1, 'josem', '123', 2, '1', 'foto4'),
 (25, 'Mauricio', 'Pineda', 9987654, 'M', '1976-11-03', '2015-11-29', '13000.00', 2, 'mauriciom', '1234', 1, '1', 'foto8'),
 (26, 'Matias', 'Almeyda', 28456300, 'M', '1977-11-29', '2015-11-29', '9000.00', 2, 'almeyda', '123444', 2, '1', 'foto6'),
@@ -204,9 +203,9 @@ CREATE TABLE IF NOT EXISTS `parada` (
 
 INSERT INTO `parada` (`ID`, `ID_DESTINO`, `LATITUD`, `LONGITUD`) VALUES
 (1, 1, '-34.692239', ' -58.585623'),
-(2, 1, '-34.608530', '-58.421677'),
+(2, 1, '-36.633720', '-64.254454'),
 (3, 2, '-43.162433', '-66.095400'),
-(4, 2, '-43.284075 ', '-65.143432'),
+(4, 2, '-36.633720', '-64.254454'),
 (5, 3, '-34.692239', ' -58.585623'),
 (6, 3, '-33.155451', '-71.459791'),
 (7, 4, '-32.885774', '-68.887323'),
@@ -287,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `service` (
   `ACTIVO` int(1) NOT NULL DEFAULT '1',
   `EMPLEADO_ENCARGADO` int(3) NOT NULL,
   `REALIZADO` int(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `service`
@@ -494,7 +493,7 @@ ALTER TABLE `seguimiento`
 -- AUTO_INCREMENT de la tabla `service`
 --
 ALTER TABLE `service`
-  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+  MODIFY `ID` int(3) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 --
 -- AUTO_INCREMENT de la tabla `viaje`
 --
