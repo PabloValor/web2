@@ -727,6 +727,27 @@ class DBManager {
 	}
 
     /* Mantenimiento */
+    public function obtenerAlarmasMantenimientos() {
+    	$hoy = date('Y-m-d');
+
+		$query =
+		' 
+			select *
+			from service 
+			where service.activo = 1 and :hoy >= service.fecha and service.realizado = 0
+		';
+		try {
+			$stmt = $this->dbo->prepare($query);
+			$stmt->bindParam(':hoy', $hoy, PDO::PARAM_STR);
+			$stmt->execute();
+			$stmt->setFetchMode(PDO::FETCH_ASSOC);
+			return $stmt->fetchAll();
+		}
+		catch(PDOException $ex) {
+			print "Chan: " . $ex->getMessage();
+			die();
+		}		
+    }
 	public function obtenerMantenimientos() {
 		$query =
 		' 

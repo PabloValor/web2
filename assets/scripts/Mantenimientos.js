@@ -7,7 +7,28 @@ var Mantenimientos = function () {
         cargarMantenimientosLista();
     };
 
+    this.cargarAlarmas = function() {
+        cargarAlarmas();
+    };
+
     /* Métodos privados */
+
+    function cargarAlarmas() {
+        if(window.location.href.toString().toLowerCase().indexOf("login") > 0) return;
+        
+        $.ajax({
+            url: 'source/ABM/mantenimientos/consultarAlarmas.php',
+            method: 'post',
+            dataType: 'json',
+            success: function(data) {
+                data = JSON.parse(data);
+
+                $(data).map(function(index, elemento){
+                    Materialize.toast("[Atención Service] dominio: " + elemento.dominio + " Comentario: " + elemento.comentario, 4000);
+                });
+            }
+        });
+    }
 
     function cargarMantenimientosLista() { 
         $.ajax({
