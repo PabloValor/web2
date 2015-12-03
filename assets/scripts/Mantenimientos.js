@@ -21,10 +21,12 @@ var Mantenimientos = function () {
             method: 'post',
             dataType: 'json',
             success: function(data) {
+                var tiempo = 3000;
+                var intervalo = 400;
                 data = JSON.parse(data);
 
                 $(data).map(function(index, elemento){
-                    Materialize.toast("[Atención Service] dominio: " + elemento.dominio + " Comentario: " + elemento.comentario, 4000);
+                    Materialize.toast("[Atención Service] dominio: " + elemento.dominio + " Comentario: " + elemento.comentario, tiempo += intervalo);
                 });
             }
         });
