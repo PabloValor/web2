@@ -101,7 +101,7 @@ var Mantenimientos = function () {
 
     function btnMantenimientoEditarLista() {
         // Se carga evento boton editar de lista
-        $('.btn-editar-lista').on('click', function(e) {
+        $('.btn-editar-mantenimiento').on('click', function(e) {
             e.preventDefault();
             var $self = $(this);
             var IdMantenimiento = $self.data('id-editar');

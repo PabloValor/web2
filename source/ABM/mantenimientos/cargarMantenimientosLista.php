@@ -28,7 +28,7 @@ $mantenimientos = $db->obtenerMantenimientos();
             </a>
             <!-- Editar -->
             <?php if($mantenimiento["REALIZADO"] == 0) { ?>
-                <a href ="#!" data-id-editar="<?php echo $mantenimiento["ID"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped" data-position="left" data-tooltip="Marcar como realizado">
+                <a href ="#!" data-id-editar="<?php echo $mantenimiento["ID"]; ?>" class="btn-editar-mantenimiento secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped" data-position="left" data-tooltip="Marcar como realizado">
                     <i class="material-icons">done</i>
                 </a>
             <?php } ?>
