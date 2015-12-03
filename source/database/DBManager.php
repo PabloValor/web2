@@ -57,6 +57,7 @@ class DBManager {
 			from empleado e 
 			join cargo c on e.ID_CARGO = c.ID
 			join rol r on e.ID_ROL = r.ID
+			where activo = 1
 		';
 		try {
 			$stmt = $this->dbo->prepare($query);
@@ -80,6 +81,7 @@ class DBManager {
 			join cargo c on e.ID_CARGO = c.ID
 			join rol r on e.ID_ROL = r.ID
 			where e.NOMBRE = :datoEmpleado or e.apellido = :datoEmpleado
+			and activo = 1
 		";
 		try {
 			$stmt = $this->dbo->prepare($query);
@@ -197,7 +199,7 @@ class DBManager {
 
 	public function bajaEmpleado($id) {
 		try {
-			$query = 'delete from empleado where ID = :id';
+			$query = 'UPDATE empleado SET activo = 0 WHERE ID = :id';
 			$stmt = $this->dbo->prepare($query);
 			$stmt->bindParam(':id', $id);
 			$stmt->execute();

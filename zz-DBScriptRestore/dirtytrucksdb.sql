@@ -133,8 +133,9 @@ CREATE TABLE IF NOT EXISTS `empleado` (
 --
 
 INSERT INTO `empleado` (`ID`, `NOMBRE`, `APELLIDO`, `DNI`, `SEXO`, `FECHA_NACIMIENTO`, `FECHA_INGRESO`, `SUELDO`, `ID_CARGO`, `USUARIO`, `PASSWORD`, `ID_ROL`, `ACTIVO`, `AVATAR`) VALUES
-(20, 'Roman', 'Aguirre', 2222, 'M', '2015-11-29', '2015-11-07', '1111.00', 1, 'administrador', '123', 2, '0', 'foto2'),
-(22, 'Carlos', 'Roa', 2233456, 'M', '2004-03-13', '2015-11-29', '22000.00', 1, 'chofer', '123', 1, '0', 'foto3'),
+(1, 'Juan', 'Perez', 36597152, 'M', '1988-01-12', '2015-11-22', '15000.00', 2, 'supervisor', '123', 3, '1', 'foto1'),
+(20, 'Roman', 'Aguirre', 2222, 'M', '2015-11-29', '2015-11-07', '1111.00', 1, 'administrador', '123', 2, '1', 'foto2'),
+(22, 'Carlos', 'Roa', 2233456, 'M', '2004-03-13', '2015-11-29', '22000.00', 1, 'chofer', '123', 1, '1', 'foto3'),
 (24, 'Jose', 'Chamot', 66567890, 'M', '1988-07-17', '2015-11-29', '13400.00', 1, 'josem', '123', 2, '1', 'foto4'),
 (25, 'Mauricio', 'Pineda', 9987654, 'M', '1976-11-03', '2015-11-29', '13000.00', 2, 'mauriciom', '1234', 1, '1', 'foto8'),
 (26, 'Matias', 'Almeyda', 28456300, 'M', '1977-11-29', '2015-11-29', '9000.00', 2, 'almeyda', '123444', 2, '1', 'foto6'),
