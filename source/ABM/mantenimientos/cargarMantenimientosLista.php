@@ -27,8 +27,8 @@ $mantenimientos = $db->obtenerMantenimientos();
                 <i class="material-icons">delete</i>
             </a>
             <!-- Editar -->
-            <a href ="#modalEditarMantenimiento" data-id="<?php echo $mantenimiento["ID"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Editar">
-                <i class="material-icons">playlist_add</i>
+            <a href ="#modalEditarMantenimiento" data-id="<?php echo $mantenimiento["ID"]; ?>" class="btn-editar-lista secondary-content light-blue lighten-1 waves-effect waves-light btn btn-empleado-editar tooltipped modal-trigger" data-position="left" data-tooltip="Marcar como realizado">
+                <i class="material-icons">done</i>
             </a>
         <?php } ?>
     </li>
