@@ -2,8 +2,6 @@
     session_start();
     include_once (__DIR__ . '\source\database\DBManager.php');
 
-    use source\database\DBManager;
-
     if (empty($_SESSION['usuario'])) {
         header("Location: login.php");
     }

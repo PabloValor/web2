@@ -1,7 +1,4 @@
 <?php
-
-namespace source\database;
-use source\Globales\ConfigGlobal;
 use \PDO;
 include_once dirname(dirname(__FILE__)) . '\ConfigGlobal.php';
 

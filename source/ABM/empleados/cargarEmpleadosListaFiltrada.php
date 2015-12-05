@@ -1,9 +1,6 @@
 <?php
 session_start();
 include '..\..\database\DBManager.php';
-
-use source\database\DBManager;
-
 $db = new DBManager();
 
 if(empty($_POST["NOMBREEMPLEADO"])) {

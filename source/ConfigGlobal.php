@@ -1,7 +1,4 @@
 <?php
-
-namespace source\Globales;
-
 class ConfigGlobal {
 
 	public function ObtenerConfig() {

@@ -1,10 +1,6 @@
 <?php
 session_start();
 include 'database\DBManager.php';
-include  'models\Empleado.php';
-
-use source\database\DBManager;
-use source\models\Empleado;
 
 $db = new DBManager();
 
