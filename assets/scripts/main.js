@@ -4,10 +4,6 @@ $(document).on('ready', function() {
     var componentesMaterialize = new ComponentesMaterialize();
     componentesMaterialize.cargar();
 
-    var empleados = new Empleados();
-    empleados.cargarLista();
-    empleados.cargarEventoBtnFiltroEmpleado();
-
     var viajes = new Viajes();
     viajes.cargarLista();
 

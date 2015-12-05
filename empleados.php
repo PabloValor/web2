@@ -92,5 +92,11 @@
         require_once('source/views/shared/_footer.php');
         require_once('source/inc/scripts.php');
     ?>
+
+    <script type="text/javascript">
+        var empleados = new Empleados();
+        empleados.cargarLista();
+        empleados.cargarEventoBtnFiltroEmpleado();
+    </script>
 </body>
 </html>
