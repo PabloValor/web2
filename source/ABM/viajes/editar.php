@@ -1,7 +1,6 @@
 <?php
-include '..\..\database\DBManager.php';
-
-use source\database\DBManager;
+session_start();
+include '../../database/DBManager.php';
 
 $db = new DBManager();
 $db->editarViaje($_POST);

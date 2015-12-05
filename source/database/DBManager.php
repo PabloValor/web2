@@ -1,6 +1,6 @@
 <?php
-use \PDO;
-include_once dirname(dirname(__FILE__)) . '\ConfigGlobal.php';
+//use \PDO;
+include_once dirname(dirname(__FILE__)) . '/ConfigGlobal.php';
 
 class DBManager {
 

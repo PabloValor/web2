@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include '..\..\database\DBManager.php';
+    include '../../database/DBManager.php';
     $db = new DBManager();
  
     $cargos = $db->obtenerCargos();

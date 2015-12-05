@@ -1,5 +1,5 @@
 <?php
-include '..\..\database\DBManager.php';
+include '../../database/DBManager.php';
 
 
 $db = new DBManager();

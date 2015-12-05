@@ -1,7 +1,7 @@
 <?php
 session_start();
-require('..\..\lib\fpdf\fpdf.php');
-include '..\..\database\DBManager.php';
+require('../../lib/fpdf/fpdf.php');
+include '../../database/DBManager.php';
 
 
 $db = new DBManager();

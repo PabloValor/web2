@@ -1,6 +1,6 @@
 <?php
     session_start();
-    include_once (__DIR__ . '\source\database\DBManager.php');
+    include_once dirname(__FILE__) . '/source/database/DBManager.php';
 
 
     if (empty($_SESSION['usuario'])) {

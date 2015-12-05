@@ -1,6 +1,6 @@
 <?php
 session_start();
-include 'database\DBManager.php';
+include_once dirname(__FILE__) . '/database/DBManager.php';
 
 $db = new DBManager();
 

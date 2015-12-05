@@ -1,8 +1,6 @@
 <?php
     session_start();
-    include_once (__DIR__ . '\source\database\DBManager.php');
-
-    use source\database\DBManager;
+    include_once dirname(__FILE__) . '/source/database/DBManager.php';
 
     if (empty($_SESSION['usuario'])) {
         header("Location: login.php");
@@ -15,7 +13,7 @@
 <?php require_once('source/inc/head.php'); ?>
 
 <body>
-    <?php require_once('/source/views/shared/_header.php'); ?>
+    <?php require_once('source/views/shared/_header.php'); ?>
     <div class="container margin-top-20">
         <h2 class="center-align">Empleados</h2>
         <!-- Contenido de pagina -->

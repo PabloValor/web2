@@ -1,9 +1,7 @@
 <?php
 	session_start();
-    include '..\..\database\DBManager.php';
-    include '..\..\lib\phpqrcode\qrlib.php';
-
-    use source\database\DBManager;
+    include '../../database/DBManager.php';
+    include '../../lib/phpqrcode/qrlib.php';
 
     $db = new DBManager();
 

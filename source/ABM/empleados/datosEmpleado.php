@@ -1,7 +1,7 @@
 <?php
 	session_start();
-    include '..\..\database\DBManager.php';
-    include '..\..\lib\phpqrcode\qrlib.php';
+    include '../../database/DBManager.php';
+    include '../../lib/phpqrcode/qrlib.php';
     $db = new DBManager();
 
     $idUsuario = $_POST["id"];

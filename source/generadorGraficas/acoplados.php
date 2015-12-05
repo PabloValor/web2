@@ -1,10 +1,8 @@
 <?php
-require_once ('..\lib\jpgraph\jpgraph.php');
-require_once ('..\lib\jpgraph\jpgraph_pie.php');
-require_once ('..\lib\jpgraph\jpgraph_pie3d.php');
-include_once ('..\database\DBManager.php');
-
-use source\database\DBManager;
+require_once ('../lib/jpgraph/jpgraph.php');
+require_once ('../lib/jpgraph/jpgraph_pie.php');
+require_once ('../lib/jpgraph/jpgraph_pie3d.php');
+include_once ('../database/DBManager.php');
 
 $db = new DBManager();
 
