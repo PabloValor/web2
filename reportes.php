@@ -9,10 +9,10 @@
 <!doctype html>
 <html lang="es">
 
-<?php require_once('/source/inc/head.php'); ?>
+<?php require_once('source/inc/head.php'); ?>
 
 <body>
-    <?php require_once('/source/views/shared/_header.php'); ?>
+    <?php require_once('source/views/shared/_header.php'); ?>
     <div class="container margin-top-20">
         <h2 class="center-align">Reportes</h2>
         <!-- Lista de Reportes -->
@@ -47,8 +47,8 @@
         <!-- Fin Lista de Reportes -->
     </div>
     <?php
-        require_once('/source/views/shared/_footer.php');
-        require_once('/source/inc/scripts.php');
+        require_once('source/views/shared/_footer.php');
+        require_once('source/inc/scripts.php');
     ?>
 </body>
 </html>

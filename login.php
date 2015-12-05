@@ -3,7 +3,7 @@
 
 <?php
     session_start();
-    require_once('/source/inc/head.php');
+    require_once('source/inc/head.php');
     unset($_SESSION['logueado']);
 ?>
 
@@ -41,6 +41,6 @@
         </form>
     </div>
 
-    <?php require_once('/source/inc/scripts.php'); ?>
+    <?php require_once('source/inc/scripts.php'); ?>
 </body>
 </html>
