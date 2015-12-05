@@ -6,6 +6,8 @@ Capturas:
 
 ![Login](screenshot/login.PNG)
 
+![Login](screenshot/mobile.PNG)
+
 ![index](screenshot/index.png)
 
 ![Vehiculos](screenshot/vehiculos.png)
