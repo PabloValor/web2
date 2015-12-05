@@ -5,8 +5,6 @@ require_once ('..\lib\jpgraph\jpgraph_pie.php');
 require_once ('..\lib\jpgraph\jpgraph_pie3d.php');
 include_once ('..\database\DBManager.php');
 
-use source\database\DBManager;
-
 $db = new DBManager();
 
 $camiones = $db->obtenerUsosdeCamionesEnAcualAnio();
