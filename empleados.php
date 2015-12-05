@@ -77,7 +77,16 @@
     <div id="modalEditarEmpleado" class="modal">
         <div class="modal-content center-align"></div>
     </div>
-    <!-- Fin Modal Editar de Empleado -->    
+    <!-- Fin Modal Editar de Empleado -->
+
+    <!-- Modal Cargando -->
+    <div id="modalCargando" class="modal">
+        <div class="modal-content center-align">
+            <h5>Procesando datos...</h5>
+        </div>
+    </div>
+    <!-- Fin Modal Cargando -->
+
     <!-- Fin Contenido de pagina -->
     <?php
         require_once('source/views/shared/_footer.php');

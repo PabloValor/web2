@@ -19,6 +19,9 @@ var Empleados = function () {
             e.preventDefault();
             var formData = $('#formularioListaFiltrada').serialize();
             $.ajax({
+                beforeSend: function() {
+                    $('#modalCargando').openModal();
+                },
                 url: 'source/ABM/empleados/cargarEmpleadosListaFiltrada.php',
                 method: 'post',
                 data: formData,
@@ -30,12 +33,16 @@ var Empleados = function () {
                 componentesMaterialize.cargar();
                 cargarEventos();
                 ponerFocoEnEmpleadoEditar();
+                $('#modalCargando').closeModal();
             });
         });        
     }
 
 	function cargarEmpleadosLista() { 
 		$.ajax({
+            beforeSend: function() {
+                $('#modalCargando').openModal();
+            },
 		    url: 'source/ABM/empleados/cargarEmpleadosLista.php',
 		    method: 'post',
 		    dataType: 'html',
@@ -46,6 +53,7 @@ var Empleados = function () {
 			componentesMaterialize.cargar();
 			cargarEventos();
 			ponerFocoEnEmpleadoEditar();
+            $('#modalCargando').closeModal();
 		});
 	}
 
