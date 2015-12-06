@@ -2,7 +2,7 @@
 session_start();
 require('../../lib/fpdf/fpdf.php');
 include '../../database/DBManager.php';
-
+if (empty($_SESSION['usuario'])) header("Location: login.php");
 
 $db = new DBManager();
 //$dato = $_POST["id"];

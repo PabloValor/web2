@@ -3,7 +3,7 @@ require_once ('..\lib\jpgraph\jpgraph.php');
 require_once ('..\lib\jpgraph\jpgraph_pie.php');
 require_once ('..\lib\jpgraph\jpgraph_pie3d.php');
 include_once ('..\database\DBManager.php');
-
+if (empty($_SESSION['usuario'])) header("Location: login.php");
 $db = new DBManager();
 
 $clientes = $db->obtenerClientesEnAcualAnio();
