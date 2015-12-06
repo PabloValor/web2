@@ -11,6 +11,7 @@
 <?php require_once('source/inc/head.php'); ?>
 
 <body>
+    <?php require_once('source/inc/ga.php'); ?>
     <?php require_once('source/views/shared/_header.php'); ?>
     <div class=" tarjetas container margin-top-20">
         <!-- Contenido de pagina -->
