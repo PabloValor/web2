@@ -1,3 +1,7 @@
+<?php
+    header('Content-type: text/html');
+    header('Access-Control-Allow-Origin: *');
+?>
 <head>
     <meta charset="UTF-8">
     <title>Dirty Trucks Inc.</title>
